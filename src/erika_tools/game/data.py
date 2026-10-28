@@ -14,6 +14,8 @@ COPYRIGHT = 0x9204  # « (C) JAST », colonne 0x2C, ligne 15 (90D3)
 HIT_ANY_KEY = 0x9CC9  # message coupé (9C7C), en rouge, colonne 5
 PAUSE_TEXT = 0x92AF  # « HIT ANY KEY » de pause/game over (9147), magenta, colonne 1
 GAME_OVER = 0x92A5  # 9139, magenta, colonne 1
+LOAD_TEXT = 0x920D  # « DATAをロードします。  PUSH RETURN KEY » (910C)
+SAVE_TEXT = 0x922C  # « DATAをセーブします。  PUSH RETURN KEY » (9177)
 ANSWER_ALT, ANSWER_ALT_ROOM16 = 0xB58A, 0xB58D  # 2e réponse de B52B : mène à la fin « salle 61 »
 
 
@@ -59,6 +61,9 @@ class GameData:
         self.hit_any_key = c_strings(self.mem, HIT_ANY_KEY, 1)[0]
         self.pause_text = c_strings(self.mem, PAUSE_TEXT, 1)[0]
         self.game_over = c_strings(self.mem, GAME_OVER, 1)[0]
+        self.load_text = c_strings(self.mem, LOAD_TEXT, 1)[0]
+        self.save_text = c_strings(self.mem, SAVE_TEXT, 1)[0]
+        self.original_save = cli.read_linear(self.linear[0], 0, 15, 1)  # piste 0, secteur 15
         self.scripts = scripts.translate(self.mem)
         self.voice_events = sound.events(self.mem)
         self._voices = {}

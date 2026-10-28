@@ -199,6 +199,19 @@ convertisseur romaji, qui met les lettres en majuscules :
 - Dans le moteur, chaque voix est normalisée à la lecture, car les niveaux enregistrés sont
   très inégaux. Les WAV exportés restent bruts.
 
+## Sauvegarde (9177, 910C ; game/save.py)
+
+- **ESC pendant une saisie** : 「DATAをセーブします。 PUSH RETURN KEY」. Entrée écrit le
+  secteur 8E00-8EFF (drapeaux + salle) en piste 0, secteur 15 de la disquette A ; toute
+  autre touche annule. En phase disquette B (salle ≥ 0x1F), le jeu demande la disquette 1,
+  puis la 2.
+- **ESC sur le titre** : 「DATAをロードします。…」. Entrée relit ce secteur, et le jeu entre
+  dans la salle sauvegardée.
+- **Dans le moteur** : un fichier au même format, `~/.local/share/erika/save.bin`
+  (`%APPDATA%\erika` sous Windows). S'il n'existe pas, le chargement lit la sauvegarde
+  présente sur la disquette d'origine (celle de l'image fournie : salle 55). Le `.d88`
+  n'est jamais modifié, et les demandes de disquette sont sautées.
+
 ## Validation complète (tools/explore.py, tools/mame/compare.py)
 
 `tools/explore.py` explore les états (salle, drapeaux) avec le moteur sans affichage. Il

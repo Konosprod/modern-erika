@@ -8,6 +8,7 @@ import random
 import unicodedata
 
 from .. import charset, gfx, sound
+from . import save
 from .data import ANSWER_ALT, ANSWER_ALT_ROOM16, GameData, Room
 from .display import BLUE, COLS, CYAN, GREEN, MAGENTA, RED, TEXT_ROW, WHITE, YELLOW, Display, decode_codes
 
@@ -146,8 +147,10 @@ class Engine:
         for _ in range(frames):
             yield FRAME
 
-    def read_command(self):
-        """Saisie au clavier avec la conversion romaji du jeu (94AF) ; retourne le buffer."""
+    def read_command(self, allow_escape: bool = False):
+        """Saisie au clavier avec la conversion romaji du jeu (94AF) ; retourne le buffer.
+
+        ESC (9554) : retourne None si allow_escape (sauvegarde), sinon le buffer tel quel."""
         d = self.display
         buf: list[int] = []
         pending: str | None = None
@@ -163,6 +166,8 @@ class Engine:
             if kind == "key" and value == "return":
                 self.audio.beep()  # 9645 -> 9641 -> 965B
                 return bytes(buf + [CR])
+            if kind == "key" and value == "escape":
+                return None if allow_escape else bytes(buf)
             if kind == "key" and value == "backspace":
                 if pending:
                     pending = None
@@ -405,17 +410,43 @@ class Engine:
         yield from self.draw_room(0)
         yield from self.print_message(self.room.entry_message)
         self.room_index = 1  # 9072 : 8E04 = 1 avant l'attente de touche
-        yield from self.wait_event()
+        if (yield from self.wait_event()) == ("key", "escape"):
+            yield from self.load_game()
         for i, line in enumerate(self.data.menu):
             d.string(0x2C, i, line, BLUE)
         d.string(0x2C, 15, self.data.copyright, CYAN)
-        yield from self.enter_room(1)
+        yield from self.enter_room(self.room_index)
 
         # Boucle principale (909E)
         while True:
             d.glyph(0, TEXT_ROW, PROMPT, False, YELLOW)
-            buf = yield from self.read_command()
-            yield from self.handle_command(buf)
+            buf = yield from self.read_command(allow_escape=True)
+            if buf is None:
+                yield from self.save_game()
+            else:
+                yield from self.handle_command(buf)
+
+    def load_game(self):
+        """ESC sur l'écran titre (910C) : Entrée charge la sauvegarde, une autre touche annule."""
+        d = self.display
+        d.clear_window()
+        d.string(1, TEXT_ROW, self.data.load_text, MAGENTA)
+        d.scroll()
+        if (yield from self.wait_event()) != ("key", "return"):
+            return
+        saved = save.read(self.data.original_save, len(self.data.rooms))
+        if saved:
+            self.flags[:], self.room_index = saved
+
+    def save_game(self):
+        """ESC pendant la saisie (9177) : Entrée sauvegarde, une autre touche annule."""
+        d = self.display
+        d.clear_window()
+        d.string(1, TEXT_ROW, self.data.save_text, MAGENTA)
+        d.scroll()
+        if (yield from self.wait_event()) == ("key", "return"):
+            save.write(self.flags, self.room_index)
+            d.scroll()
 
     def handle_command(self, buf: bytes):
         """Traite une saisie validée (90B0-90D0)."""
