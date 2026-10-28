@@ -180,6 +180,25 @@ convertisseur romaji, qui met les lettres en majuscules :
   correspond pas à ー (0xB0) dans les noms ;
 - 0x7F = effacement, CR = validation, ESC = retour (vers 9177), `*` appelle 97D7.
 
+## Son (sound.py, `uv run erika sound`)
+
+- **Voix** : il y en a 30. La table B70D donne leur emplacement sur disque (chargées en 6000)
+  et la table B617 les déclenche après certains couples (salle, message). Le jeu attend la
+  fin de la voix. Format : flux de quartets, quartet fort d'abord. Chaque bloc a une échelle
+  (quartet ≥ 8 = fin) et 32 deltas ; l'accumulateur 8 bits part de 0x80, et les pas viennent
+  des tables B803 (2^(n-1), signe sur le bit 3). Les octets sont envoyés sur le port 0x10 (port
+  imprimante), probablement pour le boîtier « JAST SOUND » : sans lui, le jeu d'origine était
+  muet, et MAME aussi. Il n'y a donc pas de comparaison possible ; les spectrogrammes
+  montrent bien de la parole.
+- **Fréquence** : environ 3 881 Hz. Elle est déduite du nombre de cycles de la boucle
+  (≈ 1 029 cycles par échantillon à 3,9936 MHz) ; c'est une estimation, en mode 4 MHz.
+- **Tir** : l'overlay 4000 (même format), joué par A2F0 pour « うつ じゆう » (8E00 bit 4 ou
+  8E02 bit 1) ou « うつ れーざ » (8E00 bit 5).
+- **Bip** : 965B. Il retentit à la validation d'une saisie, sur une touche refusée et au game
+  over (≈ 25 ms à 2,4 kHz, buzzer du PC-88 ; durée estimée).
+- Dans le moteur, chaque voix est normalisée à la lecture, car les niveaux enregistrés sont
+  très inégaux. Les WAV exportés restent bruts.
+
 ## Validation complète (tools/explore.py, tools/mame/compare.py)
 
 `tools/explore.py` explore les états (salle, drapeaux) avec le moteur sans affichage. Il
@@ -195,6 +214,5 @@ rend parfois un écran en retard (la pile montre qu'il est déjà à l'invite).
 
 ## À faire (phase 2)
 
-- Son : voix numérisées (B78B, tables B617/B70D), tir (overlay 4000), bip (965B).
 - Rôle de l'octet b3 des commandes (00/FF, jamais lu par A2BB).
 - Comparer avec MAME (`uv run erika check-bios`) : rendu du texte, mise en page de l'écran.

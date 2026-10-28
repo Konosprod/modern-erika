@@ -8,7 +8,7 @@ import zlib
 
 from PIL import Image
 
-from . import charset, d88, disasm, gfx, text
+from . import charset, d88, disasm, gfx, sound, text
 
 OUT = "extracted"
 
@@ -140,6 +140,23 @@ def cmd_gfx(args, disks):
               f"image {end} / {len(blob)} octets")
 
 
+def cmd_sound(args, disks):
+    linear = [d.linear() for d in disks]
+    mem = boot_memory(linear)
+    out = os.path.join(OUT, "sounds")
+    os.makedirs(out, exist_ok=True)
+    events = sound.events(mem)
+    for i, (drive, track, sector, count) in enumerate(sound.voice_entries(mem)):
+        samples = sound.decode(read_linear(linear[drive], track, sector, count), mem)
+        sound.write_wav(os.path.join(out, f"voice{i:02d}.wav"), samples)
+        where = ", ".join(f"salle {r} msg {m:#04x}" for (r, m), v in sorted(events.items()) if v == i)
+        print(f"voice{i:02d}: {len(samples) / sound.SAMPLE_RATE:5.2f} s  ({where})")
+    shot = sound.decode(mem[sound.SHOT : sound.SHOT + sound.SHOT_SIZE], mem)
+    sound.write_wav(os.path.join(out, "shot.wav"), shot)
+    sound.write_wav(os.path.join(out, "beep.wav"), sound.beep())
+    print(f"shot: {len(shot) / sound.SAMPLE_RATE:.2f} s ; beep ; {sound.SAMPLE_RATE} Hz, 8 bits")
+
+
 def cmd_play(args, disks):
     from .game.engine import main as play
 
@@ -218,6 +235,7 @@ def main():
     s.add_argument("--room", type=int)
     s.add_argument("--keep-y", action="store_true", help="conserve la ligne courante entre images")
 
+    sub.add_parser("sound", help="exporte les voix, le tir et le bip en WAV")
     sub.add_parser("play", help="lance le jeu (moteur natif, sans émulateur)")
 
     sub.add_parser("check-bios", help="vérifie les ROM PC-88 dans roms/ avec MAME")

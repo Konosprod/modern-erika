@@ -7,7 +7,7 @@ progressif) ou EVENT pour attendre une touche, que la boucle pygame lui renvoie.
 import random
 import unicodedata
 
-from .. import charset, gfx
+from .. import charset, gfx, sound
 from .data import ANSWER_ALT, ANSWER_ALT_ROOM16, GameData, Room
 from .display import BLUE, COLS, CYAN, GREEN, MAGENTA, RED, TEXT_ROW, WHITE, YELLOW, Display, decode_codes
 
@@ -66,9 +66,20 @@ def word_match(word: bytes | None, buf: bytes) -> bool:
             return True
 
 
+class NullAudio:
+    """Audio muet (outils, tests) : aucune attente."""
+
+    def play(self, samples) -> float:
+        return 0.0
+
+    def beep(self):
+        pass
+
+
 class Engine:
-    def __init__(self, data: GameData):
+    def __init__(self, data: GameData, audio=None):
         self.data = data
+        self.audio = audio or NullAudio()
         self.display = Display(data.mem, data.patterns)
         self.room_index = 0  # 8E04
         self.flags = bytearray(4)  # 8E00-8E03
@@ -122,6 +133,18 @@ class Engine:
                 wrapped = not wrapped
                 col = 0
         self.display.scroll()
+        yield from self.voice_event(index)
+
+    def voice_event(self, index: int):
+        """B5CB : certaines paires (salle, message) déclenchent une voix ; le jeu attend la fin."""
+        number = self.data.voice_events.get((self.room_index, index)) if index else None
+        if number is not None:
+            yield from self.play(self.data.voice(number))
+
+    def play(self, samples):
+        frames = int(self.audio.play(samples) * 60)
+        for _ in range(frames):
+            yield FRAME
 
     def read_command(self):
         """Saisie au clavier avec la conversion romaji du jeu (94AF) ; retourne le buffer."""
@@ -138,6 +161,7 @@ class Engine:
         while True:
             kind, value = yield from self.wait_event()
             if kind == "key" and value == "return":
+                self.audio.beep()  # 9645 -> 9641 -> 965B
                 return bytes(buf + [CR])
             if kind == "key" and value == "backspace":
                 if pending:
@@ -179,6 +203,7 @@ class Engine:
                         put(code)
                 elif "A" <= c <= "Z":
                     if pending or c in REJECTED:
+                        self.audio.beep()  # 956C
                         continue
                     pending = c
                     put(ord(c))
@@ -190,6 +215,7 @@ class Engine:
                 else:
                     continue
                 if len(buf) >= INPUT_MAX:
+                    self.audio.beep()  # 9641
                     return bytes(buf)
 
     # --- logique ---------------------------------------------------------------
@@ -283,6 +309,7 @@ class Engine:
         elif name == "dispatch":
             yield from self.dispatch(a)
         elif name == "game_over":
+            self.audio.beep()  # B522
             yield from self.print_message(self.message)
             yield from self.pause()
             yield from self.print_message(7)
@@ -393,6 +420,12 @@ class Engine:
     def handle_command(self, buf: bytes):
         """Traite une saisie validée (90B0-90D0)."""
         cmd = self.find_command(buf)
+        if cmd is not None and cmd.verb == 0x0C and cmd.noun in (0x25, 0x26):
+            # A2F0 : « うつ じゆう/れーざ » avec l'arme en main -> bruit du tir (B786)
+            f = self.flags
+            armed = (f[0] & 0x10 or f[2] & 0x02) if cmd.noun == 0x25 else f[0] & 0x20
+            if armed:
+                yield from self.play(self.data.shot())
         self.display.scroll()
         if cmd is None:
             yield from self.print_message(0)
@@ -418,6 +451,39 @@ def contains(buf: bytes, answer: bytes) -> bool:
     return buf[i + 1 : i + 3] == answer[1:3]
 
 
+class PygameAudio:
+    """Joue les échantillons 8 bits du jeu (≈ 3,9 kHz) par maintien d'échantillon, comme un DAC."""
+
+    RATE = 44100
+
+    def __init__(self, pygame):
+        import numpy as np
+
+        self.np = np
+        self.pygame = pygame
+        pygame.mixer.init(frequency=self.RATE, size=-16, channels=1)
+        self.channel = pygame.mixer.Channel(0)
+        self._beep = self._sound(sound.beep(), normalize=False)
+
+    def _sound(self, samples, normalize=True):
+        np = self.np
+        x = samples.astype(np.float32) - 128
+        if normalize and np.abs(x).max() > 0:
+            x *= 0.6 * 128 / np.abs(x).max()  # les voix sont enregistrées à des niveaux très inégaux
+        idx = (np.arange(int(len(x) * self.RATE / sound.SAMPLE_RATE)) * sound.SAMPLE_RATE // self.RATE)
+        pcm = (x[idx] * 256).clip(-32768, 32767).astype(np.int16)
+        return self.pygame.mixer.Sound(buffer=pcm.tobytes())
+
+    def play(self, samples) -> float:
+        if len(samples) == 0:
+            return 0.0
+        self.channel.play(self._sound(samples))
+        return len(samples) / sound.SAMPLE_RATE
+
+    def beep(self):
+        self._beep.play()
+
+
 def main(image_path: str):
     import pygame
 
@@ -428,7 +494,12 @@ def main(image_path: str):
     clock = pygame.time.Clock()
     pygame.key.start_text_input()
 
-    engine = Engine(GameData(image_path))
+    try:
+        audio = PygameAudio(pygame)
+    except pygame.error as e:  # pas de périphérique audio : on joue sans le son
+        print(f"son désactivé : {e}")
+        audio = None
+    engine = Engine(GameData(image_path), audio)
     flow = engine.run()
     request = next(flow)
     events: list = []

@@ -5,7 +5,7 @@ Les textes restent en codes du jeu (octets) : ils sont affichés avec les police
 
 from dataclasses import dataclass
 
-from .. import cli, d88, gfx, scripts, text
+from .. import cli, d88, gfx, scripts, sound, text
 
 MAIN_MENU = 0x9B65  # 15 lignes, colonne 0x2C, couleur 1 (9B08)
 MENU_LINES = 15
@@ -60,6 +60,8 @@ class GameData:
         self.pause_text = c_strings(self.mem, PAUSE_TEXT, 1)[0]
         self.game_over = c_strings(self.mem, GAME_OVER, 1)[0]
         self.scripts = scripts.translate(self.mem)
+        self.voice_events = sound.events(self.mem)
+        self._voices = {}
         self.rooms = []
         for i in range(cli.ROOM_COUNT):
             e = self.mem[cli.ROOM_TABLE + 6 * i : cli.ROOM_TABLE + 6 * i + 6]
@@ -78,6 +80,19 @@ class GameData:
         count = room.blob[pos] + 1
         pos += 1
         room.commands = [Command(*room.blob[pos + 6 * i : pos + 6 * i + 6]) for i in range(count)]
+
+    def voice(self, number: int):
+        """Échantillons de la voix n° number (table B70D), décodés à la demande."""
+        if number not in self._voices:
+            drive, track, sector, count = sound.voice_entries(self.mem)[number]
+            self._voices[number] = sound.decode(cli.read_linear(self.linear[drive], track, sector, count),
+                                                self.mem)
+        return self._voices[number]
+
+    def shot(self):
+        if "shot" not in self._voices:
+            self._voices["shot"] = sound.decode(self.mem[sound.SHOT : sound.SHOT + sound.SHOT_SIZE], self.mem)
+        return self._voices["shot"]
 
     def answer(self, addr: int) -> bytes:
         return self.mem[addr : addr + 3]
