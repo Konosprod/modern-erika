@@ -10,3 +10,4 @@ wheels/
 .venv
 extracted/
 roms/
+translations/erika.pot

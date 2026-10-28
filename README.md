@@ -42,7 +42,7 @@ n'importe où dans la phrase.
 | Retour arrière | effacer |
 | ESC (pendant une saisie) | sauvegarder (Entrée confirme, une autre touche annule) |
 | ESC (sur l'écran titre) | charger la sauvegarde |
-| F2 | basculer la saisie romaji : moderne ou d'origine |
+| F2 | changer de saisie : traduite (si une traduction est chargée), romaji moderne, romaji d'origine |
 | F11 | plein écran |
 | Une touche pendant un dessin | terminer le dessin tout de suite |
 
@@ -67,6 +67,19 @@ Le panneau de droite (前に行く, 見る, 調べる…) est cliquable.
 - Un verbe s'ajoute à la saisie ; il reste à taper le nom.
 - Un clic fait aussi avancer les « HIT ANY KEY ».
 
+### Jouer dans une autre langue
+
+```sh
+uv run erika play --langue fr          # charge translations/fr.po
+uv run erika play --traduction autre.po
+```
+
+Les messages, le menu et l'interface s'affichent dans la langue de la traduction, avec une
+police pixel 6×10. Un texte pas encore traduit reste en japonais. La saisie passe en mode
+**traduit** : tape tes commandes librement (« examiner l'ordinateur », « sortir du
+cockpit »). Elles sont converties en mots japonais d'origine, puis analysées comme dans
+le jeu. **F2** passe ensuite en romaji moderne, puis en romaji d'origine.
+
 ### Sauvegarde
 
 Il y a un seul emplacement, comme dans l'original. Le fichier est
@@ -80,6 +93,39 @@ secteur de sauvegarde d'origine. Tant qu'il n'existe pas, le chargement lit la s
 - Après un GAME OVER ou une fin, une touche ramène à l'écran titre (l'original se figeait).
 - Les images se dessinent plus vite que sur un PC-88 à 4 MHz (environ 1 s au lieu de 4 à 5 s).
 - Le volume des voix est normalisé, car les enregistrements ont des niveaux très inégaux.
+
+## Traduire le jeu
+
+Les traductions sont des fichiers gettext `.po`, éditables avec Poedit, Lokalize, Weblate…
+
+1. `uv run erika i18n` génère `translations/erika.pot` depuis ton image disque : environ
+   1 250 entrées, avec le japonais d'origine.
+2. Crée `translations/<langue>.po` à partir de ce modèle (Poedit : « Nouvelle traduction à
+   partir d'un fichier POT »), puis traduis.
+3. Relance `uv run erika i18n` quand le modèle change : il met à jour tous les `.po`
+   présents dans `translations/`.
+
+Le contexte (`msgctxt`) de chaque entrée indique de quoi il s'agit :
+
+| Contexte | Contenu | Remarque |
+|---|---|---|
+| `systeme 0xNN` | messages communs à tout le jeu | |
+| `salle NN 0xMM` | textes de la salle NN | une ligne fait 106 caractères ; un « appuyez sur une touche » tous les deux retours à la ligne |
+| `menu NN` | lignes du menu de droite | 14 caractères au plus |
+| `interface …` | APPUYEZ SUR UNE TOUCHE, PARTIE TERMINÉE, sauvegarde, chargement | une ligne |
+| `verbe 0xNN`, `nom 0xNN` | mots que le joueur peut taper | plusieurs synonymes séparés par `|` (`examiner|fouiller`) |
+| `reponse 0xNNNN` | réponses aux questions du jeu (nom du héros…) | formes acceptées séparées par `|` ; les nombres comme `615` passent tels quels |
+
+Pour la saisie traduite, la casse et les accents sont ignorés, un « s » ou un « x » final
+est toléré, et un synonyme peut contenir plusieurs mots (`à gauche`). Les mots du
+vocabulaire japonais sont souvent tronqués à trois caractères (こくぴ pour « cockpit »,
+こんぴ pour « ordinateur ») : le contexte des messages aide à les identifier.
+
+`translations/fr.po` est un exemple partiel : la salle 1, le menu, l'interface et le
+vocabulaire de départ.
+
+> Un `.po` contient le texte japonais d'origine (en `msgid`), qui appartient à JAST :
+> réfléchis avant de le publier dans un dépôt public.
 
 ## Son
 
@@ -132,8 +178,10 @@ src/erika_tools/
   sound.py      décodeur des voix numérisées
   disasm.py     désassembleur Z80 (outil d'analyse)
   cli.py        commande `erika`
-  game/         moteur : data.py, display.py, engine.py, romaji.py, save.py
+  game/         moteur : data.py, display.py, engine.py, romaji.py, save.py, i18n.py,
+                fonts/6x10.bdf (police des traductions, domaine public)
 tools/          exploration automatique, comparaison avec MAME
+translations/   traductions .po (le modèle erika.pot est généré, non suivi par git)
 notes/format.md formats et fonctionnement du jeu, adresse par adresse
 ```
 

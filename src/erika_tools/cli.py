@@ -157,10 +157,42 @@ def cmd_sound(args, disks):
     print(f"shot: {len(shot) / sound.SAMPLE_RATE:.2f} s ; beep ; {sound.SAMPLE_RATE} Hz, 8 bits")
 
 
+TRANSLATIONS = "translations"
+
+
+def cmd_i18n(args, disks):
+    import glob
+
+    import polib
+
+    from .game import i18n
+    from .game.data import GameData
+
+    data = GameData(args.image)
+    rooms = {}
+    for i, room in enumerate(data.rooms):
+        _, end = gfx.decode_room(room.blob, data.patterns)
+        data.load_room_data(room, end)
+        rooms[i] = room.texts
+    pot = i18n.build_template(data, rooms)
+    os.makedirs(TRANSLATIONS, exist_ok=True)
+    pot_path = os.path.join(TRANSLATIONS, "erika.pot")
+    pot.save(pot_path)
+    print(f"{pot_path} : {len(pot)} entrées")
+    for po_path in sorted(glob.glob(os.path.join(TRANSLATIONS, "*.po"))):
+        po = polib.pofile(po_path)
+        po.merge(pot)
+        po.save(po_path)
+        print(f"{po_path} : mis à jour, {po.percent_translated()} % traduit")
+
+
 def cmd_play(args, disks):
     from .game.engine import main as play
 
-    play(args.image, modern_input=args.saisie == "moderne")
+    translation = args.traduction or (os.path.join(TRANSLATIONS, f"{args.langue}.po") if args.langue else None)
+    if translation and not os.path.exists(translation):
+        raise SystemExit(f"traduction introuvable : {translation}")
+    play(args.image, input_mode=args.saisie, translation=translation)
 
 
 MAME_MACHINE = "pc8801mk2sr"
@@ -237,8 +269,13 @@ def main():
 
     sub.add_parser("sound", help="exporte les voix, le tir et le bip en WAV")
     s = sub.add_parser("play", help="lance le jeu (moteur natif, sans émulateur)")
-    s.add_argument("--saisie", choices=["moderne", "origine"], default="moderne",
-                   help="conversion romaji (F2 pour changer en jeu)")
+    s.add_argument("--saisie", choices=["traduite", "moderne", "origine"],
+                   help="saisie : dans la langue de la traduction, romaji moderne ou d'origine "
+                        "(F2 pour changer en jeu)")
+    s.add_argument("--langue", help="code de langue : charge translations/<langue>.po")
+    s.add_argument("--traduction", help="chemin d'un fichier .po")
+
+    sub.add_parser("i18n", help="génère translations/erika.pot et met à jour les .po existants")
 
     sub.add_parser("check-bios", help="vérifie les ROM PC-88 dans roms/ avec MAME")
 

@@ -30,13 +30,23 @@ class Display:
         key = (code, kanji)
         if key not in self._glyphs:
             self._glyphs[key] = charset.glyph(self.mem, code, kanji)
-        x0, y0 = col * 12, row * 10
-        for dy, bits in enumerate(self._glyphs[key]):
+        self._cell(col * 12, row * 10, self._glyphs[key], 12, color)
+
+    def latin(self, x: int, row: int, text: str, color: int, font):
+        """Texte traduit, police 6×10, à partir du pixel x."""
+        for ch in text:
+            if x + 6 > 640:
+                break
+            self._cell(x, row * 10, font.glyph(ch), 6, color)
+            x += 6
+
+    def _cell(self, x0: int, y0: int, rows: list[int], width: int, color: int):
+        for dy, bits in enumerate(rows):
             base = (y0 + dy) * gfx.WIDTH_BYTES
-            for dx in range(12):
+            for dx in range(width):
                 x = x0 + dx
                 off, mask = base + (x >> 3), 0x80 >> (x & 7)
-                on = bits & (0x800 >> dx)
+                on = bits & (1 << (width - 1 - dx))
                 for p, plane in enumerate(self.planes):
                     if on and color & (1 << p):
                         plane[off] |= mask

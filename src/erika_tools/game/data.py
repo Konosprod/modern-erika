@@ -102,10 +102,13 @@ class GameData:
     def answer(self, addr: int) -> bytes:
         return self.mem[addr : addr + 3]
 
+    def message_index(self, room: Room, index: int) -> int:
+        """Numéro effectif (92E4) : un numéro hors des textes de la salle devient 0."""
+        return 0 if index >= text.ROOM_MESSAGE_BASE + len(room.texts) else index
+
     def message(self, room: Room, index: int) -> bytes:
         """Résolution du numéro de message (92E4)."""
-        if index >= text.ROOM_MESSAGE_BASE + len(room.texts):
-            index = 0
+        index = self.message_index(room, index)
         if index >= text.ROOM_MESSAGE_BASE:
             return room.texts[index - text.ROOM_MESSAGE_BASE]
         return self.system[index]

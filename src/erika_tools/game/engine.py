@@ -8,7 +8,7 @@ import random
 import unicodedata
 
 from .. import charset, gfx, sound
-from . import romaji, save
+from . import i18n, romaji, save
 from .data import ANSWER_ALT, ANSWER_ALT_ROOM16, GameData, Room
 from .display import BLUE, COLS, CYAN, GREEN, MAGENTA, RED, TEXT_ROW, WHITE, YELLOW, Display, decode_codes
 
@@ -77,6 +77,9 @@ def word_match(word: bytes | None, buf: bytes) -> bool:
             return True
 
 
+LATIN_COLS = 640 // i18n.LATIN_WIDTH  # 106 caractères par ligne de texte traduit
+
+
 class NullAudio:
     """Audio muet (outils, tests) : aucune attente."""
 
@@ -97,7 +100,9 @@ class Engine:
         self.room: Room = data.rooms[0]
         self.message = 0  # 9314
         self.last_command = None  # A39E
-        self.modern_input = False
+        self.input_mode = "origine"  # « origine », « moderne » ou « traduite »
+        self.tr: i18n.Translation | None = None
+        self.font: i18n.LatinFont | None = None
         self.menu_shown = False
         self.hover = None
         self.skip_drawing = False
@@ -131,21 +136,51 @@ class Engine:
         if self.room.texts is None:
             self.data.load_room_data(self.room, end)
 
+    def set_translation(self, tr):
+        self.tr = tr
+        self.font = i18n.LatinFont() if tr else None
+
+    def ui_text(self, col: int, name: str, color: int):
+        """Texte d'interface (i18n.UI_TEXTS) sur la ligne de texte, traduit si possible."""
+        translated = self.tr.get(f"interface {name}") if self.tr else None
+        if translated:
+            self.display.latin(col * 12, TEXT_ROW, translated, color, self.font)
+        else:
+            self.display.string(col, TEXT_ROW, getattr(self.data, i18n.UI_TEXTS[name]), color)
+
     def print_message(self, index: int):
         """Affiche un message dans la fenêtre de texte (92E4, 9C11)."""
-        raw = self.data.message(self.room, index)
-        col, wrapped = 0, False
-        for code, kanji in decode_codes(raw):
-            self.display.glyph(col, TEXT_ROW, code, kanji, WHITE)
-            col += 1
-            if col == COLS:
-                self.display.scroll()
-                if wrapped:
-                    self.display.string(5, TEXT_ROW, self.data.hit_any_key, RED)
-                    yield from self.wait_event()
-                    self.display.clear_line()
-                wrapped = not wrapped
-                col = 0
+        key = i18n.message_key(self.room_index, self.data.message_index(self.room, index))
+        translated = self.tr.get(key) if self.tr else None
+        if translated:
+            lines = i18n.wrap(translated, LATIN_COLS)
+        else:
+            lines = None
+        wrapped = False
+
+        def line_full():
+            # 9C4B-9C6D : retour à la ligne ; un « HIT ANY KEY » tous les deux retours
+            nonlocal wrapped
+            self.display.scroll()
+            if wrapped:
+                self.ui_text(5, "hit_any_key", RED)
+                yield from self.wait_event()
+                self.display.clear_line()
+            wrapped = not wrapped
+
+        if lines is not None:
+            for i, line in enumerate(lines):
+                self.display.latin(0, TEXT_ROW, line, WHITE, self.font)
+                if i < len(lines) - 1:
+                    yield from line_full()
+        else:
+            col = 0
+            for code, kanji in decode_codes(self.data.message(self.room, index)):
+                self.display.glyph(col, TEXT_ROW, code, kanji, WHITE)
+                col += 1
+                if col == COLS:
+                    yield from line_full()
+                    col = 0
         self.display.scroll()
         yield from self.voice_event(index)
 
@@ -163,10 +198,12 @@ class Engine:
     def read_command(self, allow_escape: bool = False):
         """Saisie au clavier (94AF) ; retourne le buffer.
 
-        Deux conversions romaji : celle du jeu (self.modern_input = False) ou une saisie
+        Deux conversions romaji : celle du jeu (input_mode « origine ») ou une saisie
         moderne (romaji.py). Les lettres en attente s'affichent après le texte, comme la
         consonne du jeu. Un clic sur le menu insère un mot (MENU_ACTIONS).
         ESC (9554) : retourne None si allow_escape (sauvegarde), sinon le buffer tel quel."""
+        if self.input_mode == "traduite" and self.tr:
+            return (yield from self.read_translated(allow_escape))
         d = self.display
         buf: list[int] = []
         pending = ""  # lettres latines pas encore converties
@@ -186,7 +223,7 @@ class Engine:
             pending = new
 
         def finish():
-            if self.modern_input:
+            if self.input_mode == "moderne":
                 kana = romaji.finish(pending)
                 set_pending("")
                 for code in romaji.to_codes(kana, KANA_CODES):
@@ -202,7 +239,7 @@ class Engine:
                 return None if allow_escape else bytes(buf)
             if kind == "key" and value == "backspace":
                 if pending:
-                    set_pending(pending[:-1] if self.modern_input else "")
+                    set_pending(pending[:-1] if self.input_mode == "moderne" else "")
                 elif buf:
                     buf.pop()
                     d.glyph(col, TEXT_ROW, 0x20, False, WHITE)
@@ -226,7 +263,7 @@ class Engine:
             if kind != "text":
                 continue
             for ch in value:
-                if self.modern_input:
+                if self.input_mode == "moderne":
                     self._modern_char(ch, pending, put, set_pending)
                 else:
                     self._original_char(ch, pending, put, set_pending)
@@ -281,15 +318,78 @@ class Engine:
             set_pending("")
             put(ord(ch))
 
+    def read_translated(self, allow_escape: bool):
+        """Saisie libre dans la langue de la traduction, convertie en mots japonais."""
+        d = self.display
+        typed = ""
+        width = (640 - 12) // i18n.LATIN_WIDTH
+
+        def show(old: str):
+            d.latin(12, TEXT_ROW, typed.ljust(len(old)), GREEN, self.font)
+
+        def converted() -> bytes:
+            return self.tr.to_game_input(typed, kana_to_codes)
+
+        while True:
+            kind, value = yield from self.wait_event()
+            old = typed
+            if kind == "key" and value == "return":
+                self.audio.beep()
+                return converted() + bytes([CR])
+            if kind == "key" and value == "escape":
+                return None if allow_escape else converted()
+            if kind == "key" and value == "backspace":
+                typed = typed[:-1]
+            elif kind == "click":
+                text, submit = MENU_ACTIONS[value]
+                words = [self.menu_word(w) for w in text.split(" ")]
+                typed = (typed.rstrip() + " " if typed.strip() else "") + " ".join(words) + " "
+                if submit:
+                    show(old)
+                    self.audio.beep()
+                    return converted() + bytes([CR])
+            elif kind == "text":
+                typed = (typed + value)[:width]
+            show(old)
+
+    def menu_word(self, kana: str) -> str:
+        """Mot traduit (premier synonyme) correspondant à un mot japonais du menu."""
+        codes = bytes(kana_to_codes(kana))
+        for kind, table in (("verbe", self.data.verbs), ("nom", self.data.nouns)):
+            for i, entry in enumerate(table):
+                word = bytes(entry).rstrip(b"\0")
+                if word and codes.startswith(word[:3]):
+                    translated = self.tr.first_word(f"{kind} 0x{i:02X}")
+                    if translated:
+                        return translated
+        return kana  # pas de traduction : le mot japonais est accepté tel quel
+
+    def draw_menu_line(self, row: int, color: int):
+        """Ligne du menu de droite ; traduite, elle garde le cadre d'origine."""
+        line = self.data.menu[row]
+        translated = self.tr.get(f"menu {row:02d}") if self.tr and 1 <= row <= 13 else None
+        if not translated:
+            self.display.string(MENU_COL, row, line, color if 1 <= row <= 13 else BLUE)
+            return
+        cells = sum(1 for _ in decode_codes(line))
+        self.display.glyph(MENU_COL, row, line[0], False, BLUE)
+        self.display.glyph(MENU_COL + cells - 1, row, line[-1], False, BLUE)
+        inner = (cells - 2) * 12
+        self.display.latin((MENU_COL + 1) * 12, row, " " * (inner // i18n.LATIN_WIDTH), color, self.font)
+        self.display.latin((MENU_COL + 1) * 12 + 3, row, translated[: (inner - 3) // i18n.LATIN_WIDTH],
+                           color, self.font)
+
     def set_hover(self, row: int | None):
         """Met en valeur la ligne du menu survolée par la souris."""
         if not self.menu_shown or row == self.hover:
             return
         for r, color in ((self.hover, BLUE), (row, WHITE)):
             if r is not None:
-                line = self.data.menu[r]
-                # le texte change de couleur, le cadre (premier et dernier caractère) reste bleu
-                self.display.string(MENU_COL + 1, r, line[1:-1], color)
+                if self.tr and self.tr.get(f"menu {r:02d}"):
+                    self.draw_menu_line(r, color)
+                else:
+                    # le texte change de couleur, le cadre (premier et dernier caractère) reste bleu
+                    self.display.string(MENU_COL + 1, r, self.data.menu[r][1:-1], color)
         self.hover = row
 
     # --- logique ---------------------------------------------------------------
@@ -414,12 +514,12 @@ class Engine:
     def pause(self):
         """HIT ANY KEY en magenta, attente d'une touche (9147)."""
         self.display.clear_line()
-        self.display.string(1, TEXT_ROW, self.data.pause_text, MAGENTA)
+        self.ui_text(1, "pause", MAGENTA)
         yield from self.wait_event()
 
     def halt(self):
         """GAME OVER (9139). L'original se bloque ; ici une touche ramène au titre."""
-        self.display.string(1, TEXT_ROW, self.data.game_over, MAGENTA)
+        self.ui_text(1, "game_over", MAGENTA)
         yield from self.wait_event()
         raise Restart
 
@@ -482,8 +582,8 @@ class Engine:
         self.room_index = 1  # 9072 : 8E04 = 1 avant l'attente de touche
         if (yield from self.wait_event()) == ("key", "escape"):
             yield from self.load_game()
-        for i, line in enumerate(self.data.menu):
-            d.string(MENU_COL, i, line, BLUE)
+        for i in range(len(self.data.menu)):
+            self.draw_menu_line(i, BLUE)
         d.string(MENU_COL, 15, self.data.copyright, CYAN)
         self.menu_shown = True
         yield from self.enter_room(self.room_index)
@@ -501,7 +601,7 @@ class Engine:
         """ESC sur l'écran titre (910C) : Entrée charge la sauvegarde, une autre touche annule."""
         d = self.display
         d.clear_window()
-        d.string(1, TEXT_ROW, self.data.load_text, MAGENTA)
+        self.ui_text(1, "chargement", MAGENTA)
         d.scroll()
         if (yield from self.wait_event()) != ("key", "return"):
             return
@@ -513,7 +613,7 @@ class Engine:
         """ESC pendant la saisie (9177) : Entrée sauvegarde, une autre touche annule."""
         d = self.display
         d.clear_window()
-        d.string(1, TEXT_ROW, self.data.save_text, MAGENTA)
+        self.ui_text(1, "sauvegarde", MAGENTA)
         d.scroll()
         if (yield from self.wait_event()) == ("key", "return"):
             save.write(self.flags, self.room_index)
@@ -593,7 +693,7 @@ def menu_row(pos) -> int | None:
     return row if MENU_COL * 12 <= x < (MENU_COL + 10) * 12 and row in MENU_ACTIONS else None
 
 
-def main(image_path: str, modern_input: bool = True):
+def main(image_path: str, input_mode: str | None = None, translation: str | None = None):
     import pygame
 
     pygame.init()
@@ -603,8 +703,7 @@ def main(image_path: str, modern_input: bool = True):
     pygame.key.start_text_input()
 
     def caption():
-        mode = "moderne" if engine.modern_input else "d'origine"
-        pygame.display.set_caption(f"Erika — saisie {mode} (F2 pour changer)")
+        pygame.display.set_caption(f"Erika — saisie {engine.input_mode} (F2 pour changer)")
 
     try:
         audio = PygameAudio(pygame)
@@ -612,7 +711,10 @@ def main(image_path: str, modern_input: bool = True):
         print(f"son désactivé : {e}")
         audio = None
     engine = Engine(GameData(image_path), audio)
-    engine.modern_input = modern_input
+    if translation:
+        engine.set_translation(i18n.Translation(translation, engine.data))
+    modes = ["traduite", "moderne", "origine"] if translation else ["moderne", "origine"]
+    engine.input_mode = input_mode if input_mode in modes else modes[0]
     caption()
     flow = engine.run()
     request = next(flow)
@@ -628,7 +730,7 @@ def main(image_path: str, modern_input: bool = True):
             if e.type == pygame.KEYDOWN and e.key == pygame.K_F11:
                 pygame.display.toggle_fullscreen()
             elif e.type == pygame.KEYDOWN and e.key == pygame.K_F2:
-                engine.modern_input = not engine.modern_input
+                engine.input_mode = modes[(modes.index(engine.input_mode) + 1) % len(modes)]
                 caption()
             elif e.type == pygame.MOUSEMOTION:
                 engine.set_hover(menu_row(e.pos))

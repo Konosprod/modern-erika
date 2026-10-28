@@ -1,0 +1,6609 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Erika (JAST, PC-8801)\n"
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "systeme 0x00"
+msgid "ここでは、できません。"
+msgstr "Impossible ici."
+
+msgctxt "systeme 0x01"
+msgid "OK!"
+msgstr "OK !"
+
+msgctxt "systeme 0x02"
+msgid "ごらんのとおりです。"
+msgstr "Rien de plus que ce que vous voyez."
+
+msgctxt "systeme 0x03"
+msgid "別にかわったところは、ありません。"
+msgstr "Rien de particulier."
+
+msgctxt "systeme 0x04"
+msgid "その方向には、行けません。"
+msgstr "Impossible d'aller dans cette direction."
+
+msgctxt "systeme 0x05"
+msgid "あなたは、それを持っていません。"
+msgstr "Vous n'avez pas cela."
+
+msgctxt "systeme 0x06"
+msgid "OK! しかし何も起りません。"
+msgstr "OK ! Mais il ne se passe rien."
+
+msgctxt "systeme 0x07"
+msgid "従って、これいじょうゲームをすることはできません。"
+msgstr "Vous ne pouvez donc plus continuer la partie."
+
+msgctxt "systeme 0x08"
+msgid "そんなことを、しているばあいでは、ありません。"
+msgstr "Ce n'est vraiment pas le moment de faire ça."
+
+msgctxt "systeme 0x09"
+msgid "これといってかわったところは、ありませんが..."
+msgstr "Rien de spécial, à première vue..."
+
+msgctxt "systeme 0x0A"
+msgid "うすい金ぞくせいの、カードです。にんしき表のようですが..."
+msgstr "Une fine carte métallique. On dirait une plaque d'identité..."
+
+msgctxt "systeme 0x0B"
+msgid "小口けいの、けんじゅうです。弾も、もちろん入っています。"
+msgstr "Un pistolet de petit calibre. Chargé, bien sûr."
+
+msgctxt "systeme 0x0C"
+msgid "高出りょくの、レーザーライフルのようです。"
+msgstr "On dirait un fusil laser de forte puissance."
+
+msgctxt "systeme 0x0D"
+msgid "このパラジュウムは、いっていの、じょうけん下におくと、大りょうの、エネルギーを発します。"
+msgstr ""
+
+msgctxt "systeme 0x0E"
+msgid "ちょう小型の、正/反物しつ爆弾です。これひとつで、巨大要さいでも、破壊できます。"
+msgstr ""
+
+msgctxt "systeme 0x0F"
+msgid "うすいプラスチックせいの、カードです。何に使うかは、わかりません。"
+msgstr ""
+
+#. Salle 0
+msgctxt "salle 00 0x10"
+msgid "1999ねん、あなたの使めいは、エリカをみ方につけ、この地きゅうを、すくうことである。こううんをいのる‼"
+msgstr ""
+"1999 : votre mission est de rallier Erika à votre cause et de sauver la "
+"Terre. Bonne chance !!"
+
+#. Salle 1
+msgctxt "salle 01 0x10"
+msgid "気がつくと、戦闘機のコクピットの中にいた。ここはどこなのか、自分は誰なのか、思いだせない。"
+msgstr ""
+"Vous reprenez conscience dans le cockpit d'un avion de chasse. Où êtes-vous "
+"? Qui êtes-vous ? Impossible de vous en souvenir."
+
+#. Salle 1
+msgctxt "salle 01 0x11"
+msgid "あなたが乗っていた、戦闘機のコクピットです。"
+msgstr "Le cockpit du chasseur que vous pilotiez."
+
+#. Salle 1
+msgctxt "salle 01 0x12"
+msgid "ぶきみに静まりかえっています。"
+msgstr "Un silence inquiétant règne."
+
+#. Salle 1
+msgctxt "salle 01 0x13"
+msgid "草が生えています。"
+msgstr "De l'herbe pousse ici."
+
+#. Salle 1
+msgctxt "salle 01 0x14"
+msgid "何も、表示されていません。"
+msgstr "Rien ne s'affiche."
+
+#. Salle 1
+msgctxt "salle 01 0x15"
+msgid "コンピューターは、生きているようです。"
+msgstr "L'ordinateur semble encore fonctionner."
+
+#. Salle 1
+msgctxt "salle 01 0x16"
+msgid "あっちこっちが、壊れているようです。"
+msgstr "Tout est cassé, de partout."
+
+#. Salle 1
+msgctxt "salle 01 0x17"
+msgid "湖があります。"
+msgstr "Il y a un lac."
+
+#. Salle 1
+msgctxt "salle 01 0x18"
+msgid "陸地があります。おりてみますか?"
+msgstr "Il y a la terre ferme. Descendre ?"
+
+#. Salle 1
+msgctxt "salle 01 0x19"
+msgid "青空が広がっています。"
+msgstr "Un ciel bleu s'étend à perte de vue."
+
+#. Salle 1
+msgctxt "salle 01 0x1A"
+msgid "戦闘機の、床があります。"
+msgstr "Le plancher du chasseur."
+
+#. Salle 1
+msgctxt "salle 01 0x1B"
+msgid "機械が故障しているようです。カードが出てきません。"
+msgstr "La machine semble en panne. La carte ne ressort pas."
+
+#. Salle 1
+msgctxt "salle 01 0x1C"
+msgid "外は、とても静かです。人の気配はありません。"
+msgstr "Dehors, tout est très calme. Aucune présence humaine."
+
+#. Salle 1
+msgctxt "salle 01 0x1D"
+msgid "湖があって、そちらには行けません。"
+msgstr "Il y a un lac, impossible d'aller par là."
+
+#. Salle 1
+msgctxt "salle 01 0x1E"
+msgid "ディスプレイに、何か表示されました。<カードを入れて下さい。>"
+msgstr "Quelque chose s'affiche à l'écran : <Insérez votre carte.>"
+
+#. Salle 1
+msgctxt "salle 01 0x1F"
+msgid "ディスプレイに、何か表示されました。<IDナンバー 615 オルキ> あなたの、名前のようです。"
+msgstr ""
+"Quelque chose s'affiche à l'écran : <ID 615 ORUKI>. Ce doit être votre nom."
+
+#. Salle 1
+msgctxt "salle 01 0x20"
+msgid "OK!でも、手が痛かっただけで、何も起こりません。"
+msgstr "OK ! Mais vous vous êtes fait mal à la main, et rien ne se passe."
+
+#. Salle 1
+msgctxt "salle 01 0x21"
+msgid "故障しています。動きません。"
+msgstr "En panne. Ça ne bouge pas."
+
+#. Salle 1
+msgctxt "salle 01 0x22"
+msgid "<カードを入れてください。>と、表示されています。"
+msgstr "L'écran affiche : <Insérez votre carte.>"
+
+#. Salle 1
+msgctxt "salle 01 0x23"
+msgid "<IDナンバー 615 オルキ>と、表示されています。"
+msgstr "L'écran affiche : <ID 615 ORUKI>."
+
+#. Salle 1
+msgctxt "salle 01 0x24"
+msgid "カードは、あなたが持っています。"
+msgstr "C'est vous qui avez la carte."
+
+#. Salle 1
+msgctxt "salle 01 0x25"
+msgid "何か、重大な任務があったようなのだが・・・ 調べると、銃と、一枚のカードがでてきた。"
+msgstr ""
+"Il semble que vous aviez une mission importante... En fouillant, vous "
+"trouvez un pistolet et une carte."
+
+#. Salle 2
+msgctxt "salle 02 0x10"
+msgid "前には、そそり立つがけがあります。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x11"
+msgid "森があります。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x12"
+msgid "青空です。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x13"
+msgid "草が生えています。別に、かわったところはありません。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x14"
+msgid "とても、登れそうにありません。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x15"
+msgid "がけがあって、行けません。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x16"
+msgid "どちらへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x17"
+msgid "OK!でも、手が痛かっただけです。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x18"
+msgid "とても急ながけで、登れません。"
+msgstr ""
+
+#. Salle 2
+msgctxt "salle 02 0x19"
+msgid "そんなことをしても、ムダです。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x10"
+msgid "あなたの乗っていた、戦闘機があります。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x11"
+msgid "雲ひとつない、青空です。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x12"
+msgid "ここからでは、よくわかりません。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x13"
+msgid "大きな、森が見えます。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x14"
+msgid "草が生えています。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x15"
+msgid "とても、冷いみずです。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x16"
+msgid "静かな湖です。別にあやしいところはありません。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x17"
+msgid "普通の草です。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x18"
+msgid "弾の当たったあとがあります。撃たれて、ふじ着したようです。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x19"
+msgid "完全に壊れて使い物になりません。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x1A"
+msgid "そんなことをしたら、おぼれてしまいます。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x1B"
+msgid "どっちへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x1C"
+msgid "OK!でも、なにも起こりません。ムダなことをしました。"
+msgstr ""
+
+#. Salle 3
+msgctxt "salle 03 0x1D"
+msgid "そんなことをしても、ムダです。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x10"
+msgid "湖があります。こっちは行き止まりです。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x11"
+msgid "かれ木のようです。べつに、かわったところはありません。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x12"
+msgid "静かな湖です。別に、かわったところはありません。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x13"
+msgid "うっそうとした、大きな森が見えます。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x14"
+msgid "空があります。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x15"
+msgid "地面です。草がいっぱい生えています。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x16"
+msgid "とても、冷いみずです。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x17"
+msgid "中には、何もありませんでした。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x18"
+msgid "そっちへいくと、湖に落ちてしまいます。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x19"
+msgid "いけません。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x1A"
+msgid "どちらに行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x1B"
+msgid "あなたは、おぼれてしまいました。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x1C"
+msgid "OK! でも、何もありません。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x1D"
+msgid "OK! 銃は、湖におちました。"
+msgstr ""
+
+#. Salle 4
+msgctxt "salle 04 0x1E"
+msgid "重くて、あなた一人では、とても動ません"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x10"
+msgid "森に入りました。向うに、煙が見えます。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x11"
+msgid "湖があります。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x12"
+msgid "かなりふかい森のようです。木しか見えません。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x13"
+msgid "空が見えないくらい、木が生いしげっています。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x14"
+msgid "草が生えています。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x15"
+msgid "前方に、何かあるようです。行ってみましょう。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x16"
+msgid "普通の木です。べつに、かわったところは、ありません。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x17"
+msgid "どこにでも、生えている草です。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x18"
+msgid "どちらに行っていいのかわかりません。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x19"
+msgid "OK! でも、何もおこりません。弾のムダだったようです。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x1A"
+msgid "0K! でも、手が痛いだけでした。"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x1B"
+msgid "そんなことをしても、ムダだと思いますが・・・"
+msgstr ""
+
+#. Salle 5
+msgctxt "salle 05 0x1C"
+msgid "ここからでは、よく見えません。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x10"
+msgid "戦闘機のざんがいがありました。脱出したのか、パイロットはいません。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x11"
+msgid "まだ、煙がでているところをみると、落ちてから、そんなに時はたっていないようです。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x12"
+msgid "だれも、乗っていません。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x13"
+msgid "完全に、壊れています。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x14"
+msgid "壊れているようです。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x15"
+msgid "空も見えないくらい、木が生いしげっています。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x16"
+msgid "下は、地面です。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x17"
+msgid "あなたの乗っていたのとタイプが違うようです。多分、敵がわの機体でしょう。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x18"
+msgid "パイロットは、乗っていません。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x19"
+msgid "バラバラになっています。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x1A"
+msgid "戦闘機が落ちたため、かなりえぐれています。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x1B"
+msgid "くわしくはわかりませんが、やっぱり壊れています。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x1C"
+msgid "どちらへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x1D"
+msgid "爆発の危険があるので、やめておきましょう。"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x1E"
+msgid "そんな物を"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x1F"
+msgid "そんなことをしても、ムダだと思いますが・・・"
+msgstr ""
+
+#. Salle 6
+msgctxt "salle 06 0x20"
+msgid "重くて、とても動きません。一人では、とても無理です。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x10"
+msgid "突然、銃をかまえた敵が出てきました!あなたを狙っています!"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x11"
+msgid "動いたとたん、あなたは敵に撃たれてしまいました。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x12"
+msgid "そんなむちゃな!! 銃にすでで向かっていくなんて・・・当然、あなたは敵に撃たれてしまいました。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x13"
+msgid "な、なんてことをするんですか!当然あなたは敵に、撃ち殺されました。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x14"
+msgid "そんなばかな・・・当然、あなたは敵に、撃ち殺されました。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x15"
+msgid "よくわかりませんが、レーザーガンのようです。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x16"
+msgid "さっきの戦闘機の、パイロットでしょう。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x17"
+msgid "普通のフライトスーツのようです。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x18"
+msgid "普通のブーツです。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x19"
+msgid "銃を持っています。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x1A"
+msgid "普通のヘルメットです。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x1B"
+msgid "あれ、あの体型は、どうも女のようですよ。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x1C"
+msgid "敵が、銃をかまえて、あなたを狙っています。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x1D"
+msgid "森がつづいています。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x1E"
+msgid "木しか、見えません。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x1F"
+msgid "もちろん、下は地面です。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x20"
+msgid "あなたが声をかけても、何も答えません。あなたを殺すつもりなのでしょう。"
+msgstr ""
+
+#. Salle 7
+msgctxt "salle 07 0x21"
+msgid "そんなことをしても、ムダです。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x10"
+msgid "当たった!あなたの射撃のうでは大しものです。敵のパイロットは、女でした。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x11"
+msgid "倒れたまま、あなたをくやしそうに、にらんでいます。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x12"
+msgid "普通の、フライトスーツです。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x13"
+msgid "普通の、ブーツです。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x14"
+msgid "なかなか、かわいい顔をしています。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x15"
+msgid "大きな目をしています。あなたをにらんでいます。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x16"
+msgid "敵の女が倒れています。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x17"
+msgid "森がつづいています。あっ! あなたが目をはなしたすきに、女はにげてしまいました。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x18"
+msgid "あっ! あなたが目をはなしたすきに、女はにげてしまいしまた。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x19"
+msgid "敵のパイロットは、まだ若い女です。あなたに撃たれてけがをしています。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x1A"
+msgid "ながい、青色のかみです。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x1B"
+msgid "しろ色のひとみです。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x1C"
+msgid "あなたに撃たれて、けがをしています。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x1D"
+msgid "「わたしの名前はルウ・・・」それしか答えてくれません。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x1E"
+msgid "女の名前は、「ルウ」というそうです。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x1F"
+msgid "「バーン!」女は死にました。ああもったいない・・・"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x20"
+msgid "OK! でも、女はなぐられても悲鳴ひとつ上げず、あなたをにらんだままです。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x21"
+msgid "OK! ああ!あなたがそんなことをしているから、女はにげてしまいました。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x22"
+msgid "0K! ああ!でも、女はあなたの銃を拾って、あなたを撃ち殺してしまいました。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x23"
+msgid "銃は、どこにいったのかわかりません。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x24"
+msgid "あっ! そんなばかなことを・・・当然、あなたは女に撃たれてしまいました。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x25"
+msgid "女はカードをうけとりません。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x26"
+msgid "「あっ!何すんだよ、バカ!」と、ぶんなぐられてしまいました。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x27"
+msgid "キスしようと、あなたがゆだんしたすきに、女はにげてしまいました。"
+msgstr ""
+
+#. Salle 8
+msgctxt "salle 08 0x28"
+msgid "あなたの前には、左右にわかれた道があります。1(右)か2(左)のキーをおしてください。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x10"
+msgid "女のはだかを見て、あなたは忘れていたことを少し、思い出しました。それは・・・"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x11"
+msgid "あなたには、女のあいぼうがいたということです。それいじょうは、思いだせない・・・"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x12"
+msgid "あっ!あなたが目をはなしたすきに、女はにげてしまいました。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x13"
+msgid "あなたに、犯されようとしています。かなり、嫌がっていますが・・・"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x14"
+msgid "草むらがあります。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x15"
+msgid "初めから、なにもはいていませんでした。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x16"
+msgid "こんな時、そんなことをしているひまは、ありません!"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x17"
+msgid "別に、何も持っていないようです。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x18"
+msgid "青色の、かみです。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x19"
+msgid "あなたに撃たれて、けがをしていますが・・・"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x1A"
+msgid "しろ色のひとみをしています。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x1B"
+msgid "ピンク色の、少し小さめのオ( )ンコです。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x1C"
+msgid "すこし小さめの、形のいいオッパイです。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x1D"
+msgid "キャアキャアと悲鳴をあげて、とても話せる状態ではありません。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x1E"
+msgid "OK! バーン!女は死にました。ああ、もったいない・・・"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x1F"
+msgid "0K! でも、女はその銃を拾って、あなたを撃ち殺してしまいました。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x20"
+msgid "「キャア!殺すんなら、はやくやれ!」と、さわいでいます。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x21"
+msgid "「OK! でも、女はその銃を拾って、あなたを撃ち殺してしまいました。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x22"
+msgid "ああっ!なんてばかなことを・・・あなたはその銃で女に撃ち殺されてしまいました。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x23"
+msgid "「こんなもの!」と、女はカードを捨ててしまいました。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x24"
+msgid "のんびりと、そんなことをやっているばあいではありません。いっきにやってしまいましょう。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x25"
+msgid "「あっ、チョット! やめてよ、ばか!」と、言っています。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x26"
+msgid "「キャア、やめて!」と、言っています。"
+msgstr ""
+
+#. Salle 9
+msgctxt "salle 09 0x27"
+msgid "あなたの前には、左右にわかれた道があります。1(右)か2(左)のキーをおしてください。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x10"
+msgid "女とセックスして、あなたはまた少し、思い出しました。あなたはあいぼうと二人で、何か重大なことを"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x11"
+msgid "しなければならないということです。あなたは早く、女を探し出さねばなりません。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x12"
+msgid "バーン!ああ、もったいない。女は死んでしまいました。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x13"
+msgid "「そんなものいらないわ・・それよりはやく・・・」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x14"
+msgid "OK! 彼女は女のよろこびをおしえてくれたおれいに、レーザーガンをくれました。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x15"
+msgid "女の名前は、「ルウ」というそうです。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x16"
+msgid "女の話では、空中戦のすえ、どちらもつい落したそうです。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x17"
+msgid "もう犯しています。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x18"
+msgid "ごらんの通り、もう嫌がっていないようです。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x19"
+msgid "もう、抵抗するのをやめて、快感にもだえています。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x1A"
+msgid "もう、びしょびしょにぬれています。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x1B"
+msgid "ピンク色の小さなおまん( )です。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x1C"
+msgid "そんなことをしているヒマはありません。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x1D"
+msgid "小さいけど、形のいいオッパイです。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x1E"
+msgid "快感で、かたくなっています。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x1F"
+msgid "「あ、ああん・・・」"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x20"
+msgid "「あっ、あー!・・・」"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x21"
+msgid "「ああん、いたーい!」"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x22"
+msgid "「あーん、そんなこと、しないでえ・・・」"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x23"
+msgid "「あっ、あああ・・・」"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x24"
+msgid "「もっとやさしくしてぇ・・・」"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x25"
+msgid "「あっ、そ、そこ、感じる・・・」"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x26"
+msgid "けがをしています。あなたに撃たれたけがです。"
+msgstr ""
+
+#. Salle 10
+msgctxt "salle 10 0x27"
+msgid "あなたの前には、左右にわかれた道があります。1(右)か、2(左)のキーをおしてください。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x10"
+msgid "突然、行く手にかまきりのような、怪物があらわれました!"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x11"
+msgid "HIT!でも、この怪物には銃が通じません!"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x12"
+msgid "OK! 怪物は倒れました。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x13"
+msgid "怪物の足のほうが、はやかった! あなたは怪物に食べられてしまいました。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x14"
+msgid "ああっ!そんなむちやな・・・あなたは怪物に食べられてしまいました。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x15"
+msgid "そんな!とてもかなうはずがありません。あなたは怪物に食べられてしまいました。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x16"
+msgid "そんなむちゃな!しかし、そこが怪物のウイークポイントだったようです。怪物はにげていきました。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x17"
+msgid "とても急で、登れません。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x18"
+msgid "こちらに向かってきています。早くなんとかしないと、危ない!"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x19"
+msgid "大きなハサミを持っています。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x1A"
+msgid "いわ山がつづいています。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x1B"
+msgid "急な、がけになっています。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x1C"
+msgid "そんなことをしているばあいでは、ありません。怪物は目の前にせまっています。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x1D"
+msgid "OK! 銃は怪物に当たりました。しかし、当然怪物は平気です。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x1E"
+msgid "青空が広がっています。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x1F"
+msgid "いわ山です。草いっぽん生えていません。"
+msgstr ""
+
+#. Salle 11
+msgctxt "salle 11 0x20"
+msgid "がけがあって、その方向へは、行けません。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x10"
+msgid "突然、槍や斧を持った、原始人が行く手をさえぎりました!"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x11"
+msgid "かなり強そうで、あなたに敵いをもっているようです。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x12"
+msgid "原始人は、とても通してくれそうにありません。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x13"
+msgid "石でつくられた、槍です。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x14"
+msgid "石でつくられた、斧です。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x15"
+msgid "OK! でも、あなたは左がわの男に、斧でうち殺されました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x16"
+msgid "OK! でも、あなたは右がわの男に槍で突き殺されてしまいました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x17"
+msgid "OK! でもあなたは原始人の投げた槍が突きささって、死んでしまいました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x18"
+msgid "ことばが、通じません。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x19"
+msgid "OK! 原始人たちは、にげていきました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x1A"
+msgid "OK! でも、かなうはずがありません!あなたは、原始人に殺されてしまいました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x1B"
+msgid "そんなむちゃな・・・あなたは原始人に殺されてしまいました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x1C"
+msgid "なぜ、そんなばかなことをするのですか! あなたは原始人に殺されてしまいました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x1D"
+msgid "そんなばかなことはできません。殺されてしまいますよ!"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x1E"
+msgid "OK! 原始人が銃に気をとられているすきに、あなたはにげることができました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x1F"
+msgid "OK! 原始人がレーザーガンに気をとられたすきに、あなたはにげることができました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x20"
+msgid "OK! 原始人がカードに気をとられたすきに、あなたはにげることができました。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x21"
+msgid "いわ山がつづいています。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x22"
+msgid "けがわでつくられているようです。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x23"
+msgid "ごらんの通り、かみもひげも、のびほうだいです。"
+msgstr ""
+
+#. Salle 12
+msgctxt "salle 12 0x24"
+msgid "牙が生えています。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x10"
+msgid "広い草原にでました。前方に、かすかに何かが見えます。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x11"
+msgid "どの方向に行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x12"
+msgid "OK! でも、何も起こりません。弾をムダにしただけです。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x13"
+msgid "OK! でも、手が痛かっただけで、何も起こりません。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x14"
+msgid "OK! しかし、そんなことをしてもどうにもならないと思いますが・・・"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x15"
+msgid "そんなことをしても、ムダだと思いますが・・・"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x16"
+msgid "草原の向うに何かあります。行ってみましょう。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x17"
+msgid "草原がつづいているだけです。他には何も見えません。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x18"
+msgid "草が生えています。別に、かわったところはありません。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x19"
+msgid "普通の、どこにでも生えている木です。別に、かわったところはありません。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x1A"
+msgid "青空が広がっています。"
+msgstr ""
+
+#. Salle 13
+msgctxt "salle 13 0x1B"
+msgid "ところどころに木が生えているだけで、他には何もありません。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x10"
+msgid "みごとに荒れはてた、はいきょにきました。人は、いないようですが・・・"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x11"
+msgid "さっき、あなたがいたばしょです。くずれ落ちそうな建物が、ならんでいます。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x12"
+msgid "OK! でも、何も起こりません。やはり、人はいないようです。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x13"
+msgid "建物がじゃまで、その方向へは行けません。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x14"
+msgid "どの方向へいっていいのか、わかりません。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x15"
+msgid "いつくずれ落ちるか、わかりません。危険ですから、やめておきましょう。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x16"
+msgid "もう、入っています。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x17"
+msgid "OK! でも、手がいたいだけで、何もおこりません。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x18"
+msgid "壊れた建物が、つづいています。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x19"
+msgid "空があります。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x1A"
+msgid "下は、地面です。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x1B"
+msgid "だいぶ前から、はいきょのようです。人の気配はありません。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x1C"
+msgid "かなりひどく、壊れています。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x1D"
+msgid "今にも折そうです。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x1E"
+msgid "ガレキがいっぱい、落ちています。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x1F"
+msgid "今にも、くずれそうです。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x20"
+msgid "OK! でも、あまり無理なことをしないでください。"
+msgstr ""
+
+#. Salle 14
+msgctxt "salle 14 0x21"
+msgid "青空です。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x10"
+msgid "おっ! 前方に、煙が見えます。人がいるようです。しかし、敵かもしれません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x11"
+msgid "煙が見えます。さっきの男の、焚火の煙のようです。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x12"
+msgid "焚火の煙のようです。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x13"
+msgid "どの方向へ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x14"
+msgid "ガレキがじゃまで、その方向へは、行けません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x15"
+msgid "建物があって、その方向へは、行けません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x16"
+msgid "いつくずれるか、わかりません。危ないですから、やめておきましょう。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x17"
+msgid "もう、入っています。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x18"
+msgid "OK! でも、建物が少しくずれただけで、誰も出てきません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x19"
+msgid "OK! でも、そんなことをしてもムダです。手が痛いだけでした。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x1A"
+msgid "そっちはガレキの山で、何もありません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x1B"
+msgid "右には、くずれかけた建物があるだけです。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x1C"
+msgid "空しか、見えません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x1D"
+msgid "はいきょがつづいています。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x1E"
+msgid "中は、暗くてよくわかりませんが、何もないようです。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x1F"
+msgid "何も、ありません。"
+msgstr ""
+
+#. Salle 15
+msgctxt "salle 15 0x20"
+msgid "だいぶ前から、荒れはてているようです。なぜはいきょになったかはわかりません。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x10"
+msgid "男が焚火をしています。あなたの名前を聞いていますが・・・"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x11"
+msgid "「そうか、はらがへっているだろう。これでも食べてくれ。」と、男は食物をくれました。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x12"
+msgid "あなたは、それをもらって食べました。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x13"
+msgid "「あやしいやつだ!」と、男はかくし持っていた銃で、あなたを撃ち殺してしまいました。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x14"
+msgid "くずれかけた、建物がならんでいます。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x15"
+msgid "青空が広がっています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x16"
+msgid "ガレキが、いっぱい落ちています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x17"
+msgid "まだ、敵かみかたかわかりません。気をつけた方がいいと思いますが・・・"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x18"
+msgid "ボロボロで、かなり汚れています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x19"
+msgid "破れかけています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x1A"
+msgid "顔をあらっていないのか、アカだらけです。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x1B"
+msgid "建物があって、そっちの方向にはいけません。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x1C"
+msgid "「銃がほしい。もしおまえが持っているなら、おれにゆずってくれないか。」と、言っています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x1D"
+msgid "「もう、お前に用はない。はやくあっちへ行け!」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x1E"
+msgid "「名前?、おれには、そんなものはないョ。」と、言っています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x1F"
+msgid "「な、何をする!」男はかくし持っていた銃で、あなたを撃ち殺してしまいました。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x20"
+msgid "「何してんだ、お前。少しおかしいんじゃないか・・・」と、男は言っています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x21"
+msgid "持っていません。もう、食べてしまいました。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x22"
+msgid "OK! 「いくらでも食ってくれ!」と、男は言っています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x23"
+msgid "OK! 「よく食うやつだなあ・・・」と、男はあきれています。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x24"
+msgid "「ありがとう。かわりに、これをやろう。」と、男はパラジウムをくれしまた。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x25"
+msgid "「そんな銃はいらない。オレは、弾のとび出すヤツが好きなんだ。」と、レーザーガンをうけ取りません。"
+msgstr ""
+
+#. Salle 16
+msgctxt "salle 16 0x26"
+msgid "「うわっ!なにをするんだ! 気持ち悪いやつだなぁ・・・」と、男はおどろいています。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x10"
+msgid "さっきの男は、もういません。焚火のあとが、あるだけです。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x11"
+msgid "どの方向に行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x12"
+msgid "「あちちっ!」 あー熱かった!"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x13"
+msgid "火は、消えかかっています。別に、あやしいところはありません。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x14"
+msgid "何も落ちてはいません。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x15"
+msgid "別に、かわったところはありません。ただの木です。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x16"
+msgid "ガレキがじゃまで、その方向へは、行けません。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x17"
+msgid "建物があって、その方向へは行けません。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x18"
+msgid "OK! でも、何もあやしいところはありません。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x19"
+msgid "そんなものを拾っても、やくに立ちません。やめておきましょう。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x1A"
+msgid "OK! ボカッ! ・・・がんじょうな銃です。手が、痛いだけでした。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x1B"
+msgid "建物がならんでいます。全ての建物は、くずれかけています。"
+msgstr ""
+
+#. Salle 17
+msgctxt "salle 17 0x1C"
+msgid "はれた青空です。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x10"
+msgid "へんな男に呼び止められました。宇宙船をかってくれないかと言っていますが・・・"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x11"
+msgid "さっきの男に、また呼び止められました。宇宙船をかってくれと、しつこく言っています。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x12"
+msgid "男のかげで、よく見えません。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x13"
+msgid "「コレコレ、中をのぞいても、何もあらへんで。」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x14"
+msgid "「コレコレ、勝手に入ってもらっては、こまりますなァ。」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x15"
+msgid "「ワァ!あぶないなぁ、ビックリするやないか!」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x16"
+msgid "「金がなければ、何かと交換してもいいでっせ。」と、男は言っていますが・・・"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x17"
+msgid "「ワイの名前でっか? もう、忘れてしまいましたなァ。」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x18"
+msgid "「痛い!なにすんねん! らんぼうなお人やなぁ・・・」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x19"
+msgid "「こんなやすものは、うけ取れませんなぁ・・・」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x1A"
+msgid "「これはいい銃でんなぁ。でも、これだけじゃ足りませんなぁ・・・」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x1B"
+msgid "「おっ!これはねうちもんや。でも、これだけじゃ足りませんなぁ。」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x1C"
+msgid "「こんなもんはうけとれんわ。何のねうちもあらへん!」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x1D"
+msgid "「おおっ、これはいい銃や!まいどありぃ‼」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x1E"
+msgid "「おおっ、これはねうちもんや!まいどありぃ‼」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x1F"
+msgid "「わーっ‼ やめてくんなはれ!気色悪い‼」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x20"
+msgid "別に、あやしい男ではないようです。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x21"
+msgid "あいそうのよさそうな顔をしています。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x22"
+msgid "わりと、じょうとうな服です。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x23"
+msgid "「わぁ!やめてくんなはれ‼ わいは、そんなしゅみないでぇ!」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x24"
+msgid "「わあっ‼やめてくんなはれ!」"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x25"
+msgid "OK! 「へんなお人やなぁ・・・」と、男はあきれ顔で見ています。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x26"
+msgid "かべがあって、その方向へは進めません。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x27"
+msgid "建物があります。"
+msgstr ""
+
+#. Salle 18
+msgctxt "salle 18 0x28"
+msgid "はぃきょが、つづいています。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x10"
+msgid "男は、宇宙船を売ってくれました。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x11"
+msgid "はいきょがつづいています。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x12"
+msgid "青空がつづいています。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x13"
+msgid "かなりいたんでいますが、一応とべそうです。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x14"
+msgid "別に、あやしいところはありません。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x15"
+msgid "いまにも、くずれそうです。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x16"
+msgid "建物があって、その方向へは、いけません。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x17"
+msgid "どっちへいっていいのか、わかりません。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x18"
+msgid "「タイプは古いでっけど、性能は一流でっせえ。もちろん、ビーム砲もついとります。」"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x19"
+msgid "「名前? そんなん、ついとりまへんわ。」と、男は言っています。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x1A"
+msgid "「ギャッ‼い、痛い!何すんねん、おきゃくはん!」"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x1B"
+msgid "「ワー‼ おきゃくはん、やめてくんなはれ‼」"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x1C"
+msgid "「心配なら無用でっせ、どこも壊れてまへんで!」と、男は言っています。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x1D"
+msgid "ごらんの通り、小型の一人乗り宇宙船です。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x1E"
+msgid "「そんなとこのぞいたって、何もありませんがなァ。」と、男はいっています。"
+msgstr ""
+
+#. Salle 19
+msgctxt "salle 19 0x1F"
+msgid "宇宙船があって、そちらの方向へはすすめません。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x10"
+msgid "あなたは、宇宙船に乗ってとび立ちました。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x11"
+msgid "すごいスピードで、後に流れていってます。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x12"
+msgid "コクピットの、カベがあります。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x13"
+msgid "宇宙船の、窓があります。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x14"
+msgid "宇宙船の、天井があります。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x15"
+msgid "コクピットの床があります。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x16"
+msgid "ビーム砲の発射スイッチがありました。あっ!マイクロ爆弾があります‼ あなたはそれを取りました。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x17"
+msgid "どのていどのパワーかわかりませんが、発射可能です。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x18"
+msgid "宇宙船は、地上に突っ込んで爆発しました。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x19"
+msgid "OK! 加速システムが動きだして、宇宙船は、一気に宇宙へ出ました!"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x1A"
+msgid "加速システムのスイッチのようです。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x1B"
+msgid "正常に動いているようです。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x1C"
+msgid "ほかには、何もめぼしいものは見つかりません。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x1D"
+msgid "雲が、すごいスピードで流れています。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x1E"
+msgid "宇宙船は、正常にひこうしているようです。"
+msgstr ""
+
+#. Salle 20
+msgctxt "salle 20 0x1F"
+msgid "OK! でも、そんなことをしても何も起こりませんでした。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x10"
+msgid "敵の宇宙船に近ずきました。小型船がドッキングしようとしています。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x11"
+msgid "あっ、敵からの通信が入りました。「あなたのIDナンバーを知らせてください。」と、言っています。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x12"
+msgid "あなたの宇宙船は、問答無用で撃破されてしまいました。デタラメなIDナンバーを答えないように!"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x13"
+msgid "大型の宇宙船です。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x14"
+msgid "大型の宇宙船に、ドッキングしようとしています。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x15"
+msgid "ビーム砲の発射スイッチがありました。撃ちますか?"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x16"
+msgid "ビーム砲の発射スイッチがあります。おっ! マイクロ爆弾が見つかりました‼ いい物を手に入れましたね。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x17"
+msgid "小型船がドッキングしようとしているため、開いているようですが・・・"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x18"
+msgid "敵のトラクタービームに捕まっているようです。まっすぐ前にしか進めません!"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x19"
+msgid "HIT‼ しかし、敵艦は巨大すぎて、何の効果もありません!敵の反撃で、あなたは爆死してしまいました。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x1A"
+msgid "あっ!それは加速システムのスイッチです‼ あなたの宇宙船は敵艦に突っ込み、大爆発をおこしてしまいました。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x1B"
+msgid "宇宙船の、カベがあります。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x1C"
+msgid "コクピットの、床があります。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x1D"
+msgid "宇宙船の、天井があります。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x1E"
+msgid "宇宙が広がっています。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x1F"
+msgid "ここからでは、よく見えません。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x20"
+msgid "加速システムのスイッチのようです。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x21"
+msgid "いつでも発射可能です。"
+msgstr ""
+
+#. Salle 21
+msgctxt "salle 21 0x22"
+msgid "正常に作動しているようです。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x10"
+msgid "敵の宇宙船の入口に近ずきました。おっ! また敵からの通信がはいりました。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x11"
+msgid "帰艦は自動(1)で行なうか、手動(2)で行なうかを、聞いてきました。1か2のキーをおしてください。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x12"
+msgid "正直に敵の宇宙船に入ったあなたは、待ちかまえていた敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x13"
+msgid "あなたの宇宙船は敵艦に突っ込み、大爆発をおこしてしまいました。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x14"
+msgid "「まて! 進路をはずれているぞ‼」  「あやしいやつだ!破壊しろ‼」"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x15"
+msgid "あなたの宇宙船は、敵艦のビーム砲により、撃破されてしまいました。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x16"
+msgid "HIT‼ しかし敵艦はビクともしません!あなたの宇宙船は、敵の反撃によりあっさりと撃破されました。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x17"
+msgid "あっ!それは加速システムのスイッチです‼ あなたは敵艦に突っ込んで、爆死してしまいました。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x18"
+msgid "小型の宇宙船ですが、くわしくはわかりません。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x19"
+msgid "入口は開いています。突っ込むなら、今がチャンスです。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x1A"
+msgid "ここからでは、よくわかりません。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x1B"
+msgid "いつでも発射可能ですが、はたして、敵艦に通用するかどうか・・・"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x1C"
+msgid "敵の、大型戦艦がいます。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x1D"
+msgid "宇宙が広がっています。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x1E"
+msgid "加速システムの、スイッチのようです。"
+msgstr ""
+
+#. Salle 22
+msgctxt "salle 22 0x1F"
+msgid "ビーム砲の発射システムがありました。 おっ!マイクロ爆弾があります‼ あなたはそれを、取りました。"
+msgstr ""
+
+#. Salle 23
+msgctxt "salle 23 0x10"
+msgid "少しらんぼうでしたが、うまく入り込めたようです。敵の兵士が、おどろいて逃げまわっています。"
+msgstr ""
+
+#. Salle 23
+msgctxt "salle 23 0x11"
+msgid "敵を目の前にして、あなたは自分の任務を思い出しました。その任務とは、女と二人で、敵の破滅兵器を"
+msgstr ""
+
+#. Salle 23
+msgctxt "salle 23 0x12"
+msgid "破壊することです。あなたは早く、彼女を探し出さねばなりません。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x10"
+msgid "あなたは、上手く敵艦に潜入することができました。あなたは今、物かげにかくれています。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x11"
+msgid "敵の兵士が、あなたを探し回っています。今出ると見つかってしまいます。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x12"
+msgid "カベがあって、その方向へは行けません。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x13"
+msgid "機械があって、その方向へは行けません。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x14"
+msgid "機械があります。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x15"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x16"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x17"
+msgid "床があります。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x18"
+msgid "おっ! こっちの方には、なんとか進めそうです。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x19"
+msgid "あなたを探しているようです。あわただしく、はしりまわっています。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x1A"
+msgid "何の機械か、わかりません。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x1B"
+msgid "普通の通路です。敵の兵士がいます。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x1C"
+msgid "手はとどきませんが、別にかわったところはないようです。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x1D"
+msgid "「誰だ、そこにいるのは!出てこい‼」 あなたは敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x1E"
+msgid "あっ、敵は銃を持っているのに・・・あなたは敵に、撃ち殺されてしまいました。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x1F"
+msgid "あっ!そんなムチャな‼ 敵がいるのに・・・あなたは敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x20"
+msgid "こんな時に物音を立てるなんて・・・あなたは敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x21"
+msgid "どちらに行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x22"
+msgid "どこにも、出口はないようです。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x23"
+msgid "ここからではよくわかりませんが、レーザーガンのようです。"
+msgstr ""
+
+#. Salle 24
+msgctxt "salle 24 0x24"
+msgid "ヘルメットをかぶっているので、よく見えません。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x10"
+msgid "通路に出ました。どうやら、敵はいないようですが・・・"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x11"
+msgid "あなたは今、敵の宇宙船の通路にいます。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x12"
+msgid "ごらんの通り、通路がつづいています。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x13"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x14"
+msgid "ドアがあります。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x15"
+msgid "通路の天井があります。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x16"
+msgid "もちろん、床があります。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x17"
+msgid "ゆるく右にまがっています。左にドアがあります。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x18"
+msgid "カギはかかっていないようですが・・・"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x19"
+msgid "どっちへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x1A"
+msgid "手がとどきません。"
+msgstr ""
+
+#. Salle 25
+msgctxt "salle 25 0x1B"
+msgid "OK! でも、ビクともしません。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x10"
+msgid "行きどまりです。が、正面にドアがあります。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x11"
+msgid "カギがかかっているようです。とても開きそうにありません。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x12"
+msgid "通路は後につづいています。人はいないようです。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x13"
+msgid "ドアが閉まっているので、行けません。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x14"
+msgid "OK! でも、ドアはビクともしません。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x15"
+msgid "OK! でも、手が痛かっただけで、何も起こりませんでした。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x16"
+msgid "OK! でも、そんなことで開くドアではないようです。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x17"
+msgid "通路のカベがあります。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x18"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x19"
+msgid "もちろん、通路の床があります。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x1A"
+msgid "OK! でも、ドアは開きません。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x1B"
+msgid "そんなことをしても、ムダではないでしょうか・・・"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x1C"
+msgid "どうやってドアを開けたらいいのか、わかりません。"
+msgstr ""
+
+#. Salle 26
+msgctxt "salle 26 0x1D"
+msgid "ドアが開きません。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x10"
+msgid "おーっと!敵がいました‼突然あなたが入ってきたので、おどろいています。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x11"
+msgid "敵はおどろいて、何もしゃべれずにいます。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x12"
+msgid "あーっ!何てことをするのですか‼ でも敵は、あまりの気持ち悪さに気をうしなってしまいました。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x13"
+msgid "「まて!あやしいヤツだ‼」あなたは敵に、捕まってしまいました。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x14"
+msgid "「こ、これは爆弾じゃないか!あやしいヤツだ‼」あなたは敵に、捕まってしまいました。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x15"
+msgid "そんなバカなことは、できません。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x16"
+msgid "あまり、強そうではありません。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x17"
+msgid "敵の兵士用ヘルメットです。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x18"
+msgid "びっくりした顔で、あなたを見ています。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x19"
+msgid "くわしくはわかりませんが、ここは通信室のようです。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x1A"
+msgid "機械がたくさんあります。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x1B"
+msgid "天井も、機械でいっぱいです。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x1C"
+msgid "大きな、ディスプレイがあります。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x1D"
+msgid "通信機があるようですが、使い方がわかりません。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x1E"
+msgid "「な、何だ!おまえは誰だ‼」あなたがへんなことをするから、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x1F"
+msgid "「ギャッ!」 敵はあっけなく倒れました。あなたは強い!"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x20"
+msgid "床があります。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x21"
+msgid "今あなたが入ってきた、ドアがあります。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x22"
+msgid "何も、表示されていません。"
+msgstr ""
+
+#. Salle 27
+msgctxt "salle 27 0x23"
+msgid "敵の兵士用ユニフォームのようです。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x10"
+msgid "だらしない顔をして、敵が倒れています。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x11"
+msgid "敵はもう、倒れています。ここで大きな音を立てるのは、まずいと思いますが・・・"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x12"
+msgid "あなたはすでに、銃を拾っています。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x13"
+msgid "あなたはすでに、銃を取りました。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x14"
+msgid "銃は、どこにいったのかわかりません。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x15"
+msgid "敵は完全に、気をうしなっています。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x16"
+msgid "だらしなく、大きく口を開けています。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x17"
+msgid "あまりヘンなことをしないでください。これは、けんぜんなゲームなんですから・・・"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x18"
+msgid "ディスプレイには、何も表示されていません。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x19"
+msgid "通信機のようですが、使い方がわかりません。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x1A"
+msgid "機械がいっぱいあります。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x1B"
+msgid "敵の兵士用ユニフォームです。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x1C"
+msgid "何もめぼしい物は、持っていないようです。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x1D"
+msgid "ここは、通信室のようです。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x1E"
+msgid "あなたの入ってきた、ドアがあります。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x1F"
+msgid "ディスプレイがあります。"
+msgstr ""
+
+#. Salle 28
+msgctxt "salle 28 0x20"
+msgid "そんなことをしないでください。敵はもう、気をうしなっています。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x10"
+msgid "通路は左にまがってつづいています。むっ、人の気配がします。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x11"
+msgid "通路は後につづいていて、行き止まりになっています。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x12"
+msgid "通路のカベがあります。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x13"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x14"
+msgid "下は床です。何も落ちていません。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x15"
+msgid "左に直角にまがっています。右がわには、ドアがあります。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x16"
+msgid "カギは、かかっていないようです。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x17"
+msgid "ここで、大きな音を立てるのは、やめた方がいいと思いますが・・・"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x18"
+msgid "OK! でも、何も起こりません。手が痛いだけでした。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x19"
+msgid "OK! 中から、人の声がします。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x1A"
+msgid "手がとどきません。"
+msgstr ""
+
+#. Salle 29
+msgctxt "salle 29 0x1B"
+msgid "ドアがあります。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x10"
+msgid "わあっ‼ 敵が待ちかまえていました!早く逃ないと危ない‼"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x11"
+msgid "あっ‼さっきの敵がまだいました!あなたは敵に、射殺されてしまいました。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x12"
+msgid "銃をかまえて、今にも引き金を引こうとしています。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x13"
+msgid "ヘルメットのバイザーにかくれて、よく見えません。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x14"
+msgid "問答無用で、あなたは敵に撃ち殺されてしまいました。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x15"
+msgid "あなたが射つ前に、あなたは敵兵に射殺されてしまいました。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x16"
+msgid "「わっ!爆弾だ‼」と、敵は少しひるみましたが、すぐにあなたを撃ち殺してしまいました。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x17"
+msgid "な、なんてことをするのですか‼ あなたは撃ち殺されてしまいました。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x18"
+msgid "そんなばかなことは、できません。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x19"
+msgid "手がとどきません。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x1A"
+msgid "あーあ、あなたは敵に、捕まってしまいました。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x1B"
+msgid "そんなこと、無理にきまっているでしょう!あなたは敵に、射殺されてしまいました。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x1C"
+msgid "敵の、兵士用ユニフォームのようです。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x1D"
+msgid "敵の、兵士用ヘルメットです。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x1E"
+msgid "普通のブーツです。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x1F"
+msgid "別にやくに立ちそうな物は何もありません。早く逃ないと、危ない!"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x20"
+msgid "通路のカベがあります。"
+msgstr ""
+
+#. Salle 30
+msgctxt "salle 30 0x21"
+msgid "通路がつづいています。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x10"
+msgid "わっ!三人も敵がいます‼とてもかないそうにありません。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x11"
+msgid "三人と一人では、はなしになりません。あなたは敵に、捕まってしまいました。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x12"
+msgid "あなたは自分から、戦いを捨ててしまいました。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x13"
+msgid "「わあっ!爆弾だ‼」と、敵は少しひるみましたが、すぐにあなたを捕まえてしまいました。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x14"
+msgid "「おっ、これは爆弾じゃないか!あやしいやつだ!」 あなたは敵に、捕まってしまいました。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x15"
+msgid "「わあっ!何をするか‼」 あなたは敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x16"
+msgid "話の通じる相手ではなさそうです。早くやっつけてしまいましょう。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x17"
+msgid "ドアが開かないので、出ることができません。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x18"
+msgid "敵がいるのに、そんなことできません。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x19"
+msgid "こわい顔をして、あなたを見ています。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x1A"
+msgid "敵の兵士用ユニフォームです。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x1B"
+msgid "ごらんの通り、強そうな顔をしています。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x1C"
+msgid "ドアは、閉まっています。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x1D"
+msgid "あなたの入ってきた、ドアがあります。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x1E"
+msgid "ディスプレイが、ならんでいます。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x1F"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x20"
+msgid "床があります。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x21"
+msgid "敵が目の前にいるのに、そんなことできません。"
+msgstr ""
+
+#. Salle 31
+msgctxt "salle 31 0x22"
+msgid "手が、とどきません。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x10"
+msgid "あっけなく、敵は倒れました。あなたの射撃のうでは大したものです。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x11"
+msgid "ディスプレイには、何も表示されていません。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x12"
+msgid "何の機械か、わかりません。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x13"
+msgid "三人とも、動きません。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x14"
+msgid "三人とも死んでいます。別に、何も持っていないようです。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x15"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x16"
+msgid "ディスプレイがならんでいます。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x17"
+msgid "カギはかかっていません。中から、女の悲鳴が聞こえます!"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x18"
+msgid "ドアがあります。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x19"
+msgid "そんな、ヘンタイみたいな行動はできません。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x1A"
+msgid "敵の、兵士用ヘルメットです。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x1B"
+msgid "あなたの入ってきた、ドアがあります。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x1C"
+msgid "天井には、別にあやしいところはありません。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x1D"
+msgid "三人の死体がころがっています。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x1E"
+msgid "何も、持っていないようです。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x1F"
+msgid "ドアが開きません。閉じ込められたようです。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x20"
+msgid "倒れた相手を撃っても、しょうがないでしよう・・・"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x21"
+msgid "倒れた相手をなぐっても、しようがないでしょう・・・"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x22"
+msgid "手が、とどきません。"
+msgstr ""
+
+#. Salle 32
+msgctxt "salle 32 0x23"
+msgid "動かし方が、わかりません。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x10"
+msgid "わっ!女がロープでしばられて、バイブレーターで犯されています。さあ、あなたはどうしますか?"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x11"
+msgid "びっくりした顔であなたを見ています。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x12"
+msgid "あなたにたすけをもとめているようです。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x13"
+msgid "バイブレーターのかげで、よく見えませんが・・・"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x14"
+msgid "天井を見ても、しょうがないでしょう・・・"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x15"
+msgid "こんな光景を見て、それはないでしょう・・・"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x16"
+msgid "「誰だ、お前は! 人のたのしみをじゃまするな‼出ていけ‼」"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x17"
+msgid "「は、はやくたすけて・・・」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x18"
+msgid "「わっ!こ、こいつ 何をする‼ や、やめろ!はやく出ていけ‼」"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x19"
+msgid "「こら!ワシの女に何をする!」 あなたは、男になぐられて捕まってしまいました。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x1A"
+msgid "「あっ、あやしいヤツだ!」 あなたは男に捕まってしまいました。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x1B"
+msgid "「いてっ!何をする!」あなたはぎゃくに、捕まってしまいました。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x1C"
+msgid "OK! 男はあっけなく倒れました。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x1D"
+msgid "OK! 男は倒れ、動かなくなりました。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x1E"
+msgid "ブラックホール回転可能な、全自動バイブレーターのようです。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x1F"
+msgid "サイコ波感知タイプの、SM用ロープのようです。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x20"
+msgid "「コラッ! 何をしている!じゃまだから出ていけ‼」と、男はどなっています。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x21"
+msgid "そんなことをしているばあいでは、ありません。早く、女をたすけましょう。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x22"
+msgid "SM用の、タイプRX-2モビルテーブルのようです。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x23"
+msgid "あなたの入ってきたドアがあります。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x24"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 33
+msgctxt "salle 33 0x25"
+msgid "下は、床です。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x10"
+msgid "この女の顔を見て、あなたは全てを思い出しました。彼女の名は、エリカ・・・"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x11"
+msgid "あなたは、彼女といっしょに敵の破滅兵器「スペクトロン」を、破壊しなければなりません。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x12"
+msgid "「名前? エリカよ。知っているくせに。」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x13"
+msgid "彼女のはなしによると、この宇宙船は「スペクトロン」のある、敵基地に向かっているそうです。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x14"
+msgid "彼女のはなしによると「スペクトロン」は、この戦争の勝はいをきめるほどのものすごい兵器だそうです。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x15"
+msgid "「エッ!何見てるの、顔に何かついてる?」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x16"
+msgid "「何ジロジロ見てんのよ! スケベ‼」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x17"
+msgid "「危ない! 何すんのよ、もう・・・」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x18"
+msgid "「キャッ!痛いじゃないの‼」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x19"
+msgid "「何してんの?バカじゃないの、あんた・・・」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x1A"
+msgid "「これ、爆弾じゃないの! これは、あなたが持っていた方がいいわよ。」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x1B"
+msgid "「これは、あなたが持っていた方がいいんじゃないの?」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x1C"
+msgid "「アッ!へんなことすると、ぶんなぐるわよ‼」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x1D"
+msgid "「ああーん、何すんのよ、バカ!」"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x1E"
+msgid "ミニスカートです。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x1F"
+msgid "きれいな、ブロンドのかみをしています。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x20"
+msgid "窓があります。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x21"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x22"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x23"
+msgid "床があります。"
+msgstr ""
+
+#. Salle 34
+msgctxt "salle 34 0x24"
+msgid "今出ると、敵に見つかってしまいます。"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x10"
+msgid "「ああーん、やめてぇ・・・!」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x11"
+msgid "「そんなぶっそうな物は、しまっておいてよ!」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x12"
+msgid "バーン‼ 「あーびっくりした!」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x13"
+msgid "「何やってんの?もっとマジメにやってよ!」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x14"
+msgid "「どこ見てるの?早くきてぇ・・・」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x15"
+msgid "「そんなとこ、見ちゃいや‼」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x16"
+msgid "エリカがいます。"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x17"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x18"
+msgid "「いたーい‼」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x19"
+msgid "少し感じてきています。もう少し、ガンバリましょう。"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x1A"
+msgid "もう、あなたに脱がされています。"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x1B"
+msgid "「ああーっ・・あなたって上手ねぇ・・・」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x1C"
+msgid "「そんなコト、どうだっていいじゃない。それより、はやくぅ・・・」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x1D"
+msgid "ピンク色のきれいなお( )んこです。おっ! もうぬれてきていますよ!"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x1E"
+msgid "「ああーん・・・」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x1F"
+msgid "「ああっ!いやあ‼」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x20"
+msgid "「あっ、あああ・・・」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x21"
+msgid "「あっ・・・」"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x22"
+msgid "「ああーん、やめちゃイヤ‼」 エリカは少しふまんそうですが・・・"
+msgstr ""
+
+#. Salle 35
+msgctxt "salle 35 0x23"
+msgid "「ああーん、 もっと、やさしくして・・・」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x10"
+msgid "エリカは、任務を忘れてあなたにむちゅうです。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x11"
+msgid "窓があります。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x12"
+msgid "バーン‼ 「ああびっくりした。せっかく気分だしてたのに・・・」と、エリカは少しおこっています。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x13"
+msgid "「ああっ、やめないで・・・」 エリカは少し、もの足りないようです。が、あなたには任務があります。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x14"
+msgid "もう、エリカは何もつけていません。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x15"
+msgid "もう、グチョグチョにぬれています。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x16"
+msgid "「は、初めてだわ、こんなの・・・」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x17"
+msgid "あまりの快感で苦しそうです。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x18"
+msgid "かなり感じてきているようです。もう少し、がんばってください。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x19"
+msgid "あなたに、しがみついています。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x1A"
+msgid "「ああっ、見ないで!はずかしい・・・」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x1B"
+msgid "名前なんか、どうでもよろしい。さあ、もっとがんばってください。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x1C"
+msgid "そんなことをしているひまは、ありません。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x1D"
+msgid "「いたーい!もっとやさしくしてぇ・・・」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x1E"
+msgid "まだ、ふくらみきっていない感じです。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x1F"
+msgid "きゅっ! と、引きしまっています。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x20"
+msgid "すこしポチャッとした感じです。"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x21"
+msgid "「ああーん、あまりいじらないでぇ・・・」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x22"
+msgid "「いやっ・・いやいや・・・」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x23"
+msgid "「は、はやく・・どうにかしてぇ・・・」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x24"
+msgid "「ああっ!」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x25"
+msgid "「あっ! あああっ・・・ ああっ‼」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x26"
+msgid "「あうっ‼ い、いいっ!」"
+msgstr ""
+
+#. Salle 36
+msgctxt "salle 36 0x27"
+msgid "「あーー‼」"
+msgstr ""
+
+#. Salle 37
+msgctxt "salle 37 0x10"
+msgid "窓から、敵の基地が見えてきました。小惑星をくりぬいて作られた基地です。"
+msgstr ""
+
+#. Salle 37
+msgctxt "salle 37 0x11"
+msgid "この宇宙船は、そこに着陸するようです。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x10"
+msgid "「誰だ、そこにいるのは! 出てこい‼」 あなたとエリカは、敵に見つかってしまいました!"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x11"
+msgid "「何をしている!あやしいヤツだ!」 あなたとエリカは、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x12"
+msgid "エリカは何も答えくれません。自分ではんだんするしかないようです。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x13"
+msgid "「こんな物を持っているとは、あやしいヤツだ!」 あなたとエリカは、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x14"
+msgid "「誰だ、お前は!」 あなたとエリカは、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x15"
+msgid "す手ではとてもかないません。あなたは、敵に撃ち殺されてしまいました。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x16"
+msgid "逃ても、すぐに撃たれてしまいそうです。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x17"
+msgid "銃をかまえた敵がいるのに・・・ そんなことはできません。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x18"
+msgid "そんな、ムチャクチャなことはできません。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x19"
+msgid "あなたを、銃で狙っています。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x1A"
+msgid "敵の兵士用コスチュームのようです。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x1B"
+msgid "敵の、兵士用ヘルメットのようです。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x1C"
+msgid "ブーツをはいています。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x1D"
+msgid "何の機械か、よくわかりません。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x1E"
+msgid "あなたの、すぐ後にいます。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x1F"
+msgid "エリカがいます。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x20"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x21"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 38
+msgctxt "salle 38 0x22"
+msgid "もちろん、下は床です。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x10"
+msgid "敵は倒れました。あなたとエリカは敵と服を取りかえて、基地に入りこもうというわけです。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x11"
+msgid "今、ちょうど着がえているところです。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x12"
+msgid "「ちょっと、あんた! 向こうをむいててよ‼」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x13"
+msgid "あなたに撃たれて、死んでいます。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x14"
+msgid "「ちょっと、何してんのよ! このスケベ‼」"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x15"
+msgid "「どこ行くの?待ちなさいよ‼」と、エリカは言っています。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x16"
+msgid "「あなたも、早く着がえなさいよ!」と、言っています。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x17"
+msgid "「えっ、名前? 忘れたの!エリカよ、エリカ‼」"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x18"
+msgid "「きゃっ!危ない‼ そんな物、しまっておきなさい!」"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x19"
+msgid "「きゃっ! いたあい!何すんの、あんた!あたしにうらみでもあんの‼」"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x1A"
+msgid "「そんなバカなことやってないで、早く着がえなさい!」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x1B"
+msgid "「また必要になるかもしれないから、持ってなさいよ。」と、エリカが拾ってくれました。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x1C"
+msgid "「あっ、これ後で必要になるから、持ってなさい。」と、エリカが拾ってくれました。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x1D"
+msgid "「ああーん、やめてよ! そんなことしてる時じゃないでしょう‼」"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x1E"
+msgid "「もうっ・・さっきしたばかりじゃないの、こまった人ねぇ・・・」"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x1F"
+msgid "「やめなさい! あんた、ほんとにやる気あんの⁉」と、エリカがおこっています。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x20"
+msgid "「それはあなたが持っていた方がいいわよ。」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x21"
+msgid "窓があります。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x22"
+msgid "「ウロチョロしてないで、早く着がえなさい。」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 39
+msgctxt "salle 39 0x23"
+msgid "「何すんのよ!このスケベ‼」と、なまいきなことを言っています。まだこしがフラついてるくせに・・。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x10"
+msgid "「あっあっ・・やめてぇ・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x11"
+msgid "少し、いやがっているようにも見えますが・・・どうなんでしょうね?"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x12"
+msgid "だんだん、感じてきているようです。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x13"
+msgid "床におしつけられ、つぶれています。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x14"
+msgid "りっぱなおしりです。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x15"
+msgid "まだ、きれいなピンク色をしています。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x16"
+msgid "むねまで、まくり上げられています。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x17"
+msgid "「あっ、どこ行くの?やめないで、おねがい・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x18"
+msgid "「ああーん、もっと、やさしくしてぇ・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x19"
+msgid "「ああっ・・さっきのがまだのこっているみたい・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x1A"
+msgid "こんな時、そんな物を出さないでください。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x1B"
+msgid "「い、いたい‼ やめてぇ・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x1C"
+msgid "これいじょう、脱がさなくても十分でしょう・・・"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x1D"
+msgid "窓があります。"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x1E"
+msgid "「ああ・・やめないで  もう少し・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x1F"
+msgid "「あっ・・・そんなところを・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x20"
+msgid "「あん・・・ん・・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x21"
+msgid "「ああーん・・」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x22"
+msgid "「あっ、ああーー!」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x23"
+msgid "「あっ、い、いい!」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x24"
+msgid "「あうっ!あうっ、うっ・・・う」"
+msgstr ""
+
+#. Salle 40
+msgctxt "salle 40 0x25"
+msgid "そんなことをしているばあいでは、ありません。"
+msgstr ""
+
+#. Salle 41
+msgctxt "salle 41 0x10"
+msgid "宇宙船は敵基地の、発着ポートに着陸したようです。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x10"
+msgid "ここは、敵基地の格納庫です。戦闘機がならんでいます。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x11"
+msgid "あなたのそばにいます。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x12"
+msgid "格納庫のカベがあります。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x13"
+msgid "天井が見えるだけですが・・・"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x14"
+msgid "もちろん、床があります。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x15"
+msgid "敵の宇宙戦闘機です。脱出する時にやく立ちそうです。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x16"
+msgid "「ここまできて逃げるなんて、なさけない‼」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x17"
+msgid "どちらへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x18"
+msgid "「そんなことをしたら、敵に見つかっちゃうじゃないの!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x19"
+msgid "「何しているの? そんなことをしているヒマはないのよ!」と、エリカは言っていますが・・・"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x1A"
+msgid "「待って、これ、必要な物なのよ。」と、エリカが拾ってきてくれました。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x1B"
+msgid "「どっちへ行けばいいのか、忘れちゃった。」と、無責任なことを言っています。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x1C"
+msgid "「もう忘れたの?エリカよ、エ、リ、カ!」"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x1D"
+msgid "「これは、あなたが持ってて。」と、エリカは言っています。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x1E"
+msgid "「敵に見つかったらどうするの!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x1F"
+msgid "「そっちへ行ったら、敵に見つかっちゃうじゃない!」と、エリカに止められてしまいました。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x20"
+msgid "ひじょうに巨大な基地です。どっちへ行っていいのか、見当もつきません。"
+msgstr ""
+
+#. Salle 42
+msgctxt "salle 42 0x21"
+msgid "ごらんのように、戦闘機がならんでいます。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x10"
+msgid "敵の兵士がいます。格納庫の見はりのようです。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x11"
+msgid "よく見えませんが、レーザーガンのようです。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x12"
+msgid "ドアがあります。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x13"
+msgid "広い、格納庫があります。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x14"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x15"
+msgid "天井が、見えるだけですが・・・"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x16"
+msgid "格納庫の、床があります。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x17"
+msgid "「どこに行くの!ちょっと待ってよ!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x18"
+msgid "カベがあって行けません。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x19"
+msgid "「まずいわねぇ・・・こんなところに見はりがいるなんて・・・」と、言っています。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x1A"
+msgid "「何だ、お前たちは!動くな‼」 あなたとエリカは、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x1B"
+msgid "「だめ‼ 銃は音がするから・・・」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x1C"
+msgid "OK! ボカッ‼"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x1D"
+msgid "ボカ! 「イテッ! 誰だ、お前たちは!」 あなたとエリカは、敵に捕まつてしまいました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x1E"
+msgid "「キャッ!」エリカの悲鳴で、敵に見つかってしまいました!あなたとエリカは、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x1F"
+msgid "「やめなさいよ!敵に見つかったらどうするの!」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x20"
+msgid "「ふざけないでよ!まったくもう・・・」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x21"
+msgid "「わぁっ!誰かきてくれ!」 敵兵が何人も出てきて、あなたとエリカは捕まってしまいました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x22"
+msgid "「行っちゃダメ!捕まっちゃうわ!」と、エリカに止められてしまいました。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x23"
+msgid "あなたのそばにいます。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x24"
+msgid "見はりは一人だけのようです。まだ、こちらに気がついていません。"
+msgstr ""
+
+#. Salle 43
+msgctxt "salle 43 0x25"
+msgid "敵のカゲにかくれてよく見えません。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x10"
+msgid "あっけなく、敵は倒れました。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x11"
+msgid "気ぜつしています。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x12"
+msgid "もう何も持っていないようです。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x13"
+msgid "カードを一枚持っています。あなたはそれを、取りました。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x14"
+msgid "他には、誰もいないようです。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x15"
+msgid "「ちょっと待ってね、スペクトロンがどこにあるか、思い出すから。」と、言っています。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x16"
+msgid "「エリカよ、エリカ! しっかりおぼえてね!」"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x17"
+msgid "カードはもう取りました。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x18"
+msgid "カードは、どこにいったのかわかりません。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x19"
+msgid "こんな大きな銃はじゃまになるだけです。やめておきましょう。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x1A"
+msgid "銃はひとつで十分です。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x1B"
+msgid "「だ、だめよ・・・そんなことしたら・・・」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x1C"
+msgid "敵はもう、気ぜつしていますが・・・"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x1D"
+msgid "「これは、後で必要になるかもしれないわよ。」と、エリカが拾ってくれました。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x1E"
+msgid "「あんたが持っといてよ!」と、エリカはうけ取りません。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x1F"
+msgid "あなたの後にいます。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x20"
+msgid "ドアがあります。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x21"
+msgid "格納庫の、カベがあります。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x22"
+msgid "格納庫があります。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x23"
+msgid "「やめなさい!ほんとにもう・・・」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x24"
+msgid "「やめてよ!あんたって、本当にスケベね‼」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x25"
+msgid "「ああーん、やめてよぉ・・・」"
+msgstr ""
+
+#. Salle 44
+msgctxt "salle 44 0x26"
+msgid "「そっちへいっちゃ、ダメ!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x10"
+msgid "正面に、ドアがあります。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x11"
+msgid "敵の見はりがいます。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x12"
+msgid "さっきの敵が倒れています。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x13"
+msgid "かなり、がんじょうなドアです。そばに、カードをいれる穴があります。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x14"
+msgid "カードを、入れる穴です。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x15"
+msgid "ドアを開けないと、入れません。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x16"
+msgid "「このドアを早く開けてよ!」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x17"
+msgid "ドアのそばのスロットにカードを入れると、音もなくドアが開きました。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x18"
+msgid "うけ取ったカードを、エリカがスロットに投入すると、ドアが開きました。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x19"
+msgid "「これはやっぱり、あなたが持ってて・・・」と、うけ取ろうとしません。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x1A"
+msgid "「エリカよ、エリカ! まだおぼえてないの‼」"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x1B"
+msgid "「何してんの!そんなことしても、開くわけないじゃない!」と、エリカは言っています。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x1C"
+msgid "「きゃあ!何すんのよ、バカ‼」"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x1D"
+msgid "「あっ!それ、後で必要になるんじゃないの?」と、エリカが拾ってきてくれました。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x1E"
+msgid "「だめよ!そんなことをしても、ドアは開かないわよ!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x1F"
+msgid "「イテテッ!」 カベにぶつかってしまいました。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x20"
+msgid "あなたのそばにいます。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x21"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x22"
+msgid "戦闘機がならんでいます。"
+msgstr ""
+
+#. Salle 45
+msgctxt "salle 45 0x23"
+msgid "ゴツン‼ 戦闘機にぶつかってしまいました。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x10"
+msgid "巨大な機械のあるところへ出ました。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x11"
+msgid "天井は、かなり高いところにあります。おっ!ハシゴがあります。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x12"
+msgid "おっ! ハシゴがあります。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x13"
+msgid "「あれっ、どっちへ行ったらいいんだろう・・」と、なさけないことを言っています。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x14"
+msgid "「エリカよ! もう、おぼえたでしょう。」"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x15"
+msgid "あなたは手すりをのりこえて、下に落ちてしまいました。この高さでは、たすかりません。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x16"
+msgid "「待ってよ!こんなところじゃ、イヤ‼」と、言っています。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x17"
+msgid "「やめてよ!やる気がないんなら、あたしもうかえる‼」と、言っています。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x18"
+msgid "敵のヘルメットです。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x19"
+msgid "敵の服です。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x1A"
+msgid "大きな機械です。たぶん、エネルギープラントでしょう。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x1B"
+msgid "「えっ!あたしに持てっていうの?あんたが持っときなさいよ。」と、うけ取りません。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x1C"
+msgid "「きゃっ!どうしてこんなことするの⁉ あたしにうらみでもあんの!」"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x1D"
+msgid "「きゃっ!危ないじゃないの‼」"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x1E"
+msgid "どっちへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x1F"
+msgid "はるか下の方に、敵の兵士がいます。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x20"
+msgid "普通の手すりです。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x21"
+msgid "エリカは、あなたを見ています。"
+msgstr ""
+
+#. Salle 46
+msgctxt "salle 46 0x22"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x10"
+msgid "ハシゴは、ずうっと上の方までつづいています。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x11"
+msgid "「あっ!思い出した‼ このはしごを登れば、スペクトロンへの近道よ。」"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x12"
+msgid "「いいかげんにおぼえてよ!エリカよ、わかった⁉」"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x13"
+msgid "あなたは手すりを乗りこえて、下に落ちてしまいました。この高さでは、とてもたすかりません。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x14"
+msgid "OK! でも、あなたは下で待ちかまえていた敵に、捕まってしまいました。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x15"
+msgid "ゴチン! あなたは、カベにぶつかってしまいました。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x16"
+msgid "はしごは、下の方までつづいています。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x17"
+msgid "ここまできて、そんなことはできません。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x18"
+msgid "「あっ!そんなことをしたら、敵に見つかってしまう・・・」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x19"
+msgid "あなたのそばにいます。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x1A"
+msgid "ハシゴのとちゅうに、大きな穴があいています。そこが、スペクトロンへの近道だそうです。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x1B"
+msgid "天井は、ずうっと上の方にあります。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x1C"
+msgid "人が、十分に通れるぐらいの大きさです。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x1D"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x1E"
+msgid "手すりがあります。"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x1F"
+msgid "「いたーい‼」 何てことをするのですか!"
+msgstr ""
+
+#. Salle 47
+msgctxt "salle 47 0x20"
+msgid "OK! でも、別に何もおこりません。手が痛かっただけです。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x10"
+msgid "つ、ついに問題の、スペクトロンを発見しました。早くぶっ壊してしまいましょう!"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x11"
+msgid "エリカは、あなたのそばにいます。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x12"
+msgid "ふくざつな機械がならんでいます。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x13"
+msgid "スペクトロンの、中心があります。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x14"
+msgid "下は、普通の床です。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x15"
+msgid "機械は、ずっと上の方までつづいています。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x16"
+msgid "ふくざつで、さっぱりわかりません。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x17"
+msgid "そんな銃では、スペクトロンは壊せません。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x18"
+msgid "使い方がわかりません。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x19"
+msgid "動かしかたが、わかりません。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x1A"
+msgid "「早く、そのマイクロ爆弾をあたしにかして!」"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x1B"
+msgid "「そんなことより、早くそのマイクロ爆弾をあたしにかして!」"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x1C"
+msgid "「こんなとき、何言ってるの! そんなこと、どうだっていいじゃない!」"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x1D"
+msgid "「ここがスペクトロンの中心よ。えっ、それであたしにどうしろっていうの!知らないわよ!」"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x1E"
+msgid "「えっ、これであたしにスペクトロンを撃てっていうの?あんた自分でしたら!」"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x1F"
+msgid "「いたーい!」"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x20"
+msgid "「こんな時、そんなことをしているばあいじゃないわよ!」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x21"
+msgid "OK! でも、スペクトロンはビクともしません!"
+msgstr ""
+
+#. Salle 48
+msgctxt "salle 48 0x22"
+msgid "「どこにいくの?早くスペクトロンをブッ壊してよ!」"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x10"
+msgid "エリカは、マイクロ爆弾をセットしました。"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x11"
+msgid "「あと60分で爆発するようにセットしたわよ!早くにげましょう!」"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x12"
+msgid "「えっ、名前?もう、こんな時に何言ってんのよ!」"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x13"
+msgid "「きゃあ!痛いじゃないの‼」 ボカッ!  ・・・エリカになぐられてしまいました。"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x14"
+msgid "「やめてよ!死にたいの、あんた‼」"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x15"
+msgid "「やめてよ!そんなことしている時じゃないでしょう!」"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x16"
+msgid "「何してんの!早くにげないと、爆発にまき込まれちゃうわよ!」"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x17"
+msgid "「あんた、気でもくるったの?いいわよ、いつまでもそうしてなさい!あたし一人で逃げるから‼」"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x18"
+msgid "ゴツン! あなたは、スペクトロンにぶつかってしまいました。"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x19"
+msgid "ゴツン! あなたは、カベにぶつかってしまいました。"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x1A"
+msgid "わけのわからない、機械がならんでいます。"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x1B"
+msgid "スペクトロンは、上の方までつづいているようです。"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x1C"
+msgid "通路があります。"
+msgstr ""
+
+#. Salle 49
+msgctxt "salle 49 0x1D"
+msgid "「そんな物、いらないわ!」と、エリカはうけ取りません。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x10"
+msgid "前に通ったことのある通路に出ました。倒したはずの見はりはいなくなっています。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x11"
+msgid "格納庫です。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x12"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x13"
+msgid "戦闘機が、いっぱいならんでいます。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x14"
+msgid "どの戦闘機も燃料が入っていません。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x15"
+msgid "どっちへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x16"
+msgid "カベがあって、行けません。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x17"
+msgid "「どこ行くの!見つかっちゃうわよ‼」と、エリカが言っていますが・・・"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x18"
+msgid "「早く逃げないと、おしまいよ‼」と、エリカが言っていますが・・・"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x19"
+msgid "「そんなの、どうでもいいじゃない!」と、答えてくれません。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x1A"
+msgid "燃料が入っていないので、動きません。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x1B"
+msgid "「何してるの!アタマおかしいんじゃない?」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x1C"
+msgid "「きゃっ! いたーい‼」"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x1D"
+msgid "「だめよ、燃料が入っていないからとばないわよ!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x1E"
+msgid "「まさか、それで逃げようっていうんじゃないでしょうね!」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x1F"
+msgid "「こんな物、いらない!」と、エリカはうけ取りません。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x20"
+msgid "バーン! 銃声を聞いて出てきた敵兵に、あなたとエリカは捕まってしまいました。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x21"
+msgid "格納庫のカベがあります。"
+msgstr ""
+
+#. Salle 50
+msgctxt "salle 50 0x22"
+msgid "エリカは、あなたのそばにいます。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x10"
+msgid "敵の男が、宇宙船を整備しています。燃料も入れているようです。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x11"
+msgid "格納庫です。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x12"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x13"
+msgid "小型の宇宙船です。ビーム砲もついています。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x14"
+msgid "エリカは、あなたのそばにいます。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x15"
+msgid "敵は一人しかいないようです。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x16"
+msgid "ここからでは、よく見えません。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x17"
+msgid "「敵は一人だけみたい・・・やっつけてしまおうか・・・」と、エリカは言っています。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x18"
+msgid "OK!でも、弾が外れて燃料に引火・・・大爆発をおこして、あなたたちも死んでしまいました。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x19"
+msgid "「わあっ!誰かきてくれ‼」 あなたとエリカは、敵兵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x1A"
+msgid "「きゃあ!何すんの‼」エリカがさわいだために敵に見つかり、あなたたちは敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x1B"
+msgid "「ちょっとあんた、やめなさいよ!敵に見つかったらどうすんの‼」と、エリカは言っています。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x1C"
+msgid "OK! でも、その前に敵に見つかってしまいました!あなたとエリカは、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x1D"
+msgid "「誰だ、お前は!」 あなたとエリカは、敵に捕まってしまいました。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x1E"
+msgid "どっちへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x1F"
+msgid "銃の落ちた音で敵に見つかり、あなたとエリカは捕まってしまいました。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x20"
+msgid "「どこにいくの!見つかっちゃうじゃないの!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x21"
+msgid "カベがあって、行けません。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x22"
+msgid "格納庫の天井があります。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x23"
+msgid "燃料車のようです。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x24"
+msgid "燃料を戦闘機に入れているところです。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x25"
+msgid "燃料ホースのようです。"
+msgstr ""
+
+#. Salle 51
+msgctxt "salle 51 0x26"
+msgid "OK! 敵は、あっけなく倒れました。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x10"
+msgid "敵の整備兵が倒れています。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x11"
+msgid "ごらんの通り、完全に気をうしなっています。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x12"
+msgid "「この宇宙船に乗って、逃げましょう!」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x13"
+msgid "「あたしもう、つかれちゃった。早くどっちへ行くか、きめてよ!」と、言っています。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x14"
+msgid "「エリカよ、エリカ! まだおぼえてないの?」"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x15"
+msgid "「きゃあ!」 エリカの悲鳴を聞いて出てきた敵に、あなたたちは捕まってしまいました。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x16"
+msgid "「やめなさいよ!そんなことしてるヒマはないのよ!」と、エリカがおこっています。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x17"
+msgid "「やめなさいよ!それより、早く逃げなきゃ・・・」と、言っています。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x18"
+msgid "どちらへ行っていいのか、わかりません。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x19"
+msgid "バーン! 銃声を聞いて出てきた敵に、あなたたちは捕まってしまいました。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x1A"
+msgid "カベがあって、行けません。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x1B"
+msgid "「ど゙こへ行くの!見つかっちゃうじゃないの!」と、エリカに止められました。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x1C"
+msgid "何も、持っていないようです。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x1D"
+msgid "あなたのそばにいます。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x1E"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x1F"
+msgid "つなぎの作業服です。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x20"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x21"
+msgid "床に、敵が倒れています。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x22"
+msgid "格納庫です。戦闘機がならんでいます。"
+msgstr ""
+
+#. Salle 52
+msgctxt "salle 52 0x23"
+msgid "ここからでは、見えません。中に入ってみますか?"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x10"
+msgid "宇宙船の、コクピットです。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x11"
+msgid "「ちょっとあんた!あたしをバカにしているんでしょう‼」と、エリカがおこっています。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x12"
+msgid "「やめてって言ってるでしょう‼このドスケベ‼」と、エリカになぐられてしまいました。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x13"
+msgid "あなたのとなりにすわっています。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x14"
+msgid "エリカがいます。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x15"
+msgid "宇宙船の、窓があります。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x16"
+msgid "宇宙船の、天井があります。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x17"
+msgid "もちろん、コクピットの床があります。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x18"
+msgid "後はカベになっているようですが、よくわかりません。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x19"
+msgid "「あれっ、おかしいな、この宇宙船壊れてんじない?」と、言っています。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x1A"
+msgid "動きません。この宇宙船は壊れているようです。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x1B"
+msgid "はんのうがありません。この宇宙船は壊れているようです。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x1C"
+msgid "「壊れている宇宙船になんか乗って、どうしようっていうの⁉」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x1D"
+msgid "「銃は、また必要になるかもしれないわよ。」と、エリカが拾ってきてくれました。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x1E"
+msgid "「ちょっと待って!そんな物で、何を撃つつもりなのよ‼」と、エリカに止められてしまいました。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x1F"
+msgid "発射可能です。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x20"
+msgid "「そんなこと、どうだっていいじゃない!」と、エリカは答えてくれません。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x21"
+msgid "こしょうしているようです。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x22"
+msgid "格納庫です。さっきの整備兵が、まだ倒れています。"
+msgstr ""
+
+#. Salle 53
+msgctxt "salle 53 0x23"
+msgid "ごらんのように、何も表示されていません。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x10"
+msgid "なんと!部合よく、緊急用の脱出カプセルがありました。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x11"
+msgid "「これよ、これ!これさえあればこっちのモンよ。早く中に入って!」"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x12"
+msgid "「エリカよ!いいかげんに、おぼえてよね!」"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x13"
+msgid "「こんな時に、ふざけないでよ!」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x14"
+msgid "「やめてって言ってるのに!後で、ゆっくり相手したげるから・・・」"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x15"
+msgid "「ちょっとあんた、そんなところでウロウロしないでよ!」"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x16"
+msgid "どつちへ逃げていいのか、わかりません。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x17"
+msgid "「銃は、あなたが持っといてよ。」と、うけ取りません。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x18"
+msgid "「いたーい!こんな時に、何すんのよ!」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x19"
+msgid "「こんな時、そんなことをしているヒマはないでしょう!」"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x1A"
+msgid "バーン‼ 「なんてことすんのよ!危ないじゃない!」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x1B"
+msgid "「どうしたの、あんまりジロジロ見ないでよ。」と、エリカが言っています。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x1C"
+msgid "天井があります。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x1D"
+msgid "床があります。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x1E"
+msgid "カベがあります。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x1F"
+msgid "格納庫があります。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x20"
+msgid "カプセルのドアがならんでいます。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x21"
+msgid "これは、脱出するのに使えそうです。"
+msgstr ""
+
+#. Salle 54
+msgctxt "salle 54 0x22"
+msgid "かんたんに、開きそうです。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x10"
+msgid "あなたとエリカは、脱出カプセルの中に入りました。あとは、ボタンをおすだけです。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x11"
+msgid "カプセルの入口があります。ドアは、自動で閉じました。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x12"
+msgid "カプセルのカベがあります。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x13"
+msgid "カプセルの天井があります。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x14"
+msgid "床は、クッションになっています。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x15"
+msgid "カプセルの床があります。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x16"
+msgid "中はせまくて、二人でも少しきゅうくつです。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x17"
+msgid "カプセルはスイッチを入れるだけで、いつでも発射可能です。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x18"
+msgid "カプセルの発射スイッチや通信機などです。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x19"
+msgid "何も、表示されていません。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x1A"
+msgid "ドアが開きません。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x1B"
+msgid "「わぁ、何これ!ムッチャクチャ、せまいじゃない!」と、ふへいを言っています。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x1C"
+msgid "「名前? エリカよ!なんべん言ったらわかんの⁉」"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x1D"
+msgid "エリカの、大きなおしりがあります。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x1E"
+msgid "「こんなせまいとこで、そんな物、ふりまわさないでよ!」と、エリカが言っていますが・・・"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x1F"
+msgid "バーン‼ 「なんてことすんのよ、危ないじゃない! バカ!」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x20"
+msgid "「そんなことしてないで、早くカプセルを発射してよ!」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x21"
+msgid "「あっ、ああ・・ん」"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x22"
+msgid "「ふざけていないで、早くスイッチを入れてよ!」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x23"
+msgid "OK! 体をぶつけても、痛くないようにできています。手が痛くありません。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x24"
+msgid "「痛いなぁ!そんなことしてないで、早くボタンをおしてよ!」と、エリカは言っています。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x25"
+msgid "「せまいんだから、ウロチョロしないでよ!」と、エリカにしかられてしまいました。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x26"
+msgid "形のいい、大きなおしりです。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x27"
+msgid "キュッ!と引きしまっています。"
+msgstr ""
+
+#. Salle 55
+msgctxt "salle 55 0x28"
+msgid "敵の兵士用ユニフォームです。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x10"
+msgid "「ああっ・・・好きよ、好き・・・」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x11"
+msgid "どっかーん‼ ああ、すっきりした。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x12"
+msgid "こんな時、そんなことをしないでください。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x13"
+msgid "「ああっ、そんな物、早くしまってょ・・・」と、エリカは言っています。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x14"
+msgid "「ああーん、早く逃げないと、爆発しちゃうー!」と、言っています。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x15"
+msgid "ドアが開きません。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x16"
+msgid "「エ、エリカ・・よ・・・」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x17"
+msgid "なかなか、形のいいオッパイです。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x18"
+msgid "かわいいおへそです。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x19"
+msgid "かわいい、おま( )こです。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x1A"
+msgid "「あっ、痛いじゃない!何すんのよ‼」と、エリカはおこっています。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x1B"
+msgid "「ああっ!やめて‼」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x1C"
+msgid "「やめて、見ないで・・・はずかしいわ・・・」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x1D"
+msgid "「あっ、もうやめちゃうの?だめねえ・・・」と、エリカはもの足りなさそうですが・・・"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x1E"
+msgid "「あっ!そこは・・・!」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x1F"
+msgid "「いやあ!はずかしい!」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x20"
+msgid "いつでも発射可能です。早く逃げましょう。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x21"
+msgid "きれいな足をしています。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x22"
+msgid "プリプリした、おしりです。"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x23"
+msgid "「あっ、ああっー! いい! 気持ちいい‼」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x24"
+msgid "「ああ・・・ん」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x25"
+msgid "「あうっ!  うっ!」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x26"
+msgid "「ああっ・・こんなの、初めてよぉ・・・」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x27"
+msgid "「あっ! そこ、そこよ‼」"
+msgstr ""
+
+#. Salle 56
+msgctxt "salle 56 0x28"
+msgid "「あっ・・・ああ・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x10"
+msgid "「もっ、もうやめて! おかしくなっちゃうわ・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x11"
+msgid "「ああっ、もっと強く、強くしてぇ・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x12"
+msgid "「ああっ!もうゆるしてぇ・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x13"
+msgid "「あっ!もう死にそうよ・・・ああ!」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x14"
+msgid "「ずっと、こうしていたいわ・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x15"
+msgid "「あっ、あああ・・・やめないで・・・」 エリカはふまんそうですが・・・"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x16"
+msgid "「あっ、そんなに、いじりまわさないでぇ・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x17"
+msgid "快感のためか、苦しがっているようにも見えますが・・・"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x18"
+msgid "「ああーーっ!」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x19"
+msgid "「ああ・・・ん」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x1A"
+msgid "「ああーっ、あっ! あーー‼」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x1B"
+msgid "「あううっ!うっ、ああーー!」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x1C"
+msgid "ドッカーン! ああっ、すっきりした。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x1D"
+msgid "もうすでに、グッチョングッチョンです。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x1E"
+msgid "もうすでに、ズルズルのベチョベチョです。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x1F"
+msgid "できません。もっと、マジメにやってください。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x20"
+msgid "「ああっ・・・名前なんか、どうだっていいわ・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x21"
+msgid "「は、早く逃げなくちゃ・・・」と、言っていますが・・・"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x22"
+msgid "「あうっ!い、いたい‼」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x23"
+msgid "「そんな物いらない・・・それより早く・・・」"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x24"
+msgid "いつでも、発射可能です。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x25"
+msgid "ドアが開かないので、できません。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x26"
+msgid "はなの穴は、かなりひろがっています。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x27"
+msgid "こうふんして、ボッ起しています。"
+msgstr ""
+
+#. Salle 57
+msgctxt "salle 57 0x28"
+msgid "そんなことをしているヒマはありません!爆発の時がせまっています。"
+msgstr ""
+
+#. Salle 58
+msgctxt "salle 58 0x10"
+msgid "脱出カプセルは、あなたとエリカを乗せて発射されました。"
+msgstr ""
+
+#. Salle 59
+msgctxt "salle 59 0x10"
+msgid "敵基地は、大爆発を起こして、消滅しました。"
+msgstr ""
+
+#. Salle 59
+msgctxt "salle 59 0x11"
+msgid "脱出がおくれて、あなたとエリカは、敵基地の爆発にまき込まれてしまいました。"
+msgstr ""
+
+#. Salle 60
+msgctxt "salle 60 0x10"
+msgid "あなたは、みごとに任務を果たしました!おめでとう‼"
+msgstr ""
+
+#. Salle 60
+msgctxt "salle 60 0x11"
+msgid "エリカは、あなたが抱いてくれなかったので、爆弾をセットしませんでした。"
+msgstr ""
+
+#. Salle 60
+msgctxt "salle 60 0x12"
+msgid "従って、あなたは敵基地の爆破に、しっぱいしてしまいました。女心はわかりませんね・・・"
+msgstr ""
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 01"
+msgid "前に行く"
+msgstr "Avancer"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 02"
+msgid "後ろに行く"
+msgstr "Reculer"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 03"
+msgid "左に行く"
+msgstr "À gauche"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 04"
+msgid "右に行く"
+msgstr "À droite"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 05"
+msgid "見る"
+msgstr "Regarder"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 06"
+msgid "行く"
+msgstr "Aller"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 07"
+msgid "入る"
+msgstr "Entrer"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 08"
+msgid "探す"
+msgstr "Chercher"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 09"
+msgid "調べる"
+msgstr "Examiner"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 10"
+msgid "話す"
+msgstr "Parler"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 11"
+msgid "取る"
+msgstr "Prendre"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 12"
+msgid "あける"
+msgstr "Ouvrir"
+
+#. Menu de droite : 14 caractères au plus.
+msgctxt "menu 13"
+msgid "やめる"
+msgstr "Arrêter"
+
+#. Texte d'interface (une ligne).
+msgctxt "interface hit_any_key"
+msgid ""
+"HIT ANY KEYっ! <F5><11>!<F5><01>┌<09><F3>も¥キ<ED>ー! "
+"<F5><11>!<F5><01>┌<09>も]キ<ED>ー! "
+"<F5><11>!<F5><01>┌<09>も^キ<ED>ーも_<FB>の●ゆな!@<F8><11> "
+"<F5><01>@<06><F3>も¥<ED>ー!@<F8><11> <F5><01>@<06>も]<ED>ー!@<F8><11> "
+"<F5><01>@<06>も^<ED>ーも_<FB>ちむ♥へ9ンの●ゆな<F3>も¥っ!┌<FB>キ<11>┐<FB><01> "
+"<03><ED>ーも]!┌<FB>キ<11>┐<FB><01> <03><ED>ーも^!┌<FB>キ<11>┐<FB><01> "
+"<03><ED>ーも_<FB>ちむ♥のへめムへ○ンへシンへんムの●ゆ<11>ー<F1>き<ED>Rむ♥め$<9E><1A><FE>"
+msgstr "APPUYEZ SUR UNE TOUCHE"
+
+#. Texte d'interface (une ligne).
+msgctxt "interface pause"
+msgid "HIT ANY KEY"
+msgstr "APPUYEZ SUR UNE TOUCHE"
+
+#. Texte d'interface (une ligne).
+msgctxt "interface game_over"
+msgid "GAME OVER"
+msgstr "PARTIE TERMINÉE"
+
+#. Texte d'interface (une ligne).
+msgctxt "interface sauvegarde"
+msgid "DATAをセーブします。  PUSH RETURN KEY"
+msgstr "Sauvegarde de la partie.  APPUYEZ SUR ENTRÉE"
+
+#. Texte d'interface (une ligne).
+msgctxt "interface chargement"
+msgid "DATAをロードします。  PUSH RETURN KEY"
+msgstr "Chargement de la partie.  APPUYEZ SUR ENTRÉE"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x00"
+msgid "みる"
+msgstr "regarder|voir"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x01"
+msgid "しらべ"
+msgstr "examiner|fouiller|inspecter"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x02"
+msgid "すすむ"
+msgstr "avancer"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x03"
+msgid "いく"
+msgstr "aller"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x04"
+msgid "もどる"
+msgstr "revenir|retourner"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x05"
+msgid "にげる"
+msgstr "fuir"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x06"
+msgid "はなす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x07"
+msgid "きく"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x08"
+msgid "はいる"
+msgstr "entrer"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x09"
+msgid "でる"
+msgstr "sortir"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x0A"
+msgid "あける"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x0B"
+msgid "つかう"
+msgstr "utiliser|allumer"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x0C"
+msgid "うつ"
+msgstr "tirer"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x0D"
+msgid "なぐる"
+msgstr "frapper"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x0E"
+msgid "のる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x0F"
+msgid "のぼる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x10"
+msgid "おりる"
+msgstr "descendre"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x11"
+msgid "なげる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x12"
+msgid "すてる"
+msgstr "jeter"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x13"
+msgid "ひろう"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x14"
+msgid "とる"
+msgstr "prendre"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x15"
+msgid "わたす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x16"
+msgid "あげる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x17"
+msgid "おかす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x18"
+msgid "せつくす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x19"
+msgid "きす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x1A"
+msgid "なめる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x1B"
+msgid "もむ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x1C"
+msgid "なでる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x1D"
+msgid "やめる"
+msgstr "arrêter"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x1E"
+msgid "ぬがす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x1F"
+msgid "うごか"
+msgstr "actionner|bouger"
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x20"
+msgid "おす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce verbe, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "verbe 0x21"
+msgid "いれる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x00"
+msgid "そら"
+msgstr "ciel"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x01"
+msgid "もり"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x02"
+msgid "みず"
+msgstr "eau"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x03"
+msgid "みずう"
+msgstr "lac"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x04"
+msgid "き"
+msgstr "arbre"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x05"
+msgid "えだ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x06"
+msgid "くさ"
+msgstr "herbe"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x07"
+msgid "くさむら"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x08"
+msgid "そうげ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x09"
+msgid "しげみ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x0A"
+msgid "いわ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x0B"
+msgid "いし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x0C"
+msgid "じめん"
+msgstr "sol"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x0D"
+msgid "つち"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x0E"
+msgid "がけ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x0F"
+msgid "せんとう"
+msgstr "chasseur|avion"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x10"
+msgid "ひこうき"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x11"
+msgid "きたい"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x12"
+msgid "そうじ"
+msgstr "commandes|manche"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x13"
+msgid "ざせき"
+msgstr "siège"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x14"
+msgid "こくぴ"
+msgstr "cockpit"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x15"
+msgid "つばさ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x16"
+msgid "たいや"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x17"
+msgid "しやりん"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x18"
+msgid "のずる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x19"
+msgid "えんじ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x1A"
+msgid "うちゆう"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x1B"
+msgid "こがた"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x1C"
+msgid "すいつち"
+msgstr "interrupteur"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x1D"
+msgid "ぼたん"
+msgstr "bouton"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x1E"
+msgid "がめん"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x1F"
+msgid "でいす"
+msgstr "écran"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x20"
+msgid "こんぴ"
+msgstr "ordinateur"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x21"
+msgid "ざんか"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x22"
+msgid "けむり"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x23"
+msgid "かげ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x24"
+msgid "かーど"
+msgstr "carte"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x25"
+msgid "じゆう"
+msgstr "pistolet|arme"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x26"
+msgid "れーざ"
+msgstr "laser"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x27"
+msgid "ぱいろ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x28"
+msgid "てき"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x29"
+msgid "あいて"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x2A"
+msgid "おんな"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x2B"
+msgid "おとこ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x2C"
+msgid "へいし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x2D"
+msgid "ふく"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x2E"
+msgid "うわぎ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x2F"
+msgid "ずぼ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x30"
+msgid "なまえ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x31"
+msgid "へるめつ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x32"
+msgid "くつ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x33"
+msgid "るう"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x34"
+msgid "えりか"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x35"
+msgid "げんし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x36"
+msgid "やり"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x37"
+msgid "おの"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x38"
+msgid "かいぶ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x39"
+msgid "かまきり"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x3A"
+msgid "はさみ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x3B"
+msgid "まち"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x3C"
+msgid "とし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x3D"
+msgid "たてもの"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x3E"
+msgid "びる"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x3F"
+msgid "はいきよ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x40"
+msgid "ひび"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x41"
+msgid "ひびわ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x42"
+msgid "われめ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x43"
+msgid "がれき"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x44"
+msgid "まど"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x45"
+msgid "はしら"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x46"
+msgid "たきび"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x47"
+msgid "ほのお"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x48"
+msgid "たべも"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x49"
+msgid "ぼうし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x4A"
+msgid "まき"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x4B"
+msgid "ぱらし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x4C"
+msgid "なか"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x4D"
+msgid "そと"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x4E"
+msgid "いりぐ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x4F"
+msgid "どあ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x50"
+msgid "てんと"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x51"
+msgid "くも"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x52"
+msgid "ほし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x53"
+msgid "きかい"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x54"
+msgid "かべ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x55"
+msgid "つうろ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x56"
+msgid "きち"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x57"
+msgid "てんじ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x58"
+msgid "ゆか"
+msgstr "plancher"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x59"
+msgid "ろーぷ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x5A"
+msgid "ひも"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x5B"
+msgid "つくえ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x5C"
+msgid "でーふ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x5D"
+msgid "だい"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x5E"
+msgid "ばいふ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x5F"
+msgid "かくのう"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x60"
+msgid "みはり"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x61"
+msgid "ばんへ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x62"
+msgid "すぺく"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x63"
+msgid "まいくろ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x64"
+msgid "てすり"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x65"
+msgid "はしご"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x66"
+msgid "せいび"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x67"
+msgid "ほーす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x68"
+msgid "きゆうゆ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x69"
+msgid "くるま"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x6A"
+msgid "じど"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x6B"
+msgid "だつし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x6C"
+msgid "かぷせ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x6D"
+msgid "ぱんつ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x6E"
+msgid "ぱんて"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x6F"
+msgid "ぶらし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x70"
+msgid "したぎ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x71"
+msgid "かお"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x72"
+msgid "め"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x73"
+msgid "くち"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x74"
+msgid "みみ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x75"
+msgid "はな"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x76"
+msgid "て"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x77"
+msgid "あし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x78"
+msgid "くびす"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x79"
+msgid "かみ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x7A"
+msgid "おまんこ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x7B"
+msgid "おめこ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x7C"
+msgid "しり"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x7D"
+msgid "へそ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x7E"
+msgid "はら"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x7F"
+msgid "むね"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x80"
+msgid "おつぱ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x81"
+msgid "ちぶさ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x82"
+msgid "ちくび"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x83"
+msgid "こし"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x84"
+msgid "ひげ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x85"
+msgid "あな"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x86"
+msgid "びーむ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x87"
+msgid "まえ"
+msgstr "devant"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x88"
+msgid "うしろ"
+msgstr "derrière"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x89"
+msgid "ひだり"
+msgstr "gauche"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x8A"
+msgid "みぎ"
+msgstr "droite"
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x8B"
+msgid "うえ"
+msgstr ""
+
+#. Mots que le joueur peut taper pour ce nom, séparés par « | » (ex. :
+#. examiner|fouiller). Le jeu ne compare que les 3 premiers caractères du mot
+#. japonais, souvent tronqué.
+msgctxt "nom 0x8C"
+msgid "した"
+msgstr ""
+
+#. Réponse à une question du jeu (identifiant, nom…). Formes acceptées,
+#. séparées par « | ».
+msgctxt "reponse 0xB584"
+msgid "615"
+msgstr ""
+
+#. Réponse à une question du jeu (identifiant, nom…). Formes acceptées,
+#. séparées par « | ».
+msgctxt "reponse 0xB587"
+msgid "おるき"
+msgstr "oruki|orki"
+
+#. Réponse à une question du jeu (identifiant, nom…). Formes acceptées,
+#. séparées par « | ».
+msgctxt "reponse 0xB58A"
+msgid "えりか"
+msgstr "erika"
+
+#. Réponse à une question du jeu (identifiant, nom…). Formes acceptées,
+#. séparées par « | ».
+msgctxt "reponse 0xB58D"
+msgid "さぎ"
+msgstr ""
