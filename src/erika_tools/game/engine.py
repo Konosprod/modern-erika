@@ -100,7 +100,7 @@ class Engine:
         self.room: Room = data.rooms[0]
         self.message = 0  # 9314
         self.last_command = None  # A39E
-        self.input_mode = "origine"  # « origine », « moderne » ou « traduite »
+        self.input_mode = "original"  # « original », « modern » ou « translated »
         self.tr: i18n.Translation | None = None
         self.font: i18n.LatinFont | None = None
         self.menu_shown = False
@@ -142,7 +142,7 @@ class Engine:
 
     def ui_text(self, col: int, name: str, color: int):
         """Texte d'interface (i18n.UI_TEXTS) sur la ligne de texte, traduit si possible."""
-        translated = self.tr.get(f"interface {name}") if self.tr else None
+        translated = self.tr.get(f"ui {name}") if self.tr else None
         if translated:
             self.display.latin(col * 12, TEXT_ROW, translated, color, self.font)
         else:
@@ -202,7 +202,7 @@ class Engine:
         moderne (romaji.py). Les lettres en attente s'affichent après le texte, comme la
         consonne du jeu. Un clic sur le menu insère un mot (MENU_ACTIONS).
         ESC (9554) : retourne None si allow_escape (sauvegarde), sinon le buffer tel quel."""
-        if self.input_mode == "traduite" and self.tr:
+        if self.input_mode == "translated" and self.tr:
             return (yield from self.read_translated(allow_escape))
         d = self.display
         buf: list[int] = []
@@ -223,7 +223,7 @@ class Engine:
             pending = new
 
         def finish():
-            if self.input_mode == "moderne":
+            if self.input_mode == "modern":
                 kana = romaji.finish(pending)
                 set_pending("")
                 for code in romaji.to_codes(kana, KANA_CODES):
@@ -239,7 +239,7 @@ class Engine:
                 return None if allow_escape else bytes(buf)
             if kind == "key" and value == "backspace":
                 if pending:
-                    set_pending(pending[:-1] if self.input_mode == "moderne" else "")
+                    set_pending(pending[:-1] if self.input_mode == "modern" else "")
                 elif buf:
                     buf.pop()
                     d.glyph(col, TEXT_ROW, 0x20, False, WHITE)
@@ -263,7 +263,7 @@ class Engine:
             if kind != "text":
                 continue
             for ch in value:
-                if self.input_mode == "moderne":
+                if self.input_mode == "modern":
                     self._modern_char(ch, pending, put, set_pending)
                 else:
                     self._original_char(ch, pending, put, set_pending)
@@ -355,7 +355,7 @@ class Engine:
     def menu_word(self, kana: str) -> str:
         """Mot traduit (premier synonyme) correspondant à un mot japonais du menu."""
         codes = bytes(kana_to_codes(kana))
-        for kind, table in (("verbe", self.data.verbs), ("nom", self.data.nouns)):
+        for kind, table in (("verb", self.data.verbs), ("noun", self.data.nouns)):
             for i, entry in enumerate(table):
                 word = bytes(entry).rstrip(b"\0")
                 if word and codes.startswith(word[:3]):
@@ -437,7 +437,7 @@ class Engine:
                 a = op["n"]
             elif kind == "a_var":
                 if op["addr"] != 0x8E04:
-                    raise ValueError(f"variable {op['addr']:#06x} non gérée")
+                    raise ValueError(f"unsupported variable {op['addr']:#06x}")
                 a = self.room_index
             elif kind == "cp":
                 zero, carry = a == op["n"], a < op["n"]
@@ -461,7 +461,7 @@ class Engine:
                         if kind == "jump":
                             return
             else:
-                raise ValueError(f"opération inconnue {kind}")
+                raise ValueError(f"unknown operation {kind}")
             pc = nxt
 
     def special(self, name: str, a: int, de: int):
@@ -509,7 +509,7 @@ class Engine:
         elif name == "disk_swap":
             pass  # « フロッピー2をドライブ1に… » : les deux disquettes sont déjà là
         else:
-            raise ValueError(f"routine inconnue {name}")
+            raise ValueError(f"unknown routine {name}")
 
     def pause(self):
         """HIT ANY KEY en magenta, attente d'une touche (9147)."""
@@ -601,7 +601,7 @@ class Engine:
         """ESC sur l'écran titre (910C) : Entrée charge la sauvegarde, une autre touche annule."""
         d = self.display
         d.clear_window()
-        self.ui_text(1, "chargement", MAGENTA)
+        self.ui_text(1, "load", MAGENTA)
         d.scroll()
         if (yield from self.wait_event()) != ("key", "return"):
             return
@@ -613,7 +613,7 @@ class Engine:
         """ESC pendant la saisie (9177) : Entrée sauvegarde, une autre touche annule."""
         d = self.display
         d.clear_window()
-        self.ui_text(1, "sauvegarde", MAGENTA)
+        self.ui_text(1, "save", MAGENTA)
         d.scroll()
         if (yield from self.wait_event()) == ("key", "return"):
             save.write(self.flags, self.room_index)
@@ -703,17 +703,17 @@ def main(image_path: str, input_mode: str | None = None, translation: str | None
     pygame.key.start_text_input()
 
     def caption():
-        pygame.display.set_caption(f"Erika — saisie {engine.input_mode} (F2 pour changer)")
+        pygame.display.set_caption(f"Erika — {engine.input_mode} input (F2 to switch)")
 
     try:
         audio = PygameAudio(pygame)
     except pygame.error as e:  # pas de périphérique audio : on joue sans le son
-        print(f"son désactivé : {e}")
+        print(f"sound disabled: {e}")
         audio = None
     engine = Engine(GameData(image_path), audio)
     if translation:
         engine.set_translation(i18n.Translation(translation, engine.data))
-    modes = ["traduite", "moderne", "origine"] if translation else ["moderne", "origine"]
+    modes = ["translated", "modern", "original"] if translation else ["modern", "original"]
     engine.input_mode = input_mode if input_mode in modes else modes[0]
     caption()
     flow = engine.run()

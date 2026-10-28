@@ -1,10 +1,10 @@
-"""Exploration automatique du jeu avec le moteur natif (sans affichage).
+"""Automatic exploration of the game with the native engine (headless).
 
-Parcours en largeur des états (salle, drapeaux 8E00-8E03) : depuis chaque état, on essaie
-une saisie par commande de la salle. Produit les salles atteintes, les scripts exercés,
-les game over, et un chemin (en romaji, rejouable dans MAME) vers chaque salle.
+Breadth-first search over states (room, flags 8E00-8E03): from each state, one input per
+room command is tried. Reports the rooms reached, the scripts run, the game overs, and a
+path (in romaji, replayable in MAME) to each room and to each ending.
 
-Usage : uv run python tools/explore.py [--json chemin.json]
+Usage: uv run python tools/explore.py [--json paths.json]
 """
 
 import argparse
@@ -96,7 +96,7 @@ def drive(gen):
     try:
         while True:
             if next(gen) is not None:
-                raise RuntimeError("attente inattendue en mode sans affichage")
+                raise RuntimeError("unexpected wait in headless mode")
     except StopIteration:
         pass
 
@@ -137,11 +137,11 @@ def word(entry: bytes) -> bytes:
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--json", help="écrit les chemins par salle dans ce fichier")
-    p.add_argument("--max-seconds", type=float, default=0, help="arrêt propre après ce délai (0 = aucun)")
-    p.add_argument("--flags", action="store_true", help="affiche les drapeaux vus à 1 dans chaque salle")
+    p.add_argument("--json", help="write the paths to each room to this file")
+    p.add_argument("--max-seconds", type=float, default=0, help="stop cleanly after this many seconds (0 = never)")
+    p.add_argument("--flags", action="store_true", help="show the flags seen set in each room")
     p.add_argument("--per-room", type=int, default=300,
-                   help="nombre maximal d'états (combinaisons de drapeaux) explorés par salle")
+                   help="maximum number of states (flag combinations) explored per room")
     args = p.parse_args()
     data = GameData(os.path.join(ROOT, "erika.d88"))
     table = romaji_table(data.mem)
@@ -250,12 +250,12 @@ def main():
     started = time.monotonic()
     while queue:
         if args.max_seconds and time.monotonic() - started > args.max_seconds:
-            print("  (arrêt : délai atteint)")
+            print("  (stopped: time limit reached)")
             break
         state = queue.popleft()
         expanded += 1
         if expanded % 500 == 0:
-            print(f"  … {expanded} états développés, {len(parent)} connus, file {len(queue)}", flush=True)
+            print(f"  … {expanded} states expanded, {len(parent)} known, queue {len(queue)}", flush=True)
         for buf in inputs(state[0]):
             for bit in (0, 1):
                 result, eng = step(state, buf, bit)
@@ -273,9 +273,9 @@ def main():
                     flag = int.from_bytes(state[1], "little") >> 22 & 1  # 8E02 bit 6 : choix de la fin
                     if flag not in endings:
                         endings[flag] = path_to(state) + [move]
-                        print(f"  FIN {'A' if flag else 'B'} atteinte en {len(endings[flag])} commandes", flush=True)
+                        print(f"  ENDING {'A' if flag else 'B'} reached in {len(endings[flag])} commands", flush=True)
                         if args.json:
-                            with open(args.json.replace(".json", f"_fin{'A' if flag else 'B'}.json"), "w",
+                            with open(args.json.replace(".json", f"_ending{'A' if flag else 'B'}.json"), "w",
                                       encoding="utf-8") as f:
                                 json.dump(endings[flag], f, ensure_ascii=False, indent=1)
                 elif result == "game_over":
@@ -286,25 +286,25 @@ def main():
                     per_room[result[0]] = per_room.get(result[0], 0) + 1
                     if result[0] not in rooms_seen:
                         rooms_seen.add(result[0])
-                        print(f"  salle {result[0]} atteinte en {depth[result]} commandes", flush=True)
+                        print(f"  room {result[0]} reached in {depth[result]} commands", flush=True)
                         dump()
                     queue.append(result)
                 if not eng.used_random:
                     break
 
-    print(f"états atteints : {len(parent)}")
-    print(f"salles atteintes ({len(rooms_seen)}/62) : {sorted(rooms_seen)}")
+    print(f"states reached: {len(parent)}")
+    print(f"rooms reached ({len(rooms_seen)}/62): {sorted(rooms_seen)}")
     distinct = set(data.scripts["entries"])
     covered = {data.scripts["entries"][n] for n in scripts_seen}
-    print(f"scripts exercés : {len(scripts_seen)} numéros, {len(covered)}/{len(distinct)} routines distinctes")
-    print(f"fins atteintes : {sorted('A' if f else 'B' for f in endings)}")
-    print(f"game over atteignables : {game_overs} transitions ; saisies non tapables en romaji : {unreplayable}")
+    print(f"scripts run: {len(scripts_seen)} numbers, {len(covered)}/{len(distinct)} distinct routines")
+    print(f"endings reached: {sorted('A' if f else 'B' for f in endings)}")
+    print(f"reachable game overs: {game_overs} transitions; inputs not typeable in romaji: {unreplayable}")
     best = best_states()
     far = max(best, key=lambda r: depth[best[r]])
-    print(f"salle la plus lointaine : {far} ({depth[best[far]]} commandes)")
+    print(f"farthest room: {far} ({depth[best[far]]} commands)")
     dump()
     if args.json:
-        print(f"chemins : {args.json}")
+        print(f"paths: {args.json}")
 
 
 if __name__ == "__main__":

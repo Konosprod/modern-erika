@@ -1,231 +1,232 @@
-# Erika (JAST, PC-8801) : formats et fonctionnement
+# Erika (JAST, PC-8801): formats and inner workings
 
-Toutes les adresses sont celles de la mémoire Z80 après le boot. Le code de référence se
-régénère avec `uv run erika disasm` (programme principal 9000-BFFF) et
+All addresses are Z80 memory addresses after boot. The reference code can be regenerated
+with `uv run erika disasm` (main program 9000-BFFF) and
 `uv run erika disasm --start 0xc000 --end 0xc400 -o boot.asm`.
 
-## Image disque
+## Disk image
 
-`erika.d88` contient deux disquettes 2D concaténées (« DISK A » et « DISK B »). Chacune a
-40 cylindres × 2 faces × 16 secteurs × 256 octets, sans système de fichiers.
-Le jeu adresse le disque par **piste linéaire** (cylindre × 2 + face) et par secteur
-(1 à 16). L'offset dans `extracted/diskX.bin` vaut donc `(piste × 16 + secteur − 1) × 256`.
+`erika.d88` holds two concatenated 2D floppies ("DISK A" and "DISK B"). Each has
+40 cylinders × 2 sides × 16 sectors × 256 bytes, with no file system.
+The game addresses the disk by **linear track** (cylinder × 2 + side) and sector (1 to
+16). The offset in `extracted/diskX.bin` is therefore `(track × 16 + sector − 1) × 256`.
 
-## Chargement (boot sector A:0/1, exécuté en C000)
+## Loading (boot sector A:0/1, run at C000)
 
-Routine de lecture `C078` : A = lecteur, C = nombre de secteurs, D = piste linéaire,
-E = secteur, HL = destination. `C003` prend les mêmes paramètres via IX (lecteur, piste,
-secteur, nombre).
+Read routine `C078`: A = drive, C = sector count, D = linear track, E = sector,
+HL = destination. `C003` takes the same parameters through IX (drive, track, sector,
+count).
 
-| Source        | Secteurs | Destination | Contenu                                    |
-|---------------|---------:|-------------|--------------------------------------------|
-| A piste 0 s1  | 4        | C000        | boot, routines disque (sous-système FDD)   |
-| A piste 2 s1  | 32       | C600-E5FF   | messages système, polices                  |
-| A piste 7 s1  | 5        | 4000-44FF   | à identifier (appelé via B786)             |
-| A piste 4 s1  | 48       | 9000-BFFF   | programme principal, point d'entrée 9000   |
+| Source         | Sectors | Destination | Contents                                    |
+|----------------|--------:|-------------|---------------------------------------------|
+| A track 0 s1   | 4       | C000        | boot, disk routines (FDD subsystem)         |
+| A track 2 s1   | 32      | C600-E5FF   | system messages, fonts                      |
+| A track 7 s1   | 5       | 4000-44FF   | gunshot sound (played through B786)         |
+| A track 4 s1   | 48      | 9000-BFFF   | main program, entry point 9000              |
 
-Variables utiles : 8E00-8E03 = drapeaux de progression, 8E04 = salle courante.
+Useful variables: 8E00-8E03 = progress flags, 8E04 = current room.
 
-## Salles
+## Rooms
 
-La table en **933B** contient 62 entrées de 6 octets : `lecteur, piste, secteur, nb_secteurs, msg_entrée, script_entrée`.
-Le bloc d'une salle est chargé à l'adresse 0000 (RAM en mode 64K). La routine C057 ignore
-le numéro de lecteur de la table (`XOR A`) : tout est lu depuis le lecteur 1. D'où le message
-« フロッピー2をドライブ1に… » (script 17, avant la salle 31). Le moteur, lui, lit chaque
-salle sur la bonne disquette. Il est structuré ainsi :
+The table at **933B** holds 62 entries of 6 bytes:
+`drive, track, sector, sector_count, entry_msg, entry_script`.
+A room's block is loaded at address 0000 (RAM in 64K mode). Routine C057 ignores the
+table's drive number (`XOR A`): everything is read from drive 1. Hence the message
+"フロッピー2をドライブ1に…" (script 17, before room 31). The engine, for its part, reads
+each room from the right floppy. A block is laid out as follows:
 
 ```
-[image : tracé RLE + commandes de remplissage, finit par 00 00]
-[textes : chaînes terminées par 00, puis un 00 final]
-[N : 1 octet] [N commandes de 6 octets]
+[picture: RLE line art + fill commands, ends with 00 00]
+[texts: 00-terminated strings, then a final 00]
+[N: 1 byte] [N + 1 commands of 6 bytes]
 ```
 
-Une commande est `verbe, nom, salle, b3, message, script` (lue par A2BB). **Le jeu lit N + 1
-commandes**, car A2BB teste le compteur après chaque entrée. La dernière est presque toujours
-une commande par défaut (`もどる *`, `にげる *`, `やめる *`) ; en salle 10, c'est elle qui
-fait avancer l'histoire (script 53).
-- `verbe` et `nom` sont des index dans les tables de mots. FF = joker.
-- Si `salle` ≠ 0 et diffère de la salle courante, le jeu change de salle : il charge
-  la salle, dessine l'image, affiche le message d'entrée et lance le script d'entrée.
-- Sinon il affiche `message` ; si `script` ≠ 0, il lance le script n°`script`.
-- `b3` vaut 00 ou FF. Son rôle reste à déterminer (il n'est pas lu par A2BB).
+A command is `verb, noun, room, b3, message, script` (read by A2BB). **The game reads
+N + 1 commands**, because A2BB tests the counter after each entry. The last one is almost
+always a default command (`もどる *`, `にげる *`, `やめる *`); in room 10, it is the one
+that moves the story forward (script 53).
+- `verb` and `noun` are indexes into the word tables. FF = wildcard.
+- If `room` ≠ 0 and differs from the current room, the game changes room: it loads the
+  room, draws the picture, shows the entry message and runs the entry script.
+- Otherwise it shows `message`; if `script` ≠ 0, it runs script number `script`.
+- `b3` is 00 or FF. Its role is still unknown (A2BB does not read it).
 
-Les salles 58 à 61 n'ont aucune commande : ce sont des séquences pilotées par les scripts
-(fin de partie, etc.).
+Rooms 58 to 61 have N = 0, so a single command: they are sequences driven by scripts
+(endings, etc.).
 
-## Analyse de la saisie
+## Input parsing
 
-Le joueur tape en kana dans le buffer 8400, terminé par CR. Pour chaque commande de la
-salle, le jeu cherche les **3 premiers caractères** du verbe, puis ceux du nom, n'importe
-où dans la saisie (routine A35B). La première commande qui correspond aux deux l'emporte.
-Si aucune ne correspond, le jeu affiche le message 0.
-- Verbes : table A3A2, 34 entrées de 4 octets.
-- Noms : table A42A, 141 entrées de 4 octets.
+The player types kana into the buffer at 8400, terminated by CR. For each command of the
+room, the game looks for the **first 3 characters** of the verb, then those of the noun,
+anywhere in the input (routine A35B). A dakuten (゛) counts as one character. The first
+command matching both wins. If none matches, the game shows message 0.
+- Verbs: table A3A2, 34 entries of 4 bytes.
+- Nouns: table A42A, 141 entries of 4 bytes.
 
 ## Messages
 
-Le numéro de message est stocké en 9314 :
-- 0-15 : messages système, chaînes successives à partir de C600 ;
-- 0x10 + i : i-ème texte de la salle courante.
+The message number is stored at 9314:
+- 0-15: system messages, consecutive strings from C600;
+- 0x10 + i: i-th text of the current room.
 
 ## Scripts
 
-La table de sauts en A6BC contient environ 250 adresses (BAA8 = script vide). Ce sont de
-petites routines Z80. En entrée, IX = 8E00 (drapeaux) et HL = 9314 (message). Leur jeu
-d'instructions est limité :
-- `LD (HL),n` : choisit le message ;
-- `BIT/SET/RES b,(IX+d)` : teste ou modifie un drapeau ;
-- `JP Z/NZ,A680` : affiche le message et revient à la saisie ;
-- `JP B514`, `JP B4F7`, `JP B500` (avec A = n) : actions spéciales (changement de salle,
-  game over, etc.), à documenter.
+The jump table at A6BC holds 255 addresses (BAA8 = empty script). They are small Z80
+routines. On entry, IX = 8E00 (flags) and HL = 9314 (message). Their instruction set is
+limited:
+- `LD (HL),n`: picks the message;
+- `BIT/SET/RES b,(IX+d)`: tests or changes a flag;
+- `JP Z/NZ,A680`: shows the message and returns to input;
+- `JP`/`CALL` to the game routines listed below, with A = parameter.
 
-Avec un jeu d'instructions aussi réduit, on peut les **traduire statiquement** en données
-pour le moteur, sans exécuter de Z80 : c'est le rôle de `scripts.py`, qui traduit les 255
-scripts en opérations nommées (show, goto, goto_random, dispatch, say, pause, ask,
+With such a small instruction set, they can be **translated statically** into data for
+the engine, without running any Z80: that is the job of `scripts.py`, which translates the
+255 scripts into named operations (show, goto, goto_random, dispatch, say, pause, ask,
 game_over, halt, patch_image, wait_key, disk_swap, freeze).
 
-Routines appelées :
-- B500 affiche le message puis change de salle (A) ;
-- B4F7 fait de même vers la salle 11 ou 12, au hasard (registre R) ;
-- B50B affiche le message ;
-- B525 affiche le message puis « HIT ANY KEY » ;
-- B514 fait un game over : message, pause, message 7, « GAME OVER », blocage ;
-- B52B pose une question (réponses `615`, おるき ; えりか mène à la fin de la salle 61) ;
-- B590 colore un rectangle de l'image ;
-- 915C demande de changer de disquette ;
-- `JR $` (script 248) est la **fin du jeu**, en deux variantes selon 8E02 bit 6.
-  Exemple : 「…あなたは、みごとに任務を果たしました！おめでとう‼」.
+Routines called:
+- B500 shows the message, then changes room (A);
+- B4F7 does the same towards room 11 or 12, at random (R register);
+- B50B shows the message;
+- B525 shows the message, then "HIT ANY KEY";
+- B514 is a game over: message, pause, message 7, "GAME OVER", freeze;
+- B52B asks a question (answers `615`, おるき; えりか leads to the room 61 ending);
+- B590 colors a rectangle of the picture;
+- 915C asks for a disk swap;
+- `JR $` (script 248) is the **end of the game**, in two variants depending on 8E02 bit 6.
+  Example: "…あなたは、みごとに任務を果たしました！おめでとう‼".
 
-Après chaque message, la table B617 (salle, message) → n° de clip déclenche la lecture d'une
-**voix numérisée** : la table B70D indique les secteurs, B78B joue des deltas 4 bits sur le
-port 0x10. L'overlay en 4000 est le bruit du tir (B786, verbe うつ + じゆう/れーざ).
+After each message, the table B617 (room, message) → clip number triggers a **digitized
+voice**: the table B70D gives the sectors, and B78B plays 4-bit deltas on port 0x10. The
+overlay at 4000 is the gunshot sound (B786, verb うつ + じゆう/れーざ).
 
-## Texte et polices
+## Text and fonts
 
-Les glyphes font 12×10 px et occupent 15 octets chacun : 10 octets pour les 8 colonnes de
-gauche, puis 5 octets de quartets pour les 4 colonnes de droite (deux lignes par octet,
-quartet haut en premier).
-- C800 : police normale. 0x20-0x5F = ASCII, 0x60-0x65 = traits de cadre,
-  0x66-0x9F = katakana (disposition JIS X 0201 décalée de −0x40),
-  0xA1-0xDF = hiragana (disposition JIS X 0201), 0xE0-0xE7 = symboles ♡♥〜⁉○●×‼.
-  Les codes 0x00-0x1F contiennent le logo « Presented by JAST ».
-- D700 : police kanji. `FF nn` affiche le kanji nn. La table Unicode est dans
-  `charset.py` ; elle a été vérifiée sur tous les textes, sauf 0xAB (jamais utilisé).
-- ゛ et ゜ sont des caractères séparés, recombinés en NFC à l'extraction.
+Glyphs are 12×10 px and take 15 bytes each: 10 bytes for the 8 left columns, then 5 bytes
+of nibbles for the 4 right columns (two rows per byte, high nibble first).
+- C800: normal font. 0x20-0x5F = ASCII, 0x60-0x65 = box-drawing lines,
+  0x66-0x9F = katakana (JIS X 0201 layout shifted by −0x40),
+  0xA1-0xDF = hiragana (JIS X 0201 layout), 0xE0-0xE7 = symbols ♡♥〜⁉○●×‼.
+  Codes 0x00-0x1F hold the "Presented by JAST" logo.
+- D700: kanji font. `FF nn` displays kanji nn. The Unicode table is in `charset.py`;
+  it was checked against every text, except 0xAB (never used).
+- ゛ and ゜ are separate characters, recombined into NFC on extraction.
 
-L'écran de texte se trouve sous l'image : 44 colonnes de 12 px (B = 0x2C…), lignes de 10 px.
+Text is written below the picture: 53 columns of 12 px, 10 px lines (rows 17 to 19,
+scrolling). The right-hand menu starts at column 0x2C.
 
-## Images (9D6F → 9D7C, 9E24 ; transcrites dans `gfx.py`)
+## Pictures (9D6F → 9D7C, 9E24; transcribed in `gfx.py`)
 
-1. **Tracé** : RLE 1 bpp écrit à l'identique dans les trois plans. `00 n` produit n fois
-   0x00, `FF n` produit n fois 0xFF, tout autre octet est littéral. La zone fait 64 octets
-   (512 px) de large avec un pas de 80 octets ; le tracé s'arrête quand l'adresse atteint F1B0.
-2. **Fond** : 2 octets ignorés, puis un index de motif. Les 160 lignes sont ANDées avec ce motif.
-3. **Remplissage** : `[00 y]` (optionnel) puis `x_hi, x_lo, motif`. La suite `00 00` termine
-   l'image. L'algorithme remplit par segments horizontaux, avec une file circulaire de
-   365 entrées en 8400. La frontière est un pixel noir sur les trois plans. Le résultat
-   dépend de l'algorithme exact, car les motifs tramés contiennent du noir.
-4. **Motifs** : 36 entrées de 6 octets en A1E3, au format (B, R, G) pour la ligne paire
-   puis (B, R, G) pour la ligne impaire.
+1. **Line art**: 1 bpp RLE written identically to the three planes. `00 n` produces n
+   bytes 0x00, `FF n` produces n bytes 0xFF, any other byte is literal. The area is 64
+   bytes (512 px) wide with an 80-byte stride; drawing stops when the address reaches F1B0.
+2. **Background**: 2 bytes skipped, then a pattern index. The 160 lines are ANDed with
+   this pattern.
+3. **Fills**: `[00 y]` (optional) then `x_hi, x_lo, pattern`. The sequence `00 00` ends
+   the picture. The algorithm fills horizontal spans, with a circular queue of 365 entries
+   at 8400. The boundary is a pixel that is black on all three planes. The result depends
+   on the exact algorithm, because the dithered patterns contain black.
+4. **Patterns**: 36 entries of 6 bytes at A1E3, as (B, R, G) for the even line, then
+   (B, R, G) for the odd line.
 
-Le jeu ne modifie pas la palette : c'est la palette numérique 8 couleurs (G<<2 | R<<1 | B).
-Les images font 512×160 px ; elles sont exportées telles quelles et en version ×2 en hauteur.
+The game does not change the palette: it is the 8-color digital palette (G<<2 | R<<1 | B).
+Pictures are 512×160 px; they are exported as is and at ×2 height.
 
-## Vérification avec MAME
+## Checking against MAME
 
-ROM : `uv run erika check-bios`, qui crée `roms/mame/pc8801mk2sr/`, des liens par CRC vers
-`roms/pc8801mk2sr/`. Pour lancer le jeu sans affichage, découper le D88 en deux images, une
-par lecteur (348 848 octets chacune), puis :
+ROMs: `uv run erika check-bios`, which creates `roms/mame/pc8801mk2sr/`, links by CRC to
+`roms/pc8801mk2sr/`. To run the game headless, split the D88 into two images, one per
+drive (348,848 bytes each), then:
 `flatpak run org.mamedev.MAME pc8801mk2sr -rompath roms/mame -flop1 A.d88 -flop2 B.d88
 -video none -nothrottle -seconds_to_run N -autoboot_script x.lua`.
-Le dossier de travail doit être sous `$HOME`, car le sandbox Flatpak ne voit pas `/tmp`.
-En Lua, utiliser `emu.register_periodic` : `add_machine_frame_notifier` cesse d'être
-appelé vers t = 3 s.
+The working folder must be under `$HOME`, because the Flatpak sandbox can't see `/tmp`.
+In Lua, use `emu.register_periodic`: `add_machine_frame_notifier` stops being called
+around t = 3 s.
 
-Résultats :
-- l'écran titre (salle 0) et la salle 1 rendus par `gfx.py` sont **identiques au pixel près**
-  aux captures MAME (0 différence sur 512×160) ;
-- le jeu dessine progressivement : tracé, puis remplissages un par un ; l'image suivante
-  recouvre la précédente par bandes ;
-- l'écran est organisé ainsi : image 512×160 en haut à gauche, texte sur les lignes du bas
-  (pleine largeur, police 12×10, curseur ♡), panneau à droite. Ce panneau contient le
-  menu de commandes (routine 9B08, table 9B65, couleur 1) : 前に行く 後ろに行く 左に行く
-  右に行く 見る 行く 入る 探す 調べる 話す 取る あける やめる, avec « (C) JAST » en cyan
-  dessous ;
-- Entrée sur l'écran titre affiche la salle 1 et son texte d'entrée.
-- Le parseur a été testé dans la salle 1 avec `tools/mame/type_commands.lua`. Ce script tape
-  un caractère toutes les 0,2 s, car le jeu perd les touches envoyées plus vite par
-  `natkeyboard:post`. Résultats, tous conformes à `rooms/room01.json` :
+Results:
+- the title screen (room 0) and room 1 rendered by `gfx.py` are **identical to the pixel**
+  with the MAME captures (0 differences over 512×160);
+- the game draws progressively: line art, then fills one by one; the next picture
+  overwrites the previous one in bands;
+- the screen is laid out as follows: 512×160 picture at the top left, text on the bottom
+  lines (full width, 12×10 font, ♡ cursor), panel on the right. The panel holds the command
+  menu (routine 9B08, table 9B65, color 1): 前に行く 後ろに行く 左に行く 右に行く 見る
+  行く 入る 探す 調べる 話す 取る あける やめる, with "(C) JAST" in cyan below;
+- Enter on the title screen shows room 1 and its entry text.
+- The parser was tested in room 1 with `tools/mame/type_commands.lua`. This script types
+  one character every 0.2 s, because the game drops keys sent faster by
+  `natkeyboard:post`. Results, all matching `rooms/room01.json`:
   こんぴ しらべる → コンピューターは、生きているようです。
   ひだり しらべる → 湖があります。
   そうじ なぐる → OK!でも、手が痛かっただけで、何も起こりません。
-  ほげほげ → ここでは、できません。(aucune commande ne correspond : message 0)
-  かーど しらべる → あなたは、それを持っていません。(script 4 : bit 3 de 8E00 à 0, donc message 5)
+  ほげほげ → ここでは、できません。(no command matches: message 0)
+  かーど しらべる → あなたは、それを持っていません。(script 4: bit 3 of 8E00 is 0, so message 5)
 
-## Saisie (94AF)
+## Input (94AF)
 
-La saisie s'affiche en vert après le curseur ♡. Le buffer 8400 accepte 50 caractères au maximum.
-Les touches kana (0xA0-0xDF) sont prises telles quelles. Le jeu a aussi son propre
-convertisseur romaji, qui met les lettres en majuscules :
-- une voyelle seule donne あいうえお (96CB) ;
-- une consonne est mise en attente (97D0) ; une deuxième consonne est ignorée, sans
-  « NN » ni double consonne ;
-- consonne + voyelle passe par la table 978A (lignes de 5) : K S T N H M Y R W G Z D B P ;
-  G/Z/D/B ajoutent ゛ et P ajoute ゜ ;
-- spécial : `WI` = ん, `WU` = ー, `YI`/`YE` = rien ; `WO` produit un ゛ isolé (bug :
-  l'entrée vaut 00 et se trouve à la frontière de la zone dakuten) ;
-- C, F, J, L, Q, V, X et les petits kana ne sont pas disponibles en romaji (seulement
-  en kana) ;
-- les chiffres, l'espace, la virgule et `-` sont gardés tels quels ; `-` (0x2D) ne
-  correspond pas à ー (0xB0) dans les noms ;
-- 0x7F = effacement, CR = validation, ESC = retour (vers 9177), `*` appelle 97D7.
+Input is shown in green after the ♡ cursor. The buffer at 8400 holds 50 characters at most.
+Kana keys (0xA0-0xDF) are taken as is. The game also has its own romaji converter, which
+uppercases letters:
+- a lone vowel gives あいうえお (96CB);
+- a consonant is put on hold (97D0); a second consonant is ignored, with no "NN" and no
+  doubled consonant;
+- consonant + vowel goes through the table at 978A (rows of 5): K S T N H M Y R W G Z D B P;
+  G/Z/D/B add ゛ and P adds ゜;
+- special: `WI` = ん, `WU` = ー, `YI`/`YE` = nothing; `WO` produces a lone ゛ (bug: the entry
+  is 00 and sits on the boundary of the dakuten area);
+- C, F, J, L, Q, V, X and small kana are not available in romaji (only as kana);
+- digits, space, comma and `-` are kept as is; `-` (0x2D) does not match ー (0xB0) in
+  nouns;
+- 0x7F = delete, CR = submit, ESC = back (to 9177), `*` calls 97D7.
 
-## Son (sound.py, `uv run erika sound`)
+## Sound (sound.py, `uv run erika sound`)
 
-- **Voix** : il y en a 30. La table B70D donne leur emplacement sur disque (chargées en 6000)
-  et la table B617 les déclenche après certains couples (salle, message). Le jeu attend la
-  fin de la voix. Format : flux de quartets, quartet fort d'abord. Chaque bloc a une échelle
-  (quartet ≥ 8 = fin) et 32 deltas ; l'accumulateur 8 bits part de 0x80, et les pas viennent
-  des tables B803 (2^(n-1), signe sur le bit 3). Les octets sont envoyés sur le port 0x10 (port
-  imprimante), probablement pour le boîtier « JAST SOUND » : sans lui, le jeu d'origine était
-  muet, et MAME aussi. Il n'y a donc pas de comparaison possible ; les spectrogrammes
-  montrent bien de la parole.
-- **Fréquence** : environ 3 881 Hz. Elle est déduite du nombre de cycles de la boucle
-  (≈ 1 029 cycles par échantillon à 3,9936 MHz) ; c'est une estimation, en mode 4 MHz.
-- **Tir** : l'overlay 4000 (même format), joué par A2F0 pour « うつ じゆう » (8E00 bit 4 ou
-  8E02 bit 1) ou « うつ れーざ » (8E00 bit 5).
-- **Bip** : 965B. Il retentit à la validation d'une saisie, sur une touche refusée et au game
-  over (≈ 25 ms à 2,4 kHz, buzzer du PC-88 ; durée estimée).
-- Dans le moteur, chaque voix est normalisée à la lecture, car les niveaux enregistrés sont
-  très inégaux. Les WAV exportés restent bruts.
+- **Voices**: there are 30. The table B70D gives their location on disk (loaded at 6000)
+  and the table B617 triggers them after certain (room, message) pairs. The game waits for
+  the voice to end. Format: a stream of nibbles, high nibble first. Each block has a scale
+  (nibble ≥ 8 = end) and 32 deltas; the 8-bit accumulator starts at 0x80, and the steps
+  come from the tables at B803 (2^(n-1), sign on bit 3). The bytes are sent to port 0x10
+  (the printer port), probably for the "JAST SOUND" box: without it, the original game was
+  silent, and so is MAME. No comparison is therefore possible; the spectrograms clearly
+  show speech.
+- **Sample rate**: about 3,881 Hz. It is derived from the loop's cycle count (≈ 1,029
+  cycles per sample at 3.9936 MHz); this is an estimate, in 4 MHz mode.
+- **Gunshot**: the overlay at 4000 (same format), played by A2F0 for "うつ じゆう"
+  (8E00 bit 4 or 8E02 bit 1) or "うつ れーざ" (8E00 bit 5).
+- **Beep**: 965B. It sounds when an input is submitted, on a rejected key and on game over
+  (≈ 25 ms at 2.4 kHz, the PC-88 buzzer; duration estimated).
+- In the engine, each voice is normalized on playback, because the recorded levels are
+  very uneven. The exported WAV files stay raw.
 
-## Sauvegarde (9177, 910C ; game/save.py)
+## Saving (9177, 910C; game/save.py)
 
-- **ESC pendant une saisie** : 「DATAをセーブします。 PUSH RETURN KEY」. Entrée écrit le
-  secteur 8E00-8EFF (drapeaux + salle) en piste 0, secteur 15 de la disquette A ; toute
-  autre touche annule. En phase disquette B (salle ≥ 0x1F), le jeu demande la disquette 1,
-  puis la 2.
-- **ESC sur le titre** : 「DATAをロードします。…」. Entrée relit ce secteur, et le jeu entre
-  dans la salle sauvegardée.
-- **Dans le moteur** : un fichier au même format, `~/.local/share/erika/save.bin`
-  (`%APPDATA%\erika` sous Windows). S'il n'existe pas, le chargement lit la sauvegarde
-  présente sur la disquette d'origine (celle de l'image fournie : salle 55). Le `.d88`
-  n'est jamais modifié, et les demandes de disquette sont sautées.
+- **ESC while typing**: "DATAをセーブします。 PUSH RETURN KEY". Enter writes the sector
+  8E00-8EFF (flags + room) to track 0, sector 15 of floppy A; any other key cancels. In the
+  floppy B phase (room ≥ 0x1F), the game asks for floppy 1, then floppy 2.
+- **ESC on the title screen**: "DATAをロードします。…". Enter reads that sector back, and
+  the game enters the saved room.
+- **In the engine**: a file in the same format, `~/.local/share/erika/save.bin`
+  (`%APPDATA%\erika` on Windows). If it doesn't exist, loading reads the save present on
+  the original floppy (the supplied image has one: room 55). The `.d88` is never
+  modified, and disk prompts are skipped.
 
-## Validation complète (tools/explore.py, tools/mame/compare.py)
+## Full validation (tools/explore.py, tools/mame/compare.py)
 
-`tools/explore.py` explore les états (salle, drapeaux) avec le moteur sans affichage. Il
-atteint 54 salles sur 62, exerce 217 routines de scripts sur 222 et trouve les deux fins.
-Il écrit des chemins rejouables (`extracted/paths_finA.json`, …), où chaque commande est
-suivie des saisies attendues : pauses, réponses, choix, changement de disquette.
+`tools/explore.py` explores the states (room, flags) with the headless engine. It reaches
+54 rooms out of 62, runs 217 script routines out of 222 and finds both endings. It writes
+replayable paths (`extracted/paths_endingA.json`, …), where each command is followed by
+the inputs the game expects next: pauses, answers, choices, disk swap.
 
-`tools/mame/compare.py --path …` rejoue un chemin dans MAME et dans le moteur. Il compare
-écran et drapeaux après chaque saisie et repère que le jeu attend une touche quand le Z80
-reste en ROM. Sur la fin A (61 saisies), drapeaux et salles sont identiques partout, et
-l'écran est identique au pixel près partout sauf deux captures : MAME, sans affichage,
-rend parfois un écran en retard (la pile montre qu'il est déjà à l'invite).
+`tools/mame/compare.py --path …` replays a path in MAME and in the engine. It compares the
+screen and the flags after each input, and detects that the game is waiting for a key
+when the Z80 stays in ROM. Over ending A (61 inputs), flags and rooms are identical
+everywhere, and the screen is identical to the pixel everywhere except two captures: MAME,
+when headless, sometimes renders a stale screen (the stack shows it is already back at the
+prompt).
 
-## À faire (phase 2)
+## Still to do
 
-- Rôle de l'octet b3 des commandes (00/FF, jamais lu par A2BB).
-- Comparer avec MAME (`uv run erika check-bios`) : rendu du texte, mise en page de l'écran.
+- Role of the commands' b3 byte (00/FF, never read by A2BB).
+- Not checked against MAME: ending B, the room 61 ending, and the 5 script routines the
+  explorer never reached.
+- Meaning of the nouns でー (0x5C) and だい (0x5D), left untranslated.

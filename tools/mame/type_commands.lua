@@ -1,4 +1,4 @@
--- Frappe caractère par caractère (le jeu perd les touches envoyées trop vite)
+-- Types one character at a time (the game drops keys sent too fast)
 local script = {
   {8, "\r"}, {16, "\r"},
   {30, "KOWIPI SIRABERU\r"},

@@ -1,9 +1,10 @@
-"""Compare le moteur natif à MAME sur une séquence de commandes.
+"""Compare the native engine with MAME over a sequence of commands.
 
-Usage : uv run python tools/mame/compare.py "COMMANDE 1" "COMMANDE 2" ...
-Les commandes sont tapées en romaji (conversion du jeu). Après chaque commande,
-l'écran (640×200) et les drapeaux 8E00-8E04 sont comparés.
-Prérequis : MAME (Flatpak), ROM via `uv run erika check-bios`.
+Usage: uv run python tools/mame/compare.py "COMMAND 1" "COMMAND 2" ...
+       uv run python tools/mame/compare.py --path extracted/paths_endingA.json
+Commands are typed in romaji (the game's own conversion). After each input, the screen
+(640×200) and the flags 8E00-8E04 are compared.
+Requirements: MAME (Flatpak), ROMs via `uv run erika check-bios`.
 """
 
 import argparse
@@ -133,7 +134,7 @@ def run_engine(items: list[str], mame_flags: list[bytes]) -> tuple[list[Image.Im
 
     def capture():
         if request != EVENT:
-            raise RuntimeError("le moteur n'attend pas de touche")
+            raise RuntimeError("the engine is not waiting for a key")
         screens.append(Image.fromarray(eng.display.to_rgb().transpose(1, 0, 2)))
         flags.append(bytes(eng.flags) + bytes([eng.room_index]))
 
@@ -157,17 +158,17 @@ def path_items(path: str) -> tuple[list[str], list[str]]:
         for typed in move["then"]:  # pauses, réponses, touches, dans l'ordre où le jeu les attend
             if typed == "SWAP":
                 items.append("\1\r")
-                labels.append("  (disquette B)")
+                labels.append("  (disk B)")
             else:
                 items.append(typed)
-                labels.append("  (Entrée)" if typed == "\r" else f"  ({typed.strip()})")
+                labels.append("  (Enter)" if typed == "\r" else f"  ({typed.strip()})")
     return items, labels
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("commands", nargs="*", help="commandes en romaji ; \"\" = Entrée seule")
-    p.add_argument("--path", help="chemin JSON produit par tools/explore.py")
+    p.add_argument("commands", nargs="*", help="commands in romaji; \"\" = Enter alone")
+    p.add_argument("--path", help="JSON path produced by tools/explore.py")
     args = p.parse_args()
     out = os.path.join(WORK + "_result")
     shutil.rmtree(out, ignore_errors=True)
@@ -177,29 +178,29 @@ def main():
     else:
         items, labels = [cmd + "\r" for cmd in args.commands], list(args.commands)
     items = ["\r"] + items
-    labels = ["(titre)", "(salle 1)"] + labels
+    labels = ["(title)", "(room 1)"] + labels
     mame_screens, mame_flags = run_mame(items)
     eng_screens, eng_flags = run_engine(items, mame_flags)
     if len(mame_screens) != len(labels):
-        print(f"MAME : {len(mame_screens)} captures au lieu de {len(labels)}")
+        print(f"MAME: {len(mame_screens)} captures instead of {len(labels)}")
     ok = True
     for i, label in enumerate(labels):
         if i >= min(len(mame_screens), len(mame_flags)):
-            print(f"{label}: pas de capture MAME")
+            print(f"{label}: no MAME capture")
             ok = False
             continue
         a, b = eng_screens[i], mame_screens[i]
         diff = int(np.any(np.asarray(a) != np.asarray(b), axis=2).sum())
         same_flags = eng_flags[i] == mame_flags[i]
-        status = "OK " if diff == 0 and same_flags else "ÉCART"
+        status = "OK  " if diff == 0 and same_flags else "DIFF"
         ok &= diff == 0 and same_flags
-        print(f"{status} {i:3d} {label:<26} pixels={diff:<6} drapeaux moteur={eng_flags[i].hex(' ')}"
+        print(f"{status} {i:3d} {label:<26} pixels={diff:<6} flags engine={eng_flags[i].hex(' ')}"
               f" mame={mame_flags[i].hex(' ')}", flush=True)
         both = Image.new("RGB", (640, 410))
         both.paste(a, (0, 0))
         both.paste(b, (0, 210))
         both.save(os.path.join(out, f"{i:03d}.png"))
-    print(f"captures côte à côte (moteur en haut, MAME en bas) : {out}")
+    print(f"side-by-side captures (engine on top, MAME below): {out}")
     sys.exit(0 if ok else 1)
 
 

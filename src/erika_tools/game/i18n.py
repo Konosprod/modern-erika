@@ -1,11 +1,11 @@
 """Traduction : modèle .pot généré depuis l'image disque, fichiers .po (gettext).
 
 Contextes (msgctxt) :
-  systeme 0xNN        messages système (C600)
-  salle NN 0xMM       textes des salles
+  system 0xNN         messages système (C600)
+  room NN 0xMM        textes des salles
   menu NN             lignes du menu de droite (1-13)
-  interface <nom>     textes d'interface (HIT ANY KEY, GAME OVER, sauvegarde…)
-  verbe 0xNN / nom 0xNN / reponse 0xADDR
+  ui <nom>            textes d'interface (HIT ANY KEY, GAME OVER, sauvegarde…)
+  verb 0xNN / noun 0xNN / answer 0xADDR
                       mots que le joueur peut taper, séparés par « | »
 
 Les commandes tapées dans la langue de la traduction sont converties en mots japonais
@@ -28,14 +28,14 @@ UI_TEXTS = {  # nom -> attribut de GameData
     "hit_any_key": "hit_any_key",
     "pause": "pause_text",
     "game_over": "game_over",
-    "sauvegarde": "save_text",
-    "chargement": "load_text",
+    "save": "save_text",
+    "load": "load_text",
 }
 ANSWERS = (0xB584, 0xB587, 0xB58A, 0xB58D)  # réponses attendues par B52B
 
-VOCAB_COMMENT = ("Mots que le joueur peut taper pour ce {kind}, séparés par « | » "
-                 "(ex. : examiner|fouiller). Le jeu ne compare que les 3 premiers "
-                 "caractères du mot japonais, souvent tronqué.")
+VOCAB_COMMENT = ("Words the player can type for this {kind}, separated by '|' "
+                 "(e.g. examine|search). The game only compares the first 3 characters "
+                 "of the Japanese word, which is often truncated.")
 
 
 class LatinFont:
@@ -103,8 +103,8 @@ def wrap(text_: str, width: int) -> list[str]:
 
 def message_key(room_index: int, index: int) -> str:
     if index < text.ROOM_MESSAGE_BASE:
-        return f"systeme 0x{index:02X}"
-    return f"salle {room_index:02d} 0x{index:02X}"
+        return f"system 0x{index:02X}"
+    return f"room {room_index:02d} 0x{index:02X}"
 
 
 def build_template(data, rooms: dict[int, list[bytes]]) -> polib.POFile:
@@ -121,19 +121,19 @@ def build_template(data, rooms: dict[int, list[bytes]]) -> polib.POFile:
         add(message_key(0, i), raw)
     for room, texts in sorted(rooms.items()):
         for i, raw in enumerate(texts):
-            add(message_key(room, text.ROOM_MESSAGE_BASE + i), raw, f"Salle {room}")
+            add(message_key(room, text.ROOM_MESSAGE_BASE + i), raw, f"Room {room}")
     for i, raw in enumerate(data.menu):
         if 1 <= i <= 13:
-            add(f"menu {i:02d}", raw[1:-1].strip(b" "), "Menu de droite : 14 caractères au plus.")
+            add(f"menu {i:02d}", raw[1:-1].strip(b" "), "Right-hand menu: 14 characters at most.")
     for name, attr in UI_TEXTS.items():
-        add(f"interface {name}", getattr(data, attr), "Texte d'interface (une ligne).")
+        add(f"ui {name}", getattr(data, attr), "Interface text (one line).")
     for i, raw in enumerate(data.verbs):
-        add(f"verbe 0x{i:02X}", bytes(raw).rstrip(b"\0"), VOCAB_COMMENT.format(kind="verbe"))
+        add(f"verb 0x{i:02X}", bytes(raw).rstrip(b"\0"), VOCAB_COMMENT.format(kind="verb"))
     for i, raw in enumerate(data.nouns):
-        add(f"nom 0x{i:02X}", bytes(raw).rstrip(b"\0"), VOCAB_COMMENT.format(kind="nom"))
+        add(f"noun 0x{i:02X}", bytes(raw).rstrip(b"\0"), VOCAB_COMMENT.format(kind="noun"))
     for addr in ANSWERS:
-        add(f"reponse 0x{addr:04X}", data.answer(addr),
-            "Réponse à une question du jeu (identifiant, nom…). Formes acceptées, séparées par « | ».")
+        add(f"answer 0x{addr:04X}", data.answer(addr),
+            "Answer to one of the game's questions (ID, name…). Accepted forms, separated by '|'.")
     return pot
 
 
@@ -153,9 +153,9 @@ class Translation:
         self.texts = {e.msgctxt: e.msgstr for e in po if e.msgstr and not e.fuzzy and not e.obsolete}
         # (mots normalisés du synonyme) -> codes japonais à insérer dans la saisie
         self.vocab: list[tuple[list[str], bytes]] = []
-        sources = [(f"verbe 0x{i:02X}", bytes(w).rstrip(b"\0")) for i, w in enumerate(data.verbs)]
-        sources += [(f"nom 0x{i:02X}", bytes(w).rstrip(b"\0")) for i, w in enumerate(data.nouns)]
-        sources += [(f"reponse 0x{a:04X}", bytes(data.answer(a))) for a in ANSWERS]
+        sources = [(f"verb 0x{i:02X}", bytes(w).rstrip(b"\0")) for i, w in enumerate(data.verbs)]
+        sources += [(f"noun 0x{i:02X}", bytes(w).rstrip(b"\0")) for i, w in enumerate(data.nouns)]
+        sources += [(f"answer 0x{a:04X}", bytes(data.answer(a))) for a in ANSWERS]
         for ctx, codes in sources:
             for synonym in self.texts.get(ctx, "").split("|"):
                 words = normalize(synonym)

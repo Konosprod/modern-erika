@@ -47,7 +47,7 @@ def _target(addr: int) -> int | str:
         return SPECIALS[addr]
     if CODE_START <= addr < CODE_END:
         return addr
-    raise ValueError(f"cible inconnue {addr:#06x}")
+    raise ValueError(f"unknown target {addr:#06x}")
 
 
 def translate_at(mem: bytes, pc: int) -> tuple[dict, int]:
@@ -77,7 +77,7 @@ def translate_at(mem: bytes, pc: int) -> tuple[dict, int]:
     if match(rf"(JP|JR|CALL)(?: (z|nz|c|nc),| ){_HEX}"):
         kind, cond, addr = m.group(1), m.group(2), int(m.group(3), 16)
         return {"op": "call" if kind == "CALL" else "jump", "cond": cond, "to": _target(addr)}, n
-    raise ValueError(f"{pc:04X}: instruction non prévue « {text} »")
+    raise ValueError(f"{pc:04X}: unexpected instruction '{text}'")
 
 
 def translate(mem: bytes) -> dict:

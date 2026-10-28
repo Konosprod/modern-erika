@@ -1,7 +1,7 @@
 [project]
 name = "erika-tools"
 version = "0.1.0"
-description = "Outils d'extraction pour Erika (JAST, PC-8801)"
+description = "Native port and extraction tools for Erika (JAST, PC-8801)"
 readme = "README.md"
 authors = [
     { name = "Konosprod", email = "konosprod@free.fr" }

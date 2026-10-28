@@ -41,7 +41,7 @@ def cmd_dump(args, disks):
         name = "disk" + disk.name.split()[-1] + ".bin"
         data = disk.linear()
         open(os.path.join(OUT, name), "wb").write(data)
-        print(f"{name}: {len(data)} octets ({disk.cylinders} cyl × {disk.heads} faces)")
+        print(f"{name}: {len(data)} bytes ({disk.cylinders} cyl × {disk.heads} sides)")
 
 
 def cmd_disasm(args, disks):
@@ -58,7 +58,7 @@ def cmd_disasm(args, disks):
     out = disasm.listing(data, start, entries)
     path = os.path.join(OUT, args.output)
     open(path, "w").write(out)
-    print(f"{path}: {out.count(chr(10))} lignes")
+    print(f"{path}: {out.count(chr(10))} lines")
 
 
 def cmd_text(args, disks):
@@ -76,7 +76,7 @@ def cmd_text(args, disks):
     dump(os.path.join(OUT, "vocab.json"), vocab)
     dump(os.path.join(OUT, "system.json"), text.system_messages(mem))
     with open(os.path.join(OUT, "text.tsv"), "w", encoding="utf-8") as tsv:
-        tsv.write("salle\tmessage\ttexte\n")
+        tsv.write("room\tmessage\ttext\n")
         for i, msg in enumerate(text.system_messages(mem)):
             tsv.write(f"-\t{i:02X}\t{msg}\n")
         for i, entry in enumerate(rooms(mem)):
@@ -87,7 +87,7 @@ def cmd_text(args, disks):
             dump(os.path.join(out, f"room{i:02d}.json"), data)
             for j, t in enumerate(data["texts"]):
                 tsv.write(f"{i:02d}\t{text.ROOM_MESSAGE_BASE + j:02X}\t{t}\n")
-            print(f"room{i:02d}: {len(data['texts'])} textes, {len(data['commands'])} commandes")
+            print(f"room{i:02d}: {len(data['texts'])} texts, {len(data['commands'])} commands")
 
 
 def cmd_fonts(args, disks):
@@ -101,7 +101,7 @@ def cmd_fonts(args, disks):
                     if row & (0x800 >> x):
                         img.putpixel(((code % 16) * 12 + x, (code // 16) * 10 + y), 1)
         img.save(os.path.join(OUT, name + ".png"))
-    print("polices : 16×16 glyphes de 12×10 px")
+    print("fonts: 16×16 glyphs of 12×10 px")
 
 
 ROOM_TABLE = 0x933B
@@ -136,8 +136,8 @@ def cmd_gfx(args, disks):
         img = screen.to_image()
         img.save(os.path.join(out, f"room{i:02d}.png"))
         img.resize((img.width, img.height * 2), 0).save(os.path.join(out, f"room{i:02d}_x2.png"))
-        print(f"room{i:02d}: disque {'AB'[entry[0]]} piste {entry[1]} secteur {entry[2]}, "
-              f"image {end} / {len(blob)} octets")
+        print(f"room{i:02d}: disk {'AB'[entry[0]]} track {entry[1]} sector {entry[2]}, "
+              f"image {end} / {len(blob)} bytes")
 
 
 def cmd_sound(args, disks):
@@ -149,12 +149,12 @@ def cmd_sound(args, disks):
     for i, (drive, track, sector, count) in enumerate(sound.voice_entries(mem)):
         samples = sound.decode(read_linear(linear[drive], track, sector, count), mem)
         sound.write_wav(os.path.join(out, f"voice{i:02d}.wav"), samples)
-        where = ", ".join(f"salle {r} msg {m:#04x}" for (r, m), v in sorted(events.items()) if v == i)
+        where = ", ".join(f"room {r} msg {m:#04x}" for (r, m), v in sorted(events.items()) if v == i)
         print(f"voice{i:02d}: {len(samples) / sound.SAMPLE_RATE:5.2f} s  ({where})")
     shot = sound.decode(mem[sound.SHOT : sound.SHOT + sound.SHOT_SIZE], mem)
     sound.write_wav(os.path.join(out, "shot.wav"), shot)
     sound.write_wav(os.path.join(out, "beep.wav"), sound.beep())
-    print(f"shot: {len(shot) / sound.SAMPLE_RATE:.2f} s ; beep ; {sound.SAMPLE_RATE} Hz, 8 bits")
+    print(f"shot: {len(shot) / sound.SAMPLE_RATE:.2f} s; beep; {sound.SAMPLE_RATE} Hz, 8 bits")
 
 
 TRANSLATIONS = "translations"
@@ -178,21 +178,21 @@ def cmd_i18n(args, disks):
     os.makedirs(TRANSLATIONS, exist_ok=True)
     pot_path = os.path.join(TRANSLATIONS, "erika.pot")
     pot.save(pot_path)
-    print(f"{pot_path} : {len(pot)} entrées")
+    print(f"{pot_path}: {len(pot)} entries")
     for po_path in sorted(glob.glob(os.path.join(TRANSLATIONS, "*.po"))):
         po = polib.pofile(po_path)
         po.merge(pot)
         po.save(po_path)
-        print(f"{po_path} : mis à jour, {po.percent_translated()} % traduit")
+        print(f"{po_path}: updated, {po.percent_translated()}% translated")
 
 
 def cmd_play(args, disks):
     from .game.engine import main as play
 
-    translation = args.traduction or (os.path.join(TRANSLATIONS, f"{args.langue}.po") if args.langue else None)
+    translation = args.translation or (os.path.join(TRANSLATIONS, f"{args.lang}.po") if args.lang else None)
     if translation and not os.path.exists(translation):
-        raise SystemExit(f"traduction introuvable : {translation}")
-    play(args.image, input_mode=args.saisie, translation=translation)
+        raise SystemExit(f"translation not found: {translation}")
+    play(args.image, input_mode=args.input, translation=translation)
 
 
 MAME_MACHINE = "pc8801mk2sr"
@@ -229,18 +229,18 @@ def link_roms():
             os.symlink(os.path.relpath(source, target_dir), link)
             print(f"{name:18s} -> {os.path.relpath(source, ROM_DIR)}")
         else:
-            print(f"{name:18s} absent (CRC {crc})")
+            print(f"{name:18s} missing (CRC {crc})")
 
 
 def cmd_check_bios(args, disks):
     if not os.path.isdir(ROM_DIR):
-        print(f"Déposer les ROM dans {ROM_DIR}/")
+        print(f"Put the ROMs in {ROM_DIR}/")
         return
     try:
         link_roms()
         subprocess.run(mame_command() + ["-rompath", os.path.abspath(MAME_ROMPATH), "-verifyroms", MAME_MACHINE])
     except FileNotFoundError:
-        print("MAME introuvable : flatpak install flathub org.mamedev.MAME")
+        print("MAME not found: flatpak install flathub org.mamedev.MAME")
 
 
 def main():
@@ -248,9 +248,9 @@ def main():
     p.add_argument("--image", default="erika.d88")
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    sub.add_parser("dump", help="exporte chaque disquette en image linéaire")
+    sub.add_parser("dump", help="export each floppy as a linear image")
 
-    s = sub.add_parser("disasm", help="désassemble la mémoire après boot ou une zone disque")
+    s = sub.add_parser("disasm", help="disassemble memory after boot, or a disk area")
     s.add_argument("--start", type=lambda x: int(x, 0), default=0x9000)
     s.add_argument("--end", type=lambda x: int(x, 0), default=0xC000)
     s.add_argument("--entry", type=lambda x: int(x, 0), action="append")
@@ -260,24 +260,24 @@ def main():
     s.add_argument("--count", type=int, default=16)
     s.add_argument("-o", "--output", default="main.asm")
 
-    sub.add_parser("text", help="extrait textes, vocabulaire et commandes des salles")
-    sub.add_parser("fonts", help="exporte les deux polices du jeu en PNG")
+    sub.add_parser("text", help="extract texts, vocabulary and room commands")
+    sub.add_parser("fonts", help="export the game's two fonts as PNG")
 
-    s = sub.add_parser("gfx", help="décode les images des salles en PNG")
+    s = sub.add_parser("gfx", help="decode the room pictures to PNG")
     s.add_argument("--room", type=int)
-    s.add_argument("--keep-y", action="store_true", help="conserve la ligne courante entre images")
+    s.add_argument("--keep-y", action="store_true", help="keep the current line between pictures")
 
-    sub.add_parser("sound", help="exporte les voix, le tir et le bip en WAV")
-    s = sub.add_parser("play", help="lance le jeu (moteur natif, sans émulateur)")
-    s.add_argument("--saisie", choices=["traduite", "moderne", "origine"],
-                   help="saisie : dans la langue de la traduction, romaji moderne ou d'origine "
-                        "(F2 pour changer en jeu)")
-    s.add_argument("--langue", help="code de langue : charge translations/<langue>.po")
-    s.add_argument("--traduction", help="chemin d'un fichier .po")
+    sub.add_parser("sound", help="export the voices, gunshot and beep as WAV")
+    s = sub.add_parser("play", help="play the game (native engine, no emulator)")
+    s.add_argument("--input", choices=["translated", "modern", "original"],
+                   help="input mode: the translation's language, modern romaji or the game's original "
+                        "romaji (F2 switches in game)")
+    s.add_argument("--lang", help="language code: loads translations/<lang>.po")
+    s.add_argument("--translation", help="path to a .po file")
 
-    sub.add_parser("i18n", help="génère translations/erika.pot et met à jour les .po existants")
+    sub.add_parser("i18n", help="generate translations/erika.pot and update existing .po files")
 
-    sub.add_parser("check-bios", help="vérifie les ROM PC-88 dans roms/ avec MAME")
+    sub.add_parser("check-bios", help="check the PC-88 ROMs in roms/ with MAME")
 
     args = p.parse_args()
     disks = d88.load(args.image)

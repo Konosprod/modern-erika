@@ -1,189 +1,202 @@
-# Erika (PC-8801) : portage natif
+# Erika (PC-8801): native port
 
-Réimplémentation en Python du jeu d'aventure **Erika** (JAST, 1986, NEC PC-8801), pour y
-jouer sur un PC actuel **sans émulateur**. Le moteur lit les données directement depuis
-l'image disque d'origine : images, textes, polices, vocabulaire, scripts, voix numérisées.
-Il les réinterprète ensuite en Python, sans exécuter le code Z80.
+A Python reimplementation of the adventure game **Erika** (JAST, 1986, NEC PC-8801), so
+it can be played on a modern PC **without an emulator**. The engine reads the data
+directly from the original disk image: pictures, texts, fonts, vocabulary, scripts and
+digitized voices. It then reinterprets them in Python, without running the Z80 code.
 
-Le dépôt ne contient **aucune donnée du jeu** : il faut fournir sa propre image disque
-`erika.d88`.
+The repository contains **no game data**: you must supply your own `erika.d88` disk image.
 
-> Erika est un jeu pour adultes : certaines scènes sont explicites.
+> Erika is an adult game: some scenes are explicit.
 
 ## Installation
 
-Il faut [uv](https://docs.astral.sh/uv/) et Python 3.13 ou plus récent (uv peut
-l'installer lui-même).
+You need [uv](https://docs.astral.sh/uv/) and Python 3.13 or later (uv can install it
+for you).
 
 ```sh
-git clone <ce dépôt> erika && cd erika
-cp /chemin/vers/erika.d88 .   # image 2D à deux disquettes (DISK A + DISK B)
+git clone <this repository> erika && cd erika
+cp /path/to/erika.d88 .   # 2D image with both floppies (DISK A + DISK B)
 uv run erika play
 ```
 
-`uv run` installe automatiquement les dépendances (pygame-ce, numpy, Pillow, z80dis).
-Pour utiliser une image ailleurs : `uv run erika --image /chemin/erika.d88 play`.
+`uv run` installs the dependencies automatically (pygame-ce, numpy, Pillow, z80dis).
+To use an image stored elsewhere: `uv run erika --image /path/to/erika.d88 play`.
 
-## Jouer
+## Playing
 
-Sur l'écran titre, appuie sur **Entrée** une fois le texte affiché. Le jeu commence dans le
-cockpit d'un avion de chasse écrasé. Tape tes commandes après le ♡, puis valide avec Entrée.
+On the title screen, press **Enter** once the text is displayed. The game starts in the
+cockpit of a crashed fighter plane. Type your commands after the ♡, then press Enter.
 
-Une commande associe un **verbe** et un **nom**, dans n'importe quel ordre :
-`konpyu-ta shiraberu` (examiner l'ordinateur), `souzi deru` (sortir du cockpit),
-`hidari susumu` (aller à gauche). Le jeu cherche les trois premières lettres de chaque mot
-n'importe où dans la phrase.
+A command combines a **verb** and a **noun**, in any order:
+`konpyu-ta shiraberu` (examine the computer), `souzi deru` (leave the cockpit),
+`hidari susumu` (go left). The game looks for the first three letters of each word
+anywhere in the sentence.
 
-### Touches
+### Keys
 
-| Touche | Effet |
+| Key | Effect |
 |---|---|
-| Entrée | valider une commande, passer un « HIT ANY KEY » |
-| Retour arrière | effacer |
-| ESC (pendant une saisie) | sauvegarder (Entrée confirme, une autre touche annule) |
-| ESC (sur l'écran titre) | charger la sauvegarde |
-| F2 | changer de saisie : traduite (si une traduction est chargée), romaji moderne, romaji d'origine |
-| F11 | plein écran |
-| Une touche pendant un dessin | terminer le dessin tout de suite |
+| Enter | submit a command, dismiss a "HIT ANY KEY" |
+| Backspace | delete |
+| ESC (while typing) | save (Enter confirms, any other key cancels) |
+| ESC (on the title screen) | load the saved game |
+| F2 | switch input mode: translated (if a translation is loaded), modern romaji, original romaji |
+| F11 | full screen |
+| Any key while a picture is drawing | finish the drawing at once |
 
-### Saisie
+### Input
 
-- **Moderne** (par défaut) : romaji courant, converti au fil de la frappe.
+- **Modern** (default): standard romaji, converted as you type.
   - `shi`, `chi`, `tsu`, `fu`, `ja`, `kya`…
-  - `nn` ou `n'` donnent ん ; une consonne doublée donne っ.
-  - `-` donne ー : tape `ka-do` pour かーど (`kaado` donne かあど, que le jeu ne reconnaît pas).
-  - Les petits kana sont écrits en grand, comme dans le vocabulaire du jeu : `uchuu` donne うちゆう.
-- **D'origine** (`--saisie origine` ou F2) : la conversion du jeu de 1986, bizarreries comprises.
-  - `WI` donne ん, `WU` donne ー.
-  - Il n'y a ni `SHI`, ni `CHI`, ni `TSU`, ni `FU`, ni petits kana.
-  - C, F, J, L, Q, V et X sont refusés.
-  - `WO` affiche un ゛ isolé (bug d'origine).
-- Un **IME japonais** fonctionne aussi dans les deux modes.
+  - `nn` or `n'` give ん; a doubled consonant gives っ.
+  - `-` gives ー: type `ka-do` for かーど (`kaado` gives かあど, which the game doesn't recognize).
+  - Small kana are written full-size, as in the game's vocabulary: `uchuu` gives うちゆう.
+- **Original** (`--input original` or F2): the 1986 game's own conversion, quirks included.
+  - `WI` gives ん, `WU` gives ー.
+  - There is no `SHI`, `CHI`, `TSU`, `FU`, and no small kana.
+  - C, F, J, L, Q, V and X are rejected.
+  - `WO` displays a lone ゛ (an original bug).
+- A **Japanese IME** also works in both modes.
 
-### Menu de la souris
+### Mouse menu
 
-Le panneau de droite (前に行く, 見る, 調べる…) est cliquable.
-- Une direction ou やめる envoie la commande directement.
-- Un verbe s'ajoute à la saisie ; il reste à taper le nom.
-- Un clic fait aussi avancer les « HIT ANY KEY ».
+The right-hand panel (前に行く, 見る, 調べる…) is clickable.
+- A direction or やめる sends the command right away.
+- A verb is added to the input; you then type the noun.
+- A click also dismisses "HIT ANY KEY" prompts.
 
-### Jouer dans une autre langue
+### Playing in another language
 
 ```sh
-uv run erika play --langue fr          # charge translations/fr.po
-uv run erika play --traduction autre.po
+uv run erika play --lang fr            # loads translations/fr.po
+uv run erika play --translation other.po
 ```
 
-Les messages, le menu et l'interface s'affichent dans la langue de la traduction, avec une
-police pixel 6×10. Un texte pas encore traduit reste en japonais. La saisie passe en mode
-**traduit** : tape tes commandes librement (« examiner l'ordinateur », « sortir du
-cockpit »). Elles sont converties en mots japonais d'origine, puis analysées comme dans
-le jeu. **F2** passe ensuite en romaji moderne, puis en romaji d'origine.
+Messages, the menu and the interface are shown in the translation's language, with a
+6×10 pixel font. Text that isn't translated yet stays in Japanese. Input switches to
+**translated** mode: type your commands freely (for the French translation, "examiner
+l'ordinateur", "sortir du cockpit"). They are converted into the original Japanese words,
+then parsed as in the game. **F2** then switches to modern romaji, then to original romaji.
 
-### Sauvegarde
+### Saving
 
-Il y a un seul emplacement, comme dans l'original. Le fichier est
-`~/.local/share/erika/save.bin` (`%APPDATA%\erika\save.bin` sous Windows), au format du
-secteur de sauvegarde d'origine. Tant qu'il n'existe pas, le chargement lit la sauvegarde
-éventuellement présente sur la disquette. L'image `erika.d88` n'est jamais modifiée.
+There is a single slot, as in the original. The file is `~/.local/share/erika/save.bin`
+(`%APPDATA%\erika\save.bin` on Windows), in the format of the original save sector. Until
+it exists, loading reads the save that may be present on the floppy. The `erika.d88`
+image is never modified.
 
-### Différences avec l'original
+### Differences from the original
 
-- Les demandes de changement de disquette sont sautées : le moteur lit les deux disquettes.
-- Après un GAME OVER ou une fin, une touche ramène à l'écran titre (l'original se figeait).
-- Les images se dessinent plus vite que sur un PC-88 à 4 MHz (environ 1 s au lieu de 4 à 5 s).
-- Le volume des voix est normalisé, car les enregistrements ont des niveaux très inégaux.
+- Disk swap prompts are skipped: the engine reads both floppies.
+- After a GAME OVER or an ending, a key press returns to the title screen (the original
+  froze).
+- Pictures draw faster than on a 4 MHz PC-88 (about 1 s instead of 4 to 5 s).
+- Voice volume is normalized, because the recordings have very uneven levels.
 
-## Traduire le jeu
+## Translating the game
 
-Les traductions sont des fichiers gettext `.po`, éditables avec Poedit, Lokalize, Weblate…
+Translations are gettext `.po` files, editable with Poedit, Lokalize, Weblate…
 
-1. `uv run erika i18n` génère `translations/erika.pot` depuis ton image disque : environ
-   1 250 entrées, avec le japonais d'origine.
-2. Crée `translations/<langue>.po` à partir de ce modèle (Poedit : « Nouvelle traduction à
-   partir d'un fichier POT »), puis traduis.
-3. Relance `uv run erika i18n` quand le modèle change : il met à jour tous les `.po`
-   présents dans `translations/`.
+1. `uv run erika i18n` generates `translations/erika.pot` from your disk image: about
+   1,250 entries, with the original Japanese.
+2. Create `translations/<language>.po` from this template (Poedit: "Create new translation"
+   from a POT file), then translate.
+3. Run `uv run erika i18n` again when the template changes: it updates every `.po` file in
+   `translations/`.
 
-Le contexte (`msgctxt`) de chaque entrée indique de quoi il s'agit :
+Each entry's context (`msgctxt`) tells what it is:
 
-| Contexte | Contenu | Remarque |
+| Context | Content | Note |
 |---|---|---|
-| `systeme 0xNN` | messages communs à tout le jeu | |
-| `salle NN 0xMM` | textes de la salle NN | une ligne fait 106 caractères ; un « appuyez sur une touche » tous les deux retours à la ligne |
-| `menu NN` | lignes du menu de droite | 14 caractères au plus |
-| `interface …` | APPUYEZ SUR UNE TOUCHE, PARTIE TERMINÉE, sauvegarde, chargement | une ligne |
-| `verbe 0xNN`, `nom 0xNN` | mots que le joueur peut taper | plusieurs synonymes séparés par `|` (`examiner|fouiller`) |
-| `reponse 0xNNNN` | réponses aux questions du jeu (nom du héros…) | formes acceptées séparées par `|` ; les nombres comme `615` passent tels quels |
+| `system 0xNN` | messages shared by the whole game | |
+| `room NN 0xMM` | texts of room NN | a line holds 106 characters; a "press any key" every second line break |
+| `menu NN` | lines of the right-hand menu | 14 characters at most |
+| `ui …` | HIT ANY KEY, GAME OVER, save, load | one line |
+| `verb 0xNN`, `noun 0xNN` | words the player can type (verbs, nouns) | several synonyms separated by `|` (`examine|search`) |
+| `answer 0xNNNN` | answers to the game's questions (the hero's name…) | accepted forms separated by `|`; numbers such as `615` pass through as is |
 
-Pour la saisie traduite, la casse et les accents sont ignorés, un « s » ou un « x » final
-est toléré, et un synonyme peut contenir plusieurs mots (`à gauche`). Les mots du
-vocabulaire japonais sont souvent tronqués à trois caractères (こくぴ pour « cockpit »,
-こんぴ pour « ordinateur ») : le contexte des messages aide à les identifier.
+In translated input, case and accents are ignored, a trailing "s" or "x" is tolerated,
+and a synonym may contain several words (`à gauche`). The Japanese vocabulary words are
+often truncated to three characters (こくぴ for "cockpit", こんぴ for "computer"): the
+surrounding messages help identify them.
 
-`translations/fr.po` est un exemple partiel : la salle 1, le menu, l'interface et le
-vocabulaire de départ.
+### Machine translation (DeepL)
 
-> Un `.po` contient le texte japonais d'origine (en `msgid`), qui appartient à JAST :
-> réfléchis avant de le publier dans un dépôt public.
+`tools/translate_deepl.py` fills in the still-empty messages of a `.po` file using the
+DeepL API. The free plan is enough: the game has about 23,000 characters, for a quota of
+500,000 per month.
 
-## Son
+```sh
+export DEEPL_AUTH_KEY=…                                     # DeepL API key
+uv run python tools/translate_deepl.py --lang fr --dry-run  # count without sending anything
+uv run python tools/translate_deepl.py --lang fr
+```
 
-Le jeu envoie ses voix numérisées sur le **port imprimante** du PC-88, et non sur une puce
-sonore. Elles passaient très probablement par le boîtier vocal « JAST SOUND ». Sans ce
-boîtier, le jeu d'origine était muet, et MAME l'est aussi. Le moteur décode les 30 voix,
-le bruit du tir et le bip, et les joue aux bons moments. La fréquence d'échantillonnage
-(≈ 3,9 kHz) est déduite du nombre de cycles de la routine de lecture : si les voix semblent
-trop aiguës ou trop graves, ajuste `CYCLES_PER_SAMPLE` dans
-`src/erika_tools/sound.py`.
+The tool makes one call per room, with the room's other texts as context. It touches
+neither existing translations nor the vocabulary, and marks each entry "DeepL, to review"
+(translator comment). It saves after each room, so it can be interrupted and
+restarted. The vocabulary (synonym lists) is translated by hand, because DeepL can't make
+sense of truncated words such as こくぴ.
 
-## Outils d'extraction
+> A `.po` file contains the original Japanese text (as `msgid`), which belongs to JAST:
+> think twice before publishing it in a public repository.
 
-Ces commandes écrivent leurs résultats dans `extracted/`, qui est ignoré par git.
+## Sound
 
-| Commande | Résultat |
+The game sends its digitized voices to the PC-88's **printer port**, not to a sound
+chip. They most likely went through JAST's "JAST SOUND" voice box. Without that box the
+original game was silent, and so is MAME. The engine decodes the 30 voices, the gunshot
+and the beep, and plays them at the right moments. The sample rate (≈ 3.9 kHz) is derived
+from the cycle count of the playback routine: if the voices sound too high or too low,
+adjust `CYCLES_PER_SAMPLE` in `src/erika_tools/sound.py`.
+
+## Extraction tools
+
+These commands write their output to `extracted/`, which git ignores.
+
+| Command | Output |
 |---|---|
-| `uv run erika dump` | chaque disquette en image linéaire (`diskA.bin`, `diskB.bin`) |
-| `uv run erika gfx` | les 62 images en PNG (512×160, et ×2 en hauteur) |
-| `uv run erika text` | les textes (`text.tsv`), le vocabulaire, une fiche JSON par salle (textes et commandes) |
-| `uv run erika fonts` | les deux polices du jeu (12×10 px) en PNG |
-| `uv run erika sound` | les voix, le tir et le bip en WAV |
-| `uv run erika disasm` | le désassemblage du programme principal (`main.asm`) |
+| `uv run erika dump` | each floppy as a linear image (`diskA.bin`, `diskB.bin`) |
+| `uv run erika gfx` | the 62 pictures as PNG (512×160, and ×2 in height) |
+| `uv run erika text` | the texts (`text.tsv`), the vocabulary, one JSON file per room (texts and commands) |
+| `uv run erika fonts` | the game's two fonts (12×10 px) as PNG |
+| `uv run erika sound` | the voices, gunshot and beep as WAV |
+| `uv run erika disasm` | the disassembly of the main program (`main.asm`) |
 
-## Vérification
+## Verification
 
-Le moteur a été comparé à l'original émulé sous MAME : partie complète jusqu'à la fin A,
-soit 61 saisies, avec comparaison de l'écran au pixel près et des drapeaux de progression
-après chaque saisie. Ces outils servent au développement ; ils ne sont pas nécessaires pour
-jouer.
+The engine was compared with the original running under MAME: a full playthrough to
+ending A, 61 inputs, comparing the screen pixel for pixel and the progress flags after
+each input. These tools are for development; you don't need them to play.
 
-- `uv run python tools/explore.py --json extracted/paths.json` explore automatiquement le
-  jeu (salles, scripts, fins) et écrit des chemins rejouables, dont
-  `extracted/paths_finA.json` et `extracted/paths_finB.json`.
-- `uv run python tools/mame/compare.py --path extracted/paths_finA.json` rejoue un chemin
-  dans MAME et dans le moteur, puis compare les deux.
-  - Prérequis : MAME (`flatpak install flathub org.mamedev.MAME`) et les ROM BIOS du
-    PC-8801mkII SR, à fournir soi-même dans `roms/pc8801mk2sr/`.
-  - `uv run erika check-bios` les identifie par CRC et prépare `roms/mame/` pour MAME.
+- `uv run python tools/explore.py --json extracted/paths.json` explores the game
+  automatically (rooms, scripts, endings) and writes replayable paths, including
+  `extracted/paths_endingA.json` and `extracted/paths_endingB.json`.
+- `uv run python tools/mame/compare.py --path extracted/paths_endingA.json` replays a path in
+  MAME and in the engine, then compares the two.
+  - Requirements: MAME (`flatpak install flathub org.mamedev.MAME`) and the PC-8801mkII SR
+    BIOS ROMs, which you must supply yourself in `roms/pc8801mk2sr/`.
+  - `uv run erika check-bios` identifies them by CRC and prepares `roms/mame/` for MAME.
 
-## Organisation
+## Layout
 
 ```
 src/erika_tools/
-  d88.py        lecture des images disque D88
-  gfx.py        décodeur d'images (tracé RLE, fond, remplissages tramés)
-  charset.py    polices et jeu de caractères (hiragana, katakana, 256 kanji)
-  text.py       textes, vocabulaire, commandes des salles
-  scripts.py    traduction des 255 scripts Z80 en opérations du moteur
-  sound.py      décodeur des voix numérisées
-  disasm.py     désassembleur Z80 (outil d'analyse)
-  cli.py        commande `erika`
-  game/         moteur : data.py, display.py, engine.py, romaji.py, save.py, i18n.py,
-                fonts/6x10.bdf (police des traductions, domaine public)
-tools/          exploration automatique, comparaison avec MAME
-translations/   traductions .po (le modèle erika.pot est généré, non suivi par git)
-notes/format.md formats et fonctionnement du jeu, adresse par adresse
+  d88.py        D88 disk image reader
+  gfx.py        picture decoder (RLE line art, background, dithered fills)
+  charset.py    fonts and character set (hiragana, katakana, 256 kanji)
+  text.py       texts, vocabulary, room commands
+  scripts.py    translation of the 255 Z80 scripts into engine operations
+  sound.py      digitized voice decoder
+  disasm.py     Z80 disassembler (analysis tool)
+  cli.py        the `erika` command
+  game/         engine: data.py, display.py, engine.py, romaji.py, save.py, i18n.py,
+                fonts/6x10.bdf (font for translations, public domain)
+tools/          automatic exploration, comparison with MAME
+translations/   .po translations (the erika.pot template is generated, not tracked by git)
+notes/format.md formats and inner workings of the game, address by address
 ```
 
-Toute la rétro-ingénierie (chargement, formats, logique, adresses des routines) est
-documentée dans [notes/format.md](notes/format.md).
+All the reverse engineering (loading, formats, logic, routine addresses) is documented in
+[notes/format.md](notes/format.md).
