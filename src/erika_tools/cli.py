@@ -160,7 +160,7 @@ def cmd_sound(args, disks):
 def cmd_play(args, disks):
     from .game.engine import main as play
 
-    play(args.image)
+    play(args.image, modern_input=args.saisie == "moderne")
 
 
 MAME_MACHINE = "pc8801mk2sr"
@@ -236,7 +236,9 @@ def main():
     s.add_argument("--keep-y", action="store_true", help="conserve la ligne courante entre images")
 
     sub.add_parser("sound", help="exporte les voix, le tir et le bip en WAV")
-    sub.add_parser("play", help="lance le jeu (moteur natif, sans émulateur)")
+    s = sub.add_parser("play", help="lance le jeu (moteur natif, sans émulateur)")
+    s.add_argument("--saisie", choices=["moderne", "origine"], default="moderne",
+                   help="conversion romaji (F2 pour changer en jeu)")
 
     sub.add_parser("check-bios", help="vérifie les ROM PC-88 dans roms/ avec MAME")
 

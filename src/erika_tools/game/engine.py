@@ -8,7 +8,7 @@ import random
 import unicodedata
 
 from .. import charset, gfx, sound
-from . import save
+from . import romaji, save
 from .data import ANSWER_ALT, ANSWER_ALT_ROOM16, GameData, Room
 from .display import BLUE, COLS, CYAN, GREEN, MAGENTA, RED, TEXT_ROW, WHITE, YELLOW, Display, decode_codes
 
@@ -16,6 +16,16 @@ FRAME = "frame"
 EVENT = "event"
 
 PROMPT = 0xE0  # ♡
+MENU_COL = 0x2C  # menu de droite (9B08), lignes 0-14
+
+# Lignes du menu -> (texte inséré, envoi immédiat). 探す n'existe pas dans le vocabulaire
+# du jeu : on le fait correspondre à しらべる.
+MENU_ACTIONS = {
+    1: ("まえ いく", True), 2: ("うしろ いく", True), 3: ("ひだり いく", True), 4: ("みぎ いく", True),
+    5: ("みる", False), 6: ("いく", False), 7: ("はいる", False), 8: ("しらべる", False),
+    9: ("しらべる", False), 10: ("はなす", False), 11: ("とる", False), 12: ("あける", False),
+    13: ("やめる", True),
+}
 INPUT_MAX = 0x32
 CR = 0x0D
 
@@ -87,6 +97,9 @@ class Engine:
         self.room: Room = data.rooms[0]
         self.message = 0  # 9314
         self.last_command = None  # A39E
+        self.modern_input = False
+        self.menu_shown = False
+        self.hover = None
         self.skip_drawing = False
 
     # --- primitives ------------------------------------------------------------
@@ -148,80 +161,136 @@ class Engine:
             yield FRAME
 
     def read_command(self, allow_escape: bool = False):
-        """Saisie au clavier avec la conversion romaji du jeu (94AF) ; retourne le buffer.
+        """Saisie au clavier (94AF) ; retourne le buffer.
 
+        Deux conversions romaji : celle du jeu (self.modern_input = False) ou une saisie
+        moderne (romaji.py). Les lettres en attente s'affichent après le texte, comme la
+        consonne du jeu. Un clic sur le menu insère un mot (MENU_ACTIONS).
         ESC (9554) : retourne None si allow_escape (sauvegarde), sinon le buffer tel quel."""
         d = self.display
         buf: list[int] = []
-        pending: str | None = None
-        col = 0
+        pending = ""  # lettres latines pas encore converties
+        col = 0  # colonne du dernier caractère du buffer
 
-        def put(code: int, color: int = GREEN):
+        def put(code: int):
             nonlocal col
             col += 1
-            d.glyph(col, TEXT_ROW, code, False, color)
+            buf.append(code)
+            d.glyph(col, TEXT_ROW, code, False, GREEN)
+
+        def set_pending(new: str):
+            nonlocal pending
+            for i in range(max(len(pending), len(new))):
+                code = ord(new[i].upper()) if i < len(new) else 0x20
+                d.glyph(col + 1 + i, TEXT_ROW, code, False, GREEN if i < len(new) else WHITE)
+            pending = new
+
+        def finish():
+            if self.modern_input:
+                kana = romaji.finish(pending)
+                set_pending("")
+                for code in romaji.to_codes(kana, KANA_CODES):
+                    put(code)
 
         while True:
             kind, value = yield from self.wait_event()
             if kind == "key" and value == "return":
+                finish()
                 self.audio.beep()  # 9645 -> 9641 -> 965B
                 return bytes(buf + [CR])
             if kind == "key" and value == "escape":
                 return None if allow_escape else bytes(buf)
             if kind == "key" and value == "backspace":
                 if pending:
-                    pending = None
+                    set_pending(pending[:-1] if self.modern_input else "")
                 elif buf:
                     buf.pop()
-                else:
-                    continue
-                d.glyph(col, TEXT_ROW, 0x20, False, WHITE)
-                col -= 1
+                    d.glyph(col, TEXT_ROW, 0x20, False, WHITE)
+                    col -= 1
+                continue
+            if kind == "click":
+                text, submit = MENU_ACTIONS[value]
+                set_pending("")
+                if buf and buf[-1] != 0x20:
+                    put(0x20)
+                for i, word in enumerate(text.split(" ")):
+                    if i:
+                        put(0x20)
+                    for code in kana_to_codes(word):
+                        put(code)
+                if submit:
+                    self.audio.beep()
+                    return bytes(buf + [CR])
+                put(0x20)
                 continue
             if kind != "text":
                 continue
             for ch in value:
-                if ord(ch) >= 0x80:
-                    codes = kana_to_codes(ch)
-                    if pending or not codes:
-                        continue
-                    for code in codes:
-                        buf.append(code)
-                        put(code)
-                    continue
-                c = ch.upper()
-                if c in VOWELS:
-                    if pending:
-                        row = CONSONANT_ROWS.get(pending, 65)
-                        addr = ROMAJI_TABLE + row + VOWELS.index(c)
-                        code = self.data.mem[addr]
-                        buf.append(code)
-                        d.glyph(col, TEXT_ROW, code, False, GREEN)  # remplace la consonne
-                        if addr >= DAKUTEN_FROM:
-                            mark = 0xDF if addr >= HANDAKUTEN_FROM else 0xDE
-                            buf.append(mark)
-                            put(mark)
-                        pending = None
-                    else:
-                        code = 0xB1 + VOWELS.index(c)
-                        buf.append(code)
-                        put(code)
-                elif "A" <= c <= "Z":
-                    if pending or c in REJECTED:
-                        self.audio.beep()  # 956C
-                        continue
-                    pending = c
-                    put(ord(c))
-                elif c.isdigit() or c in " ,-":
-                    if pending:
-                        continue
-                    buf.append(ord(c))
-                    put(ord(c))
+                if self.modern_input:
+                    self._modern_char(ch, pending, put, set_pending)
                 else:
-                    continue
+                    self._original_char(ch, pending, put, set_pending)
                 if len(buf) >= INPUT_MAX:
                     self.audio.beep()  # 9641
                     return bytes(buf)
+
+    def _original_char(self, ch: str, pending: str, put, set_pending):
+        """Conversion du jeu (95D6-9633) ; pending = consonne en attente (97D1)."""
+        if ord(ch) >= 0x80:
+            if not pending:
+                for code in kana_to_codes(ch):
+                    put(code)
+            return
+        c = ch.upper()
+        if c in VOWELS:
+            if pending:
+                row = CONSONANT_ROWS.get(pending, 65)
+                addr = ROMAJI_TABLE + row + VOWELS.index(c)
+                set_pending("")
+                put(self.data.mem[addr])  # remplace la consonne affichée
+                if addr >= DAKUTEN_FROM:
+                    put(0xDF if addr >= HANDAKUTEN_FROM else 0xDE)
+            else:
+                put(0xB1 + VOWELS.index(c))
+        elif "A" <= c <= "Z":
+            if pending or c in REJECTED:
+                self.audio.beep()  # 956C
+            else:
+                set_pending(c)
+        elif (c.isdigit() or c in " ,-") and not pending:
+            put(ord(c))
+
+    def _modern_char(self, ch: str, pending: str, put, set_pending):
+        """Saisie moderne (romaji.py) ; les petits kana deviennent grands."""
+        if ord(ch) >= 0x80:
+            set_pending("")
+            for code in romaji.to_codes(ch, KANA_CODES):
+                put(code)
+            return
+        if ch.isalpha() or ch in "-'":
+            kana, rest, rejected = romaji.feed(pending, ch)
+            set_pending("")
+            for code in romaji.to_codes(kana, KANA_CODES):
+                put(code)
+            set_pending(rest)
+            if rejected:
+                self.audio.beep()
+        elif ch.isdigit() or ch in " ,":
+            for code in romaji.to_codes(romaji.finish(pending), KANA_CODES):
+                put(code)
+            set_pending("")
+            put(ord(ch))
+
+    def set_hover(self, row: int | None):
+        """Met en valeur la ligne du menu survolée par la souris."""
+        if not self.menu_shown or row == self.hover:
+            return
+        for r, color in ((self.hover, BLUE), (row, WHITE)):
+            if r is not None:
+                line = self.data.menu[r]
+                # le texte change de couleur, le cadre (premier et dernier caractère) reste bleu
+                self.display.string(MENU_COL + 1, r, line[1:-1], color)
+        self.hover = row
 
     # --- logique ---------------------------------------------------------------
 
@@ -399,6 +468,7 @@ class Engine:
                 yield from self.session()
             except Restart:
                 self.flags[:] = bytes(4)
+                self.menu_shown, self.hover = False, None
                 self.display.screen.planes = [bytearray(gfx.PLANE_SIZE) for _ in range(3)]
                 self.display.dirty = True
 
@@ -413,8 +483,9 @@ class Engine:
         if (yield from self.wait_event()) == ("key", "escape"):
             yield from self.load_game()
         for i, line in enumerate(self.data.menu):
-            d.string(0x2C, i, line, BLUE)
-        d.string(0x2C, 15, self.data.copyright, CYAN)
+            d.string(MENU_COL, i, line, BLUE)
+        d.string(MENU_COL, 15, self.data.copyright, CYAN)
+        self.menu_shown = True
         yield from self.enter_room(self.room_index)
 
         # Boucle principale (909E)
@@ -515,15 +586,25 @@ class PygameAudio:
         self._beep.play()
 
 
-def main(image_path: str):
+def menu_row(pos) -> int | None:
+    """Ligne du menu sous la souris (coordonnées logiques 640×400), si elle est cliquable."""
+    x, y = pos
+    row = y // 20
+    return row if MENU_COL * 12 <= x < (MENU_COL + 10) * 12 and row in MENU_ACTIONS else None
+
+
+def main(image_path: str, modern_input: bool = True):
     import pygame
 
     pygame.init()
-    pygame.display.set_caption("Erika")
     window = pygame.display.set_mode((640, 400), pygame.SCALED | pygame.RESIZABLE)
     frame = pygame.Surface((640, 200))
     clock = pygame.time.Clock()
     pygame.key.start_text_input()
+
+    def caption():
+        mode = "moderne" if engine.modern_input else "d'origine"
+        pygame.display.set_caption(f"Erika — saisie {mode} (F2 pour changer)")
 
     try:
         audio = PygameAudio(pygame)
@@ -531,6 +612,8 @@ def main(image_path: str):
         print(f"son désactivé : {e}")
         audio = None
     engine = Engine(GameData(image_path), audio)
+    engine.modern_input = modern_input
+    caption()
     flow = engine.run()
     request = next(flow)
     events: list = []
@@ -544,6 +627,15 @@ def main(image_path: str):
                 return
             if e.type == pygame.KEYDOWN and e.key == pygame.K_F11:
                 pygame.display.toggle_fullscreen()
+            elif e.type == pygame.KEYDOWN and e.key == pygame.K_F2:
+                engine.modern_input = not engine.modern_input
+                caption()
+            elif e.type == pygame.MOUSEMOTION:
+                engine.set_hover(menu_row(e.pos))
+            elif e.type == pygame.MOUSEBUTTONDOWN and e.button == 1:
+                row = menu_row(e.pos)
+                if row is not None and engine.menu_shown:
+                    events.append(("click", row))
             elif e.type == pygame.KEYDOWN and e.key in keys:
                 events.append(("key", keys[e.key]))
             elif e.type == pygame.TEXTINPUT:
